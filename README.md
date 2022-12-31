@@ -23,7 +23,7 @@ Les *coding style* sont à respecter (par ex. **PEP8** pour *Python* et **JavaSc
 - `Tolosmoc` : Guilhem LACASSAGNE
 - `Six_quart` : Arthur SICARD
 
-### Palette de couleur
+### Palette de couleur :
 
 - Bleu pâle : `#8CA6D7`
 - Jaune : `#005CA9`
