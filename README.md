@@ -16,6 +16,7 @@ Les *coding style* sont à respecter (par ex. **PEP8** pour *Python* et **JavaSc
 - Gestion des emojis
 
 > **Transformot** : En gros, on doit faire un *Discord* v2 ?!
+> **Tolosmoc** : Bon courage !
 
 ### Membres du projet :
 
