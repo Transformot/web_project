@@ -28,5 +28,3 @@ Les *coding style* sont à respecter (par ex. **PEP8** pour *Python* et **JavaSc
 - Bleu pâle : `#8CA6D7`
 - Jaune : `#005CA9`
 - Bleu foncé : `#005CA9`
-
-## TEST
