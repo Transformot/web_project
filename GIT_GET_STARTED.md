@@ -4,10 +4,10 @@
 
 First, clone the repository to work with it:
 
-```bash
+``
 git clone https://github.com/Transformot/web_project.git
 cd ProjetOueb
-```
+``
 
 ## Create a new feature
 
