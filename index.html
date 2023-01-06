@@ -2,13 +2,41 @@
 <html lang="fr">
     <head>
         <meta charset="UTF-8">
-        <title>Title</title>
+        <title>Web Chat ENSISA</title>
 
         <!-- Include Bootstrap CSS -->
-        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="style.css"/>
     </head>
     <body>
-        <h1>Ceci est un fichier test</h1>
+        <headers>
+            <div id="titre">
+                <h1>Web Chat</h1>
+            </div>
+            <nav>
+                <div>Accueil</div>
+                <div></div>
+                <div></div>
+                <div>connextion/inscription</div>
+            </nav>
+        </headers>
+        <section>
+            <from method="post" action="traitement.js"></from>
+                <div>
+                    <p>(hh:mm PM) <span>User_1</span>: Hello world</p>
+                    <p>(hh:mm PM) <span>User_2</span>: Je répond</p>
+                </div>
+            
+                <input type="text" name="text_a_envoyer" id="barre_chat" placeholder="Envoyer un message" />
+                <input type="submit" name="envoie" value="envoyer message" />
+            </from>
+        </section>
+        <footer>
+            <p>Pierre GIEN</p>
+            <p>Guilhem LACASSAGNE</p>
+            <p>Arthur SICARD</p>
+        </footer>
+        
 
         <!-- JS for bootstrap -->
         <script src="js/bootstrap.js"></script>
