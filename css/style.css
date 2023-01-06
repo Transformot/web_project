@@ -1,0 +1,31 @@
+*{
+    margin: 0;
+    padding: 0;
+    hyphens: none;
+}
+
+header{
+    width: 100%;
+    text-align: center;
+    position: static;
+    top: 0;
+    background-color: darkgray;
+}
+nav{
+    width: 100%;
+}
+footer{
+    width: 100%;
+    height: 120px;
+    position: fixed;
+    bottom: 0;
+}
+
+nav div{
+    height: 30px;
+    display: inline-block;
+    width: 24%;
+    background-color: rgb(111, 110, 110);
+    text-align: center; 
+    border: 2px solid #000000;
+}
