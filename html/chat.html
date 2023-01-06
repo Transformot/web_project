@@ -11,18 +11,19 @@
     <body>
 
         <header>
-            <h1>Web Chat</h1>
+            <br/>
+            <h2>Web Chat</h2>
 
             <nav>
-                <div>Accueil</div>
+                <a href="index.html">Accueil</a>
                 <!-- <div>page 2</div> -->
-                <div>connextion</div>
-                <div>inscription</div>
+                <a href="">Connexion</a>
+                <a href="">Inscription</a>
             </nav>
         </header>
 
         <section>
-            <from method="post" action="traitement.js"></from>
+            <form method="post" action="traitement.js">
                 <div id="chat_box">
                     <p>(hh:mm PM) <span>User_1</span>: Hello world</p>
                     <p>(hh:mm PM) <span>User_2</span>: Je répond</p>
@@ -47,27 +48,15 @@
                     <p>(hh:mm PM) <span>User_1</span>: Hello world</p>
                     <p>(hh:mm PM) <span>User_2</span>: Je répond</p>
                     <p>(hh:mm PM) <span>User_1</span>: Hello world</p>
-                    <p>(hh:mm PM) <span>User_2</span>: Je répond</p>
-                    <p>(hh:mm PM) <span>User_1</span>: Hello world</p>
-                    <p>(hh:mm PM) <span>User_2</span>: Je répond</p>
-                    <p>(hh:mm PM) <span>User_1</span>: Hello world</p>
-                    <p>(hh:mm PM) <span>User_2</span>: Je répond</p>
-                    <p>(hh:mm PM) <span>User_1</span>: Hello world</p>
-                    <p>(hh:mm PM) <span>User_2</span>: Je répond</p>
-                    <p>(hh:mm PM) <span>User_1</span>: Hello world</p>
-                    <p>(hh:mm PM) <span>User_2</span>: Je répond</p>
-                    <p>(hh:mm PM) <span>User_1</span>: Hello world</p>
-                    <p>(hh:mm PM) <span>User_2</span>: Je répond</p>
-                    <p>(hh:mm PM) <span>User_1</span>: Hello world</p>
-                    <p>(hh:mm PM) <span>User_2</span>: Je répond</p>
+        
                 </div>
                 
                 <div id="barre_box">
                     <input type="text" name="text_a_envoyer" id="barre_chat" placeholder="Envoyer un message" />
-                    <input type="submit" name="envoie" value="envoyer message" />
+                    <input type="submit" name="envoie" value="envoyer" id="button_chat" />
                 </div>
 
-            </from>
+            </form>
         </section>
 
         <footer>
