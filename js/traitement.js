@@ -1,29 +1,56 @@
-document.addEventListener( 'load', horaire(1) );  // UTC+1 : heure francaise
 
-document.addEventListener( 'keydowm', function(event) {
-    if (event.key == 'r' && (event.ctrlKey || event.metaKey)) {
-        horaire(2);
+var message = document.getElementById("barre_chat");
+message.rows = 3;
+message.maxLength = 5;
+message.style.resize = 'none';
+
+function maxLength(el) {    
+    if (!('maxLength' in el)) {
+        var max = el.maxLength.value;
+        el.onkeypress = function () {
+            if (this.value.length >= max) return false;
+        };
     }
-} );  // UTC+1 : heure francaise
+}
+
+maxLength(message);
+
+function init() {
+
+}
 
 function horaire(n) {
     var h, m;
     h = new Date().getUTCHours() + n;
     m = new Date().getMinutes();
-    this.document.getElementById ("date").innerHTML = "(" + h + "h" + m + ")" ;
-    // return "(" + h + "h" + m + ")" ;
+    var hor = "(" + h + "h";
+    if (m < 10) {
+        hor += "0";
+    }
+    return hor + m + ")" ;
+}
+
+function name_user(){
+    return "<span style='color:red'>admin</span>";
+}
+
+function chat() {
+    var msg = "<p>";
+    msg += horaire(1) + " " + name_user() + ": ";
+    msg += message.value;
+    msg += "</p>";
+    document.getElementById("chat_box").innerHTML += msg;
+    message.value = '';
 }
 
 
+message.addEventListener( 'keyup', function(event) {
+    if (event.key == 'Enter') {
+        chat();
+    }
+});
 
-
-
-
-
-
-
-
-
+document.addEventListener( 'load', init() );  // UTC+1 : heure francaise
 
 
 
@@ -56,10 +83,10 @@ function test2() {
     alert( "i = " + i + ", j = " + j );
 }
 test2();*/
-
+/*
 var code = 0;
 
-/* jeu qui sert a rien */
+// jeu qui sert a rien 
 document.addEventListener( 'keydown', function(event) {
     if (event.key == 'a' || event.key == 'z') {
         code ++;
@@ -95,4 +122,4 @@ function jeu() {
                 break;
         }
     }
-}
+} */
