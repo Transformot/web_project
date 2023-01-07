@@ -1,0 +1,58 @@
+* {
+    margin: 0;
+    padding: 0;
+    hyphens: none;
+    font-family: "Courier New", serif;
+}
+
+header {
+    background-color: #708090;
+    height: 150px;
+    width: 100%;
+}
+
+header div {
+    text-align: center;
+    float: left;
+    height: 100%;
+    width: 33.33%;
+}
+
+header img {
+    display: block;
+    margin: auto;
+    padding: 45px 0;
+    height: 60px;
+}
+
+header h1 {
+    line-height: 150px;
+    color: white;
+}
+
+header nav {
+    line-height: 150px;
+    height: 100%;
+    width: 100%;
+}
+
+header a {
+    background-color: #8F8F8F;
+    color: white;
+    text-decoration: none;
+    margin: 35px;
+    padding: 25px;
+    border-radius: 20px;
+}
+
+section {
+    background-color: #0c5460;
+    height: 700px;
+    width: 100%;
+}
+
+footer {
+    background-color: #9F9F9F;
+    height: 150px;
+    width: 100%;
+}
