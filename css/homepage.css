@@ -6,11 +6,17 @@
     text-decoration: none;
 }
 
+body {
+    background: linear-gradient(180deg, rgba(12,84,96,1) 0%, rgba(55,55,55,1) 100%);
+    width: 100%;
+}
+
 header {
     position: fixed;
     top: 50px;
     left: 0;
     background: linear-gradient(135deg, rgba(141,164,210,0.50) 0%, rgba(88,101,113,0.50) 100%);
+    height: 150px;
     width: 90%;
     border-radius: 150px;
     margin: 0 5%;
@@ -32,7 +38,7 @@ header img {
 }
 
 header h1 {
-    /*font-family: "Comic Sans MS", sans-serif;*/
+    font-family: "Lato", sans-serif;
     line-height: 150px;
     color: white;
     font-size: 75px;
@@ -59,14 +65,39 @@ header nav a {
 }
 
 section {
-    background: linear-gradient(180deg, rgba(12,84,96,1) 0%, rgba(55,55,55,1) 100%);
-    padding-top: 250px;
-    height: 1500px;
-    width: 100%;
+    padding-top: 200px;
 }
 
 footer {
+    color: white;
+    padding: 50px 50px 0;
+    height: 100px;
+    background: linear-gradient(135deg, rgba(0,0,0,0.5) 0%, rgba(48,48,48,0.5) 100%);
+    border-top-left-radius: 100px;
+    border-top-right-radius: 100px;
+}
 
+footer h2 {
+    text-align: center;
+}
+
+.text_zone {
+    color: white;
+    margin: 50px auto;
+    width: 70%;
+    padding: 75px 75px 15px;
+    background-color: rgba(255, 255, 255, 0.25);
+    border-radius: 50px;
+    box-shadow: 0 10px 100px 25px rgba(48, 48, 48, 0.5);
+}
+
+.paragraph {
+    padding-bottom: 50px;
+    line-height: 25px;
+}
+
+.paragraph ul {
+    margin-left: 50px;
 }
 
 #signup {
@@ -75,19 +106,4 @@ footer {
 
 #signin {
     margin-right: 30%;
-}
-
-.text_zone {
-    color: white;
-    margin: auto;
-    padding: 75px;
-    width: 70%;
-    height: 1250px;
-    background-color: rgba(255, 255, 255, 0.25);
-    border-radius: 50px;
-    box-shadow: 0 10px 100px 25px rgba(48, 48, 48, 0.5);
-}
-
-.paragraph {
-    margin-top: 50px;
 }
