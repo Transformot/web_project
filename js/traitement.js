@@ -35,11 +35,6 @@ function horaire(n) {
 
 
 
-
-
-
-
-
 /*
 function test() {
     var a = test;
