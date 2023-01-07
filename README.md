@@ -16,7 +16,7 @@ Les *coding style* sont à respecter (par ex. **PEP8** pour *Python* et **JavaSc
 - Gestion des emojis
 
 > **Transformot** : En gros, on doit faire un *Discord* v2 ?!  
-> **Tolosmoc** : Bon courage !  
+> **Tolosmoc** : Bon courage !
 
 ### Membres du projet :
 
@@ -26,6 +26,7 @@ Les *coding style* sont à respecter (par ex. **PEP8** pour *Python* et **JavaSc
 
 ### Palette de couleur :
 
-- Bleu pâle : `#8CA6D7`
-- Jaune : `#005CA9`
-- Bleu foncé : `#005CA9`
+- Bleu clair : `#8BA5D6`
+- Jaune : `#FFDC00`
+- Bleu foncé : `#005CA8`
+
