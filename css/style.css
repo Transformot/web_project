@@ -2,6 +2,8 @@
     margin: 0;
     padding: 0;
     hyphens: none;
+    box-sizing: border-box;
+    line-height: 150%;
 }
 
 p{
@@ -27,6 +29,7 @@ header nav a{
     text-align: center; 
     border: 2px solid #000000;
     color: #000000;
+    text-decoration: none;
 }
 
 header nav a:hover{
@@ -34,6 +37,7 @@ header nav a:hover{
     line-height: 35px;
     background-color: rgb(78, 78, 78);
     color: #bdbbbb;
+    text-decoration: none;
 }
 
 section{
