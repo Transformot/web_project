@@ -64,6 +64,7 @@ message.addEventListener('keyup', function(event){
 
 
 /* ------------------------- requete --------------------------- */
+// // https://www.freecodecamp.org/news/here-is-the-most-popular-ways-to-make-an-http-request-in-javascript-954ce8c95aaa/
 /*
 function init_salon(){
     $.ajax({
