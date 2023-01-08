@@ -1,112 +1,166 @@
 
 var message = document.getElementById("barre_chat");
 message.rows = 3;
-message.maxLength = 5;
+message.maxLength = 25;
 message.style.resize = 'none';
 
-function maxLength(el) {    
-    if (!('maxLength' in el)) {
+function maxLength(el){    
+    if ( !('maxLength' in el) ){
         var max = el.maxLength.value;
-        el.onkeypress = function () {
+        el.onkeypress = function (){
             if (this.value.length >= max) return false;
         };
     }
 }
-
 maxLength(message);
 
-function init() {
-
-}
-
-function horaire(n) {
+// UTC+1 : heure francaise
+function horaire(n){
     var h, m;
     h = new Date().getUTCHours() + n;
     m = new Date().getMinutes();
-    var hor = "(" + h + "h";
+    var hor = "("+ h +"h";
     if (m < 10) {
         hor += "0";
     }
-    return hor + m + ")" ;
+    return hor + m +")" ;
 }
 
 function name_user(){
-    return "<span style='color:red'>admin</span>";
+    var x_name = "admin";
+    var x_color = "red";
+    return "<span style='color:"+ x_color +"'>"+ x_name +"</span>";
 }
 
-function chat() {
+function chat(){
     var msg = "<p>";
-    msg += horaire(1) + " " + name_user() + ": ";
+    msg += horaire(1) +" "+ name_user() +": ";
     msg += message.value;
     msg += "</p>";
     document.getElementById("chat_box").innerHTML += msg;
     message.value = '';
 }
 
-
-message.addEventListener( 'keyup', function(event) {
-    if (event.key == 'Enter') {
+message.addEventListener('keyup', function(event){
+    if (event.key == 'Enter'){
         chat();
     }
 });
 
-document.addEventListener( 'load', init() );  // UTC+1 : heure francaise
 
 
 
 
 
-/* --------------------- js json ---------------------------- */
 
+
+
+
+
+
+
+
+
+
+
+/* ------------------------- requete --------------------------- */
 /*
-$.getJSON( "../data/titanic.json", function( data ) {
+function init_salon(){
+    $.ajax({
+        url: "",
+        method: "GET",
+        dataType : "json",
+    })
+    .done(function(response){
+        let data = JSON.stringify(response);
+        convertion(data);  //$("div#res").append(data);
+    })
+    .fail(function(error){
+        alert("La requête s'est terminée en échec. Infos : " + JSON.stringify(error));
+    })
+    .always(function(){
+        alert("Requête effectuée");
+    });
+}
 
-    $.each( data, function( passenger ) {
-
-        $( "#titanic_data" ).append( "<tr class='personne'>" + passenger +"</tr>" );
-
-        $.each(data.passenger, function( PassengerId, Survived) {
-            $( "#titanic_data .personne" ).append( "<td>" + PassengerId +"</td>" );
-            $( "#titanic_data .personne" ).append( "<td>" + Survived +"</td>" );
+function convertion( x ){
+    $.getJSON( x, function( data ) {
+        $.each( data, function( message ) {
+            $( "#message_data" ).append( "<p class='message'>" + message +"</p>" );
+    
+            $.each(data.message, function( Date, User, Role, Msg) {
+                $( "#message_data .message" ).append( Date );
+                if (Role == 0) $( "#message_data .message" ).append( " <span style='color:red'>");
+                $( "#message_data .message" ).append( " "+ User +": " );
+                if (Role == 0) $( "#message_data .message" ).append( "</span>");
+                $( "#message_data .message" ).append( Msg );
+                //$( "#titanic_data .personne" ).append( "<td>" + Survived +"</td>" );
+            });
         });
     });
-});*/
+}
+
+var obj = '[{"availability_id":"109465","date":"2017-02-21","price":"430000"},{...};
+var stringify = JSON.parse(obj);
+for (var i = 0; i < stringify.length; i++) {
+    console.log(stringify[i]['price']);
+}
+*/
 
 /* -- exemple format json 
 {
-    "message_historique":[
+    "historique_message":[
         {
-        "Date_h": 10,
-        "Date_m": 30,
+        "Date": "('HH'h'mm')",
+        "User": "User_NameXX",
+        "Role": 0 ou 1; // 0=chef et 1=soldat
+        "Msg": "Voici unmessage",
+        },
+        {
+        "Date": "(10h30)"
         "User": "mr_braun",
+        "Role": 1; 
         "Msg": "fdvfdsv dfvsvfvdsv fvdssvfdfs",
         },
         {
-        "Date_h": 10,
-        "Date_m": 30,
+        "Date": "(10h35)"
+        "User": "Transformot",
+        "Role": 1; 
+        "Msg": "Comment ca mon reuf ?",
+        },
+        {
+        "Date": "(10h55)"
         "User": "mr_braun",
+        "Role": 1; 
         "Msg": "fdvfdsv dfvsvfvdsv fvdssvfdfs",
         },
         {
-        "Date_h": 10,
-        "Date_m": 30,
-        "User": "mr_braun",
-        "Msg": "fdvfdsv dfvsvfvdsv fvdssvfdfs",
+        "Date": "(11h24)"
+        "User": "Transformot",
+        "Role": 1; 
+        "Msg": "Ta mère je la baise",
         },
-        {
-        "Date_h": 10,
-        "Date_m": 30,
-        "User": "mr_braun",
-        "Msg": "fdvfdsv dfvsvfvdsv fvdssvfdfs",
-        },
-        {
-        "Date_h": 10,
-        "Date_m": 30,
-        "User": "mr_braun",
-        "Msg": "fdvfdsv dfvsvfvdsv fvdssvfdfs",
-        }
     ]
-}*/
+}
+
+{
+    "my_channels":[
+        {
+        "Name": "salon1",
+        "Id": xxxx,
+        "Role": 0 ou 1; 
+        },
+        {"Name": "Ensisa_Meca",
+        "Id": 22,
+        "Role": 1;
+        },
+        {"Name": "Info",
+        "Id": 1,
+        "Role": 0;
+        },
+    ]
+}
+*/
 
 
 /* ------------------------- jeu ----------------------------------- */
