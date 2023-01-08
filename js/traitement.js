@@ -56,12 +56,60 @@ document.addEventListener( 'load', init() );  // UTC+1 : heure francaise
 
 
 
+/* --------------------- js json ---------------------------- */
+
+/*
+$.getJSON( "../data/titanic.json", function( data ) {
+
+    $.each( data, function( passenger ) {
+
+        $( "#titanic_data" ).append( "<tr class='personne'>" + passenger +"</tr>" );
+
+        $.each(data.passenger, function( PassengerId, Survived) {
+            $( "#titanic_data .personne" ).append( "<td>" + PassengerId +"</td>" );
+            $( "#titanic_data .personne" ).append( "<td>" + Survived +"</td>" );
+        });
+    });
+});*/
+
+/* -- exemple format json 
+{
+    "message_historique":[
+        {
+        "Date_h": 10,
+        "Date_m": 30,
+        "User": "mr_braun",
+        "Msg": "fdvfdsv dfvsvfvdsv fvdssvfdfs",
+        },
+        {
+        "Date_h": 10,
+        "Date_m": 30,
+        "User": "mr_braun",
+        "Msg": "fdvfdsv dfvsvfvdsv fvdssvfdfs",
+        },
+        {
+        "Date_h": 10,
+        "Date_m": 30,
+        "User": "mr_braun",
+        "Msg": "fdvfdsv dfvsvfvdsv fvdssvfdfs",
+        },
+        {
+        "Date_h": 10,
+        "Date_m": 30,
+        "User": "mr_braun",
+        "Msg": "fdvfdsv dfvsvfvdsv fvdssvfdfs",
+        },
+        {
+        "Date_h": 10,
+        "Date_m": 30,
+        "User": "mr_braun",
+        "Msg": "fdvfdsv dfvsvfvdsv fvdssvfdfs",
+        }
+    ]
+}*/
 
 
-
-
-
-
+/* ------------------------- jeu ----------------------------------- */
 /*
 function test() {
     var a = test;
