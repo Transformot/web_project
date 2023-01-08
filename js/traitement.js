@@ -113,7 +113,7 @@ for (var i = 0; i < stringify.length; i++) {
         {
         "Date": "('HH'h'mm')",
         "User": "User_NameXX",
-        "Role": 0 ou 1; // 0=chef et 1=soldat
+        "Role": 0 ou 1; // 0=chef ; 1=soldat ; 2=banni
         "Msg": "Voici unmessage",
         },
         {
