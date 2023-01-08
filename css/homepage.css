@@ -69,28 +69,6 @@ header nav {
     width: 100%;
 }
 
-header nav div {
-    float: left;
-    width: 50%;
-    height: 100%;
-}
-
-header nav a, header nav a:hover, header nav a:active, header nav a:visited {
-    color: white;
-}
-
-header nav a {
-    background: linear-gradient(135deg, rgba(12,12,12,0.5) 0%, rgba(80,80,80,0.5) 100%);
-    box-shadow: 5px 5px 25px 0 rgba(24, 24, 24, 0.5);
-    padding: 25px;
-    border-radius: 150px;
-}
-
-header nav a:hover {
-    background: linear-gradient(135deg, rgba(80,80,80,0.5) 0%, rgba(12,12,12,0.5) 100%);
-    padding: 35px;
-}
-
 section {
     padding-top: 200px;
 }
@@ -106,6 +84,28 @@ footer {
 
 footer h4 {
     text-align: center;
+}
+
+.nav_div {
+    float: left;
+    width: 50%;
+    height: 100%;
+}
+
+.nav_div a, .nav_div a:hover, .nav_div a:active, .nav_div a:visited {
+    color: white;
+}
+
+.nav_div a {
+    background: linear-gradient(135deg, rgba(12,12,12,0.5) 0%, rgba(80,80,80,0.5) 100%);
+    box-shadow: 5px 5px 25px 0 rgba(24, 24, 24, 0.5);
+    padding: 25px;
+    border-radius: 150px;
+}
+
+.nav_div a:hover {
+    background: linear-gradient(135deg, rgba(80,80,80,0.5) 0%, rgba(12,12,12,0.5) 100%);
+    padding: 35px;
 }
 
 /*Creates a transparent zone where text can be shown*/
