@@ -30,3 +30,4 @@ Les *coding style* sont à respecter (par ex. **PEP8** pour *Python* et **JavaSc
 - Jaune : `#FFDC00`
 - Bleu foncé : `#005CA8`
 
+## Choix pris :
