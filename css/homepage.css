@@ -6,11 +6,30 @@
     text-decoration: none;
 }
 
+/*Style for all basic links in the page*/
+a {
+    color: rgb(48,48,48);
+}
+
+a:hover {
+    color: rgb(141,164,210);
+}
+
+a:active {
+    color: rgb(125, 5, 5);
+}
+
+a:visited {
+    color: rgb(48,48,48);
+}
+
+/*Sets the bkg color*/
 body {
     background: linear-gradient(180deg, rgba(12,84,96,1) 0%, rgba(55,55,55,1) 100%);
     width: 100%;
 }
 
+/*3 columns are created to show different links in the nav bar*/
 header {
     position: fixed;
     top: 50px;
@@ -24,10 +43,10 @@ header {
 }
 
 header div {
-    text-align: center;
     float: left;
     height: 100%;
     width: 33.33%;
+    text-align: center;
 }
 
 header img {
@@ -56,12 +75,20 @@ header nav div {
     height: 100%;
 }
 
+header nav a, header nav a:hover, header nav a:active, header nav a:visited {
+    color: white;
+}
+
 header nav a {
     background: linear-gradient(135deg, rgba(12,12,12,0.5) 0%, rgba(80,80,80,0.5) 100%);
     box-shadow: 5px 5px 25px 0 rgba(24, 24, 24, 0.5);
-    color: white;
     padding: 25px;
     border-radius: 150px;
+}
+
+header nav a:hover {
+    background: linear-gradient(135deg, rgba(80,80,80,0.5) 0%, rgba(12,12,12,0.5) 100%);
+    padding: 35px;
 }
 
 section {
@@ -77,10 +104,11 @@ footer {
     border-top-right-radius: 100px;
 }
 
-footer h2 {
+footer h4 {
     text-align: center;
 }
 
+/*Creates a transparent zone where text can be shown*/
 .text_zone {
     color: white;
     margin: 50px auto;
@@ -91,13 +119,30 @@ footer h2 {
     box-shadow: 0 10px 100px 25px rgba(48, 48, 48, 0.5);
 }
 
+/*Allows the creation on new text_zone inside one*/
+.text_zone_inside {
+    color: white;
+    margin: 0 auto 50px;
+    width: 70%;
+    padding: 75px 75px 15px;
+    background-color: rgba(255, 255, 255, 0.25);
+    border-radius: 50px;
+    box-shadow: 0 10px 100px 25px rgba(48, 48, 48, 0.5);
+}
+
+/*Sets the right spacing inside paragraphs in a text_zone*/
 .paragraph {
     padding-bottom: 50px;
-    line-height: 25px;
+    line-height: 30px;
 }
 
 .paragraph ul {
     margin-left: 50px;
+}
+
+/*Creates an indentation in text*/
+.under {
+    margin-left: 30px;
 }
 
 #signup {
