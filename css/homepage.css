@@ -147,3 +147,137 @@ footer h4 {
 #signin {
     margin-right: 30%;
 }
+
+/*////////////////////////
+//////////////////////////
+//////////////////////////
+//////////////////////////
+//////////////////////////
+//////////////////////////
+//////////////////////////*/
+
+#close{
+    float:right;
+}
+#close-btn{
+    font-size: 20px;
+    padding: 10px;
+}
+
+#popupForm{
+    display: none;
+    position: fixed;
+    left: 45%;
+    top: 25%;
+    transform: translate(-45%, 5%);
+    border: none;
+    z-index: 9;
+}
+
+.sign-In-or-Up{
+    height: 600px;
+    width: 500px;
+    background-color: #0c5460;
+    box-shadow: 8px 8px 20px rgb(128, 128, 128);
+    position: relative;
+    overflow: hidden;
+}
+
+#button{
+    height: 60px;
+    width: 320px;
+    margin: 20px auto;
+    box-shadow: 10px 10px 30px rgb(254, 215, 188);
+    border-radius: 50px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.signIn-btn, .signUp-btn {
+    margin-left:15px;
+    font-size: 22px;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    position: relative;
+    cursor: pointer;
+}
+
+.slider {
+    height: 60px;
+    width: 160px;
+    border-radius: 50px;
+    background-image: linear-gradient(to right,
+    rgb(254, 213, 1),
+    rgb(254, 233, 75));
+    position: absolute;
+    top: 20px;
+    left: 72px;
+    transition: all 0.5s ease-in-out;
+}
+
+.moveslider {
+    left: 235px;
+}
+
+.sections{
+    height: 500px;
+    width: 1000px;
+    padding: 0;
+    display: flex;
+    position: relative;
+    transition: all 0.5s ease-in-out;
+    left: 0px;
+}
+
+.sections-move {
+    left: -500px;
+}
+
+#signIn, #signUp {
+    height: 100%;
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0px 40px;
+}
+
+#signIn {
+    gap: 50px;
+}
+
+#signUp {
+    gap: 30px;
+}
+
+form input{
+    height: 60px;
+    width: 400px;
+    outline: none;
+    border: none;
+    color: rgb(77, 77, 77);
+    background-color: rgb(240, 240, 240);
+    border-radius: 50px;
+    padding-left: 30px;
+    margin-bottom:5px;
+    font-size: 18px;
+}
+
+form input::placeholder{
+    color:#000000;
+}
+
+.form-submit-button {
+    font-weight: bold;
+    color: white;
+    background: linear-gradient(135deg, rgba(141, 164, 210, 0.75) 0%, rgba(93, 109, 141, 0.35) 100%);
+}
+.form-submit-button:hover{
+    font-weight: bold;
+    color:white;
+    background: linear-gradient(135deg, rgba(100, 125, 150, 0.75) 0%, rgb(93, 109, 141, 0.35) 100%);
+    cursor:pointer;
+}
