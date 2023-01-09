@@ -1,6 +1,5 @@
 # Role des technologies :
 
-
 - HTML/CSS :  
 responsive
 mettre le meme style sur les 3 pages, mettre tout en ordre
@@ -50,6 +49,24 @@ convertion JSON/SQL
 ### envoyer message : 
 - reçois un "Date","User","Role","Msg". Ajoute message à BdD. Renvoie à l'utilisateur 'ok'
 - base de donné modifier : messages du salon -> envoie la modification (dernier message) à toutes les personnes actifs.
+
+## Models Django :
+
+### class User (models.Model)
+username = models.CharField(man_length=20)
+password = models.CharField(man_length=20)
+
+### class Channel (models.Model)
+name = models.CharField(man_length=20)
+User = models.ManyToManyField(User, related_name = "channels"
+
+### class Message (models.Model)
+
+channel = models.
+date = models.CharField(man_lenth=7)
+user = models.ForienKey(User, on_delet=SET_NULL, related_name="messages")
+data = models.CharField(man_lenth=300)
+
 
 
 
