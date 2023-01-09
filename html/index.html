@@ -163,17 +163,17 @@
                     </div>
                     <div class="sections">
                         <section id="signIn">
-                            <form method="post" action="traitement.js">
-                                <input type="text" name="signIn-pseudonyme" id="pseudonyme" placeholder="ExempleDu68" />
-                                <input type="password" name="signIn-password" id="mot-de-passe" placeholder="Mot de passe"/>
-                                <input type="submit" name="signIn" class="form-submit-button" value="Se connecter" />
+                            <form method="post" action="../js/traitement.js" onsubmit="return testInput()" name="formSign">
+                                <input type="text" name="signInPseudonyme" id="pseudonyme" placeholder="ExempleDu68 *" required/>
+                                <input type="password" name="signInPassword" id="mot-de-passe" placeholder="Mot de passe *" required/>
+                                <input type="submit" name="signIn" class="form-submit-button" value="Se connecter"/>
                             </form>
                         </section>
                         <section id="signUp">
                             <form method="post" action="traitement.js">
-                                <input type="text" name="signUp-pseudonyme" id="pseudonyme" placeholder="ExempleDu68" />
-                                <input type="password" name="signUp-password" id="mot-de-passe" placeholder="Mot de passe"/>
-                                <input type="password" name="signUp-password-verification" id="mot-de-passe" placeholder="Vérifier mot de passe"/>
+                                <input type="text" name="signUpPseudonyme" id="pseudonyme" placeholder="ExempleDu68 *" required/>
+                                <input type="password" name="signUpPassword" id="mot-de-passe" placeholder="Mot de passe *" required/>
+                                <input type="password" name="signUpPasswordVerification" id="mot-de-passe" placeholder="Vérifier mot de passe *" required/>
                                 <input type="submit" name="signUp" class="form-submit-button" value="S'inscrire" />
                             </form>
                         </section>
@@ -181,6 +181,7 @@
                 </div>
 
                 <script src="../js/index.js"></script>
+                <script src="../js/traitement.js"></script>
 
             </section>
             <footer>
