@@ -19,7 +19,11 @@ function horaire(n){
     var h, m;
     h = new Date().getUTCHours() + n;
     m = new Date().getMinutes();
-    var hor = "("+ h +"h";
+    var hor = "(";
+    if (h < 10) {
+        hor += "0";
+    }
+    hor += h +"h";
     if (m < 10) {
         hor += "0";
     }
