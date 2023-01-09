@@ -1,159 +1,190 @@
 <!DOCTYPE html>
-<html lang="fr">
-    <head>
-        <meta charset="UTF-8">
-        <title>Accueil - N6Chat</title>
-        <link rel="stylesheet" href="../css/homepage.css"/>
-        <link rel="icon" href="../img/ico.ico" />
-    </head>
-    <body>
-        <!-- Sets the navigation bar, which is fixed in the upper space of the screen -->
-        <header>
-            <div>
-                <a href="https://www.ensisa.uha.fr/" target="_blank">
-                    <img src="../img/ensisa_uha_logo.png" alt="Logo de l'ENSISA">
-                </a>
-            </div>
-            <div>
-                <a href="index.html">
-                    <h1>
-                        N6Chat
-                    </h1>
-                </a>
-            </div>
-            <div>
-                <nav>
-                    <div class="nav_div">
-                        <a id="signup" href="signup.html">Inscription</a>
-                    </div>
-                    <div class="nav_div">
-                        <a id="signin" href="sigin.html">Connexion</a>
-                    </div>
-                </nav>
-            </div>
-        </header>
-        <section>
-            <!-- Space in the page which contains all the data in text zones -->
-            <div class="text_zone">
-                <h2 class="paragraph">
-                    >_ Bienvenue sur N6Chat ! 😼
-                </h2>
-                <div class="paragraph">
-                    <h4>
-                        N6Chat, c'est quoi ?
-                    </h4>
-                    <p>>_ C'est un chat centralisé qui te permet de communiquer
-                        très facilement avec tes amis, à l'aide de ton navigateur.
-                    </p>
+    <html lang="fr">
+        <head>
+            <meta charset="UTF-8">
+            <title>Accueil - N6Chat</title>
+            <link rel="stylesheet" href="../css/homepage.css"/>
+            <link rel="icon" href="../img/ico.ico" />
+        </head>
+        <body>
+            <!-- Sets the navigation bar, which is fixed in the upper space of the screen -->
+            <header>
+                <div>
+                    <a href="https://www.ensisa.uha.fr/" target="_blank">
+                        <img src="../img/ensisa_uha_logo.png" alt="Logo de l'ENSISA">
+                    </a>
                 </div>
-                <div class="paragraph">
-                    <h4>
-                        Est-ce que N6Chat est payant ?
-                    </h4>
-                    <p>>_ N6Chat est un service entièrement gratuit, il te faut
-                        simplement créer un compte pour pouvoir l'utiliser.
-                    </p>
+                <div>
+                    <a href="index.html">
+                        <h1>
+                            N6Chat
+                        </h1>
+                    </a>
                 </div>
-                <div class="paragraph">
-                    <h4>Pourquoi avoir développé N6Chat alors que de nombreux
-                        services équivalents sont déjà disponibles ?
-                    </h4>
-                    <p>>_ N6Chat a été développé dans le cadre d'un projet d'étudiants
-                        en école d'ingénieur, en filière Informatique et Réseaux.
-                    </p>
-                    <p>
-                        Ce site constitue donc le rendu final à cette évaluation de
-                        fin de semestre.
-                    </p>
+                <div>
+                    <nav>
+                        <div class="nav_div">
+                            <a id="signup" onclick="openForm()">Inscription</a>
+                        </div>
+                        <div class="nav_div">
+                            <a id="signin" onclick="openForm()">Connexion</a>
+                        </div>
+                    </nav>
                 </div>
-                <div class="text_zone_inside">
+            </header>
+            <section>
+                <!-- Space in the page which contains all the data in text zones -->
+                <div class="text_zone">
+                    <h2 class="paragraph">
+                        >_ Bienvenue sur N6Chat ! 😼
+                    </h2>
                     <div class="paragraph">
                         <h4>
-                            Qui a développé N6Chat ?
+                            N6Chat, c'est quoi ?
                         </h4>
-                        <p>
-                            >_ Le projet a été développé par trois étudiants de première année
-                            de l'ENSISA à Mulhouse.
+                        <p>>_ C'est un chat centralisé qui te permet de communiquer
+                            très facilement avec tes amis, à l'aide de ton navigateur.
                         </p>
-                        <ul>
-                            <li>
-                                Arthur SICARD - Sicard1864
-                            </li>
-                            <li>
-                                Guilhem LACASSAGNE - Tolosmoc
-                            </li>
-                            <li>
-                                Pierre GIEN - Transformot
-                            </li>
-                        </ul>
                     </div>
-                </div>
-            </div>
-            <div class="text_zone">
-                <h2 class="paragraph">
-                    >_ Statistiques 〽️
-                </h2>
-                <div class="text_zone_inside">
-                    <div class="paragraph">
-                        <p>0 - Utilisateurs</p>
-                    </div>
-                    <div class="paragraph">
-                        <p>0 - Salons</p>
-                    </div>
-                    <div class="paragraph">
-                        <p>0 - Messages</p>
-                    </div>
-                </div>
-            </div>
-            <div class="text_zone">
-                <h2 class="paragraph">
-                    >_ Présentation du sujet 📄
-                </h2>
-                <div class="paragraph">
-                    <p>
-                        Lien du repo GitHub :
-                        <a href="https://github.com/Transformot/web_project" target="_blank">
-                            web_project
-                        </a>
-                    </p>
-                </div>
-                <div class="text_zone_inside">
-                    <h3 class="paragraph">
-                        >_ Cahier des charges :
-                    </h3>
                     <div class="paragraph">
                         <h4>
-                            Le projet a pour objectif de respecter les spécifications suivantes :
+                            Est-ce que N6Chat est payant ?
                         </h4>
-                        <ul>
-                            <li>
-                                Technologie Django côté serveur / Javascript côté client
-                            </li>
-                            <li>
-                                Gestion de l’inscription et de la connexion d’utilisateur
-                            </li>
-                            <li>
-                                Fonctionnalités de création de salon de discussion
-                            </li>
-                            <li>
-                                Application avec plusieurs salons de discussion
-                            </li>
-                            <li>
-                                Gestion des émojis
-                            </li>
-                            <li>
-                                Gestion des droits
-                            </li>
-                            <li>
-                                Fonction de modération
-                            </li>
-                        </ul>
+                        <p>>_ N6Chat est un service entièrement gratuit, il te faut
+                            simplement créer un compte pour pouvoir l'utiliser.
+                        </p>
+                    </div>
+                    <div class="paragraph">
+                        <h4>Pourquoi avoir développé N6Chat alors que de nombreux
+                            services équivalents sont déjà disponibles ?
+                        </h4>
+                        <p>>_ N6Chat a été développé dans le cadre d'un projet d'étudiants
+                            en école d'ingénieur, en filière Informatique et Réseaux.
+                        </p>
+                        <p>
+                            Ce site constitue donc le rendu final à cette évaluation de
+                            fin de semestre.
+                        </p>
+                    </div>
+                    <div class="text_zone_inside">
+                        <div class="paragraph">
+                            <h4>
+                                Qui a développé N6Chat ?
+                            </h4>
+                            <p>
+                                >_ Le projet a été développé par trois étudiants de première année
+                                de l'ENSISA à Mulhouse.
+                            </p>
+                            <ul>
+                                <li>
+                                    Arthur SICARD - Sicard1864
+                                </li>
+                                <li>
+                                    Guilhem LACASSAGNE - Tolosmoc
+                                </li>
+                                <li>
+                                    Pierre GIEN - Transformot
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </section>
-        <footer>
-            <h4>Tous droits réservés.</h4>
-        </footer>
-    </body>
+                <div class="text_zone">
+                    <h2 class="paragraph">
+                        >_ Statistiques 〽️
+                    </h2>
+                    <div class="text_zone_inside">
+                        <div class="paragraph">
+                            <p>0 - Utilisateurs</p>
+                        </div>
+                        <div class="paragraph">
+                            <p>0 - Salons</p>
+                        </div>
+                        <div class="paragraph">
+                            <p>0 - Messages</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="text_zone">
+                    <h2 class="paragraph">
+                        >_ Présentation du sujet 📄
+                    </h2>
+                    <div class="paragraph">
+                        <p>
+                            Lien du repo GitHub :
+                            <a href="https://github.com/Transformot/web_project" target="_blank">
+                                web_project
+                            </a>
+                        </p>
+                    </div>
+                    <div class="text_zone_inside">
+                        <h3 class="paragraph">
+                            >_ Cahier des charges :
+                        </h3>
+                        <div class="paragraph">
+                            <h4>
+                                Le projet a pour objectif de respecter les spécifications suivantes :
+                            </h4>
+                            <ul>
+                                <li>
+                                    Technologie Django côté serveur / Javascript côté client
+                                </li>
+                                <li>
+                                    Gestion de l’inscription et de la connexion d’utilisateur
+                                </li>
+                                <li>
+                                    Fonctionnalités de création de salon de discussion
+                                </li>
+                                <li>
+                                    Application avec plusieurs salons de discussion
+                                </li>
+                                <li>
+                                    Gestion des émojis
+                                </li>
+                                <li>
+                                    Gestion des droits
+                                </li>
+                                <li>
+                                    Fonction de modération
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sign-In-or-Up" id="popupForm">
+                    <div class="slider"></div>
+                    <div id="close">
+                        <button type="button" id="close-btn" onclick="closeForm()">X</button>
+                    </div>
+                    <div id="button">
+                        <button class="signIn-btn">Connexion</button>
+                        <button class="signUp-btn">Inscription</button>
+                    </div>
+                    <div class="sections">
+                        <section id="signIn">
+                            <form method="post" action="traitement-signIn.js">
+                                <input type="text" name="signIn-pseudonyme" id="pseudonyme" placeholder="ExempleDu68" />
+                                <input type="password" name="signIn-password" id="mot-de-passe" placeholder="Mot de passe"/>
+                                <input type="submit" name="signIn" class="form-submit-button" value="Se connecter" />
+                            </form>
+                        </section>
+                        <section id="signUp">
+                            <form method="post" action="traitement-signUp.js">
+                                <input type="text" name="signUp-pseudonyme" id="pseudonyme" placeholder="ExempleDu68" />
+                                <input type="password" name="signUp-password" id="mot-de-passe" placeholder="Mot de passe"/>
+                                <input type="password" name="signUp-password-verification" id="mot-de-passe" placeholder="Vérifier mot de passe"/>
+                                <input type="submit" name="signUp" class="form-submit-button" value="S'inscrire" />
+                            </form>
+                        </section>
+                    </div>
+                </div>
+
+                <script src="../js/index.js"></script>
+
+            </section>
+            <footer>
+                <h4>Tous droits réservés.</h4>
+            </footer>
+        </body>
 </html>
