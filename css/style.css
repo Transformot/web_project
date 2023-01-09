@@ -266,6 +266,10 @@ form input{
     font-size: 18px;
 }
 
+form input:invalid{
+    border: solid 2px red;
+}
+
 form input::placeholder{
     color:#000000;
 }
