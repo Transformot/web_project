@@ -7,7 +7,7 @@
         <title>Accueil - N6Chat</title>
 
         {% block css %}
-        <link rel="stylesheet" href="{% static 'css/homepage.css' %}"/>
+        <link rel="stylesheet" href="{% static 'css/style.css' %}"/>
         {% endblock %}
 
         {% block ico %}
@@ -177,6 +177,7 @@
                     </div>
                     <div class="sections">
                         <section id="signIn">
+
                             <form method="post" action="../js/traitement.js" onsubmit="return testInput()" name="formSign">
                                 <input type="text" name="signInPseudonyme" id="pseudonyme" placeholder="ExempleDu68 *" required/>
                                 <input type="password" name="signInPassword" id="mot-de-passe" placeholder="Mot de passe *" required/>
