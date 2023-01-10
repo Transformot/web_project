@@ -17,8 +17,9 @@ header{
     top: 50px;
     left: 0;
     width: 90%;
-    height: 150px;
+    height: auto;
     margin: 0 5%;
+    padding: 20px 60px;
     text-align: center;
     border-radius: 150px;
     background: linear-gradient(135deg, rgba(141,164,210,0.50) 0%, rgba(88,101,113,0.50) 100%);
@@ -26,30 +27,9 @@ header{
 
 header h1 {
     font-family: "Lato", sans-serif;
-    line-height: 150px;
     color: white;
     font-size: 75px;
 }
-
-/*header nav a{
-    height: 30px;
-    line-height: 30px;
-    display: inline-block;
-    width: 32%;
-    background-color: rgb(111, 110, 110);
-    text-align: center; 
-    border: 2px solid #000000;
-    color: #000000;
-    text-decoration: none;
-}
-
-header nav a:hover{
-    height: 35px;
-    line-height: 35px;
-    background-color: rgb(78, 78, 78);
-    color: #bdbbbb;
-    text-decoration: none;
-}*/
 
 section{
     padding-top: 200px;
@@ -86,7 +66,7 @@ section div#barre_box{
     margin: 0 auto 50px;
     padding: 5% 5% 5%;
     text-align: center;
-    line-height: 150px;
+    line-height: 30px;
     background-color: none;
 }
 
