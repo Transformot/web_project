@@ -12,7 +12,6 @@ class User(models.Model):
 
 class Channel(models.Model):
     name = models.CharField(max_length=20)
-    creation_date = models.DateField()
     users = models.ManyToManyField(User, related_name="channels")
 
     def __str__(self):

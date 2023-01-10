@@ -8,11 +8,11 @@
 
         {% block css %}
         <link rel="stylesheet" href="{% static 'css/style.css' %}"/>
-        {% endblock %}
+        {% endblock css %}
 
         {% block ico %}
         <link rel="icon" type="image/png" href="{% static 'img/favicon.png' %}" />
-        {% endblock %}
+        {% endblock ico %}
 
     </head>
     <body>
@@ -23,12 +23,12 @@
 
                     {% block img %}
                     <img src="{% static 'img/ensisa_uha_logo.png' %}" alt="Logo de l'ENSISA">
-                    {% endblock %}
+                    {% endblock img %}
 
                 </a>
             </div>
             <div>
-                <a href="index.html">
+                <a href="">
                     <h1>
                         N6Chat
                     </h1>
@@ -37,10 +37,10 @@
             <div>
                 <nav>
                     <div class="nav_div">
-                        <a id="signup" href="signup.html">Inscription</a>
+                        <a id="signup" href="/home/signup">Inscription</a>
                     </div>
                     <div class="nav_div">
-                        <a id="signin" href="sigin.html">Connexion</a>
+                        <a id="signin" href="/home/signin">Connexion</a>
                     </div>
                 </nav>
             </div>
@@ -109,13 +109,19 @@
                 </h2>
                 <div class="text_zone_inside">
                     <div class="paragraph">
-                        <p>0 - Utilisateurs</p>
+                        {% block users %}
+                        <p>{{ users }} - Utilisateurs</p>
+                        {% endblock users %}
                     </div>
                     <div class="paragraph">
-                        <p>0 - Salons</p>
+                        {% block channels %}
+                        <p>{{ channels }} - Salons</p>
+                        {% endblock channels %}
                     </div>
                     <div class="paragraph">
-                        <p>0 - Messages</p>
+                        {% block messages %}
+                        <p>{{ messages }} - Messages</p>
+                        {% endblock messages %}
                     </div>
                 </div>
             </div>
