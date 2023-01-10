@@ -20,30 +20,35 @@
     <body>
 
         <header>
-            <div>
-                <a href="index.html">
-                    <h1>
-                        N6Chat - Web_Chat
-                    </h1>
-                </a>
-            </div>
+            <a href="index.html">
+                <h1>
+                    N6Chat - Web_Chat
+                </h1>
+            </a>
         </header>
         <section>
 
-            <!-- <form method="post" action="../js/traitement.js"> -->
-            <div id="chat_box">
-                <p>(hh:mm PM) <span>User_1</span>: Hello world</p>
-                <p>(hh:mm PM) <span>User_2</span>: Je répond</p>
-                <p>(hh:mm PM) <span>User_1</span>: Hello world</p>
-                <p>(hh:mm PM) <span>User_2</span>: Je répond</p>
-                <br/>
-                <p id="date"></p>
-            </div>            
-            <div id="barre_box">
-                <textarea id="barre_chat" placeholder="Envoyer un message"></textarea>
-                <input type="submit" name="envoie" value="envoyer" id="button_chat" />
+            <div class="text_zone">
+                <h2 class="paragraph">
+                    >_ Bienvenue sur le salon XXX
+                </h2>
+
+                <!-- <form method="post" action="../js/traitement.js"> -->
+                <div id="chat_box">
+                    <p>(hh:mm PM) <span>User_1</span>: Hello world</p>
+                    <p>(hh:mm PM) <span>User_2</span>: Je répond</p>
+                    <p>(hh:mm PM) <span>User_1</span>: Hello world</p>
+                    <p>(hh:mm PM) <span>User_2</span>: Je répond</p>
+                    <br/>
+                    <p id="date"></p>
+                </div>            
+                <div id="barre_box">
+                    <textarea id="barre_chat" placeholder="Envoyer un message"></textarea>
+                    <input type="submit" name="envoie" value="envoyer" id="button_chat" />
+                </div>
+                <!-- </form> -->
             </div>
-            <!-- </form> -->
+
 
             {% block js %}
             <script src="{% static 'js/jquery-3.6.3.js' %}"></script>

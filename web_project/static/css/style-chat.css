@@ -2,25 +2,29 @@
     margin: 0;
     padding: 0;
     hyphens: none;
+    font-family: "Courier", sans-serif;
+    text-decoration: none;
     box-sizing: border-box;
-    line-height: 150%;
-}
-
-p{
-    margin-bottom: 0;
 }
 
 header{
-    width: 100%;
-    height: 100px;
-    text-align: center;
     position: fixed;
-    top: 0;
-    background-color: #a9a9a9;
-    border-bottom: 2px solid #000000;
+    top: 50px;
+    left: 0;
+    width: 100%;
+    height: 150px;
+    text-align: center;
+    background: linear-gradient(135deg, rgba(141,164,210,0.50) 0%, rgba(88,101,113,0.50) 100%);
 }
 
-header nav a{
+header h1 {
+    font-family: "Lato", sans-serif;
+    line-height: 150px;
+    color: white;
+    font-size: 75px;
+}
+
+/*header nav a{
     height: 30px;
     line-height: 30px;
     display: inline-block;
@@ -38,24 +42,45 @@ header nav a:hover{
     background-color: rgb(78, 78, 78);
     color: #bdbbbb;
     text-decoration: none;
-}
+}*/
 
 section{
-    margin-top: 110px;
+    padding-top: 200px;
+}
 
+.text_zone {
+    color: white;
+    margin: 50px auto;
+    width: 70%;
+    padding: 75px 75px 15px;
+    background-color: rgba(255, 255, 255, 0.25);
+    border-radius: 50px;
+    box-shadow: 0 10px 100px 25px rgba(48, 48, 48, 0.5);
 }
 
 section div p{
-    margin: -8px 0;
+    color: #000000;
 }
 
-section #chat_box{
+/*section #chat_box{
     margin: 10px;
     padding: 60px;
-    height: 480px;             /* height chat box */ /* faire du response */
+    height: 480px;             
     border: 2px solid #000000; 
     background-color: #e6e5e5;
+}*/
+
+section #chat_box {
+    width: 100%;
+    height: 450px;
+    margin: 0 auto 50px;
+    padding: 75px 75px 15px;
+    color: white;
+    background-color: rgba(255, 255, 255, 0.25);
+    border-radius: 50px;
+    box-shadow: 0 10px 100px 25px rgba(48, 48, 48, 0.5);
 }
+
 section #barre_box{
     width: 100%;
     height: 150px;
@@ -76,11 +101,15 @@ section #barre_box{
     width: 19%;
 }
 
-footer{
-    bottom: 0;
-    height: 300px;
-    background-color: #222222;
-    color:rgb(182, 181, 181);
-    width: 100%;
-    position: relative;
+footer {
+    color: white;
+    padding: 50px 50px 0;
+    height: 100px;
+    background: linear-gradient(135deg, rgba(0,0,0,0.5) 0%, rgba(48,48,48,0.5) 100%);
+    border-top-left-radius: 100px;
+    border-top-right-radius: 100px;
+}
+
+footer h4 {
+    text-align: center;
 }
