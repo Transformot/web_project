@@ -172,31 +172,32 @@
                         <button type="button" id="close-btn" onclick="closeForm()">X</button>
                     </div>
                     <div id="button">
-                        <button class="signIn-btn">Connexion</button>
                         <button class="signUp-btn">Inscription</button>
+                        <button class="signIn-btn">Connexion</button>
                     </div>
                     <div class="sections">
-                        <section id="signIn">
-
-                            <form method="post" action="../js/traitement.js" onsubmit="return testInput()" name="formSign">
-                                <input type="text" name="signInPseudonyme" id="pseudonyme" placeholder="ExempleDu68 *" required/>
-                                <input type="password" name="signInPassword" id="mot-de-passe" placeholder="Mot de passe *" required/>
-                                <input type="submit" name="signIn" class="form-submit-button" value="Se connecter"/>
+                        <section id="signUp">
+                            <form method="post" action="../js/traitement.js" name="formSign">
+                                <input type="text" name="signUpPseudonyme" id="pseudonymeSignUp" placeholder="ExempleDu68 *" required/>
+                                <input type="password" name="signUpPassword" id="passwordSignUp" placeholder="Mot de passe *" required/>
+                                <input type="password" name="signUpPasswordVerification" id="passwordSignUpVerif" placeholder="Vérifier mot de passe *" required/>
+                                <input type="button" name="signUp" id="btnSignUp" class="formButton" value="S'inscrire" />
                             </form>
                         </section>
-                        <section id="signUp">
-                            <form method="post" action="traitement.js">
-                                <input type="text" name="signUpPseudonyme" id="pseudonyme" placeholder="ExempleDu68 *" required/>
-                                <input type="password" name="signUpPassword" id="mot-de-passe" placeholder="Mot de passe *" required/>
-                                <input type="password" name="signUpPasswordVerification" id="mot-de-passe" placeholder="Vérifier mot de passe *" required/>
-                                <input type="submit" name="signUp" class="form-submit-button" value="S'inscrire" />
+                        <section id="signIn">
+                            <form method="post" action="../js/traitement.js" name="formSign">
+                                <input type="text" name="signInPseudonyme" id="pseudonymeSignIn" placeholder="ExempleDu68 *" required/>
+                                <input type="password" name="signInPassword" id="passwordSignIn" placeholder="Mot de passe *" required/>
+                                <input type="button" name="signIn" id="btnSignIn" class="formButton" value="Se connecter"/>
                             </form>
                         </section>
                     </div>
                 </div>
-
-                <script src="../js/index.js"></script>
-                <script src="../js/traitement.js"></script>
+                
+                {% block script %}
+                <script src="{% static 'js/index.js' %}"></script>
+                <script src="{% static 'js/traitement.js %}"></script>
+                {% endblock %}
                 
         </section>
         <footer>
