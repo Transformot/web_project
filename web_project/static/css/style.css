@@ -108,6 +108,58 @@ footer h4 {
     padding: 35px;
 }
 
+@media screen and (max-width: 1400px) {
+    header {
+        position: relative;
+        margin-bottom: -160px;
+        padding-bottom: 45px
+    }
+    header img {
+        padding-left: 15px;
+    }
+    header h1 {
+        text-align: right;
+        padding-left:75%;
+    }
+    .nav_div {
+        line-height: 300px;
+        padding-left: -150px;
+        height: 100%;
+        width: 50%;
+    }
+    #nav_div_signin{
+        margin-left: -135%;
+    }
+    #nav_div_signup {
+        margin-left: -35%;
+    }
+}
+@media screen and (max-width: 750px) {
+    header {
+        position: relative;
+        margin-bottom: -160px;
+        padding-bottom: 140px;
+        border-radius: 100px;
+    }
+    header img {
+        padding-left:25%;
+    }
+    header h1 {
+        margin: 0 -25%;
+        padding-left:0%;
+        line-height: 310px;
+    }
+    .nav_div {
+        line-height: 470px;
+    }
+    #nav_div_signin {
+        margin-left: -185%;
+    }
+    #nav_div_signup {
+        margin-left: -60%;
+    }
+}
+
 /*Creates a transparent zone where text can be shown*/
 .text_zone {
     color: white;

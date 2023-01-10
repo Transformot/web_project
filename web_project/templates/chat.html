@@ -4,56 +4,55 @@
         {% load static %}
 
         <meta charset="UTF-8">
-        <title>Web Chat ENSISA</title>
-        {%  block css %}
-        <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}"/>
+        <title>Chat - N6Chat</title>
+
+        {% block css %}
         <link rel="stylesheet" href="{% static 'css/style-chat.css' %}"/>
-        {% endblock css %}
+        <link rel="stylesheet" href="{% static 'css/style.css' %}"/>
+
+        {% endblock %}
+
     </head>
     <body>
         <header>
-            <br/>
-            <h2>Web Chat</h2>
-
-            <nav>
-                <a href="/home">Accueil</a>
-                <!-- <div>page 2</div> -->
-                <a href="/signin">Connexion</a>
-                <a href="/signup">Inscription</a>
-            </nav>
+            <a href="/home">
+                <h1>
+                    N6Chat - Web_Chat
+                </h1>
+            </a>
         </header>
         <section>
-            <!-- <form method="post" action="../js/traitement.js"> -->
-            <div id="chat_box">
-                <p>(hh:mm PM) <span>User_1</span>: Hello world</p>
-                <p>(hh:mm PM) <span>User_2</span>: Je répond</p>
-                <p>(hh:mm PM) <span>User_1</span>: Hello world</p>
-                <p>(hh:mm PM) <span>User_2</span>: Je répond</p>
-                <br/>
-                <p id="date"></p>
-            </div>            
-            <div id="barre_box">
-                <textarea id="barre_chat" placeholder="Envoyer un message"></textarea>
-                <input type="submit" name="envoie" value="envoyer" id="button_chat" />
+
+            <div class="text_zone">
+                <h2 class="paragraph">
+                    >_ Bienvenue sur le salon XXX
+                </h2>
+
+                <!-- <form method="post" action="../js/traitement.js"> -->
+                <div id="chat_box">
+                    <p>(hh:mm PM) <span>User_1</span>: Hello world</p>
+                    <p>(hh:mm PM) <span>User_2</span>: Je répond</p>
+                    <p>(hh:mm PM) <span>User_1</span>: Hello world</p>
+                    <p>(hh:mm PM) <span>User_2</span>: Je répond</p>
+                    <br/>
+                    <p id="date"></p>
+                </div>
+                <div id="barre_box">
+                    <textarea id="barre_chat" placeholder="Envoyer un message"></textarea>
+                    <input type="submit" name="envoie" value="envoyer" id="button_chat" />
+                </div>
+                <!-- </form> -->
             </div>
-            <!-- </form> -->
+
+
+            {% block js %}
+            <script src="{% static 'js/jquery-3.6.3.js' %}"></script>
+            <script src="{% static 'js/traitement-msg.js' %}"></script>
+            {% endblock %}
+
         </section>
         <footer>
-            <p>Pierre GIEN</p>
-            <p>Guilhem LACASSAGNE</p>
-            <p>Arthur SICARD</p>
+            <h4>Tous droits réservés.</h4>
         </footer>
-        
-
-        <!-- JS for bootstrap -->
-        {% block script %}
-        <script src="{% static 'js/bootstrap.js' %}"></script>
-        <!-- bootstrap.bundle.js ? -->
-        <!-- JS for jquery -->
-        <script src="{% static 'js/jquery-3.6.3.js' %}"></script>
-        <!-- JS for JS -->
-        <script src="{% static 'js/traitement-msg.js' %}"></script>
-        {% endblock script %}
-
     </body>
 </html>
