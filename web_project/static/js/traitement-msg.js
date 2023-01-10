@@ -37,13 +37,18 @@ function name_user(){
 }
 
 function chat(){
-    var msg = "<p>";
-    msg += horaire(1) +" "+ name_user() +": ";
-    msg += message.value;
-    msg += "</p>";
-    document.getElementById("chat_box").innerHTML += msg;
+    if (message.value !== "\n" ) {
+        var msg = "<p>";
+        msg += horaire(1) + " " + name_user() + ": ";
+        msg += message.value;
+        msg += "</p>";
+        document.getElementById("chat_box").innerHTML += msg;
+    }
     message.value = '';
 }
+
+let btnSend = document.querySelector("#button_chat");
+btnSend.addEventListener('click', chat);
 
 message.addEventListener('keyup', function(event){
     if (event.key == 'Enter'){
