@@ -1,24 +1,35 @@
 <!DOCTYPE html>
 <html lang="fr">
     <head>
+        {% load static %}
+
         <meta charset="UTF-8">
-        <title>Web Chat ENSISA</title>
-        <link rel="stylesheet" href="../css/bootstrap.min.css"/>
-        <link rel="stylesheet" href="../css/style-chat.css"/> 
+        <title>Chat - N6Chat</title>
+
+        {% block css %}
+        <link rel="stylesheet" href="{% static 'css/style-chat.css' %}"/> 
+        <link rel="stylesheet" href="{% static 'css/style.css' %}"/> 
+        
+        {% endblock %}
+
+        <!-- {% block ico %}
+        <link rel="icon" type="image/png" href="{% static 'img/favicon.png' %}" />
+        {% endblock %} -->
+
     </head>
     <body>
-        <header>
-            <br/>
-            <h2>Web Chat</h2>
 
-            <nav>
-                <a href="index.html">Accueil</a>
-                <!-- <div>page 2</div> -->
-                <a href="">Connexion</a>
-                <a href="">Inscription</a>
-            </nav>
+        <header>
+            <div>
+                <a href="index.html">
+                    <h1>
+                        N6Chat - Web_Chat
+                    </h1>
+                </a>
+            </div>
         </header>
         <section>
+
             <!-- <form method="post" action="../js/traitement.js"> -->
             <div id="chat_box">
                 <p>(hh:mm PM) <span>User_1</span>: Hello world</p>
@@ -33,20 +44,15 @@
                 <input type="submit" name="envoie" value="envoyer" id="button_chat" />
             </div>
             <!-- </form> -->
+
+            {% block js %}
+            <script src="{% static 'js/jquery-3.6.3.js' %}"></script>
+            <script src="{% static 'js/traitement-msg.js' %}"></script>
+            {% endblock %}
+
         </section>
         <footer>
-            <p>Pierre GIEN</p>
-            <p>Guilhem LACASSAGNE</p>
-            <p>Arthur SICARD</p>
+            <h4>Tous droits réservés.</h4>
         </footer>
-        
-
-        <!-- JS for bootstrap -->
-        <script src="../js/bootstrap.js"></script>
-        <!-- bootstrap.bundle.js ? -->
-        <!-- JS for jquery -->
-        <script src="../js/jquery-3.6.3.js"></script>
-        <!-- JS for JS -->
-        <script src="../js/traitement-msg.js"></script>
     </body>
 </html>
