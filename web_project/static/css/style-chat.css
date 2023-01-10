@@ -7,13 +7,20 @@
     box-sizing: border-box;
 }
 
+body {
+    background: linear-gradient(180deg, rgba(12,84,96,1) 0%, rgba(55,55,55,1) 100%);
+    width: 100%;
+}
+
 header{
     position: fixed;
     top: 50px;
     left: 0;
-    width: 100%;
+    width: 90%;
     height: 150px;
+    margin: 0 5%;
     text-align: center;
+    border-radius: 150px;
     background: linear-gradient(135deg, rgba(141,164,210,0.50) 0%, rgba(88,101,113,0.50) 100%);
 }
 
@@ -85,14 +92,13 @@ section div#barre_box{
 
 textarea#barre_chat{
     display: inline-block;
-    width: 79%;
+    width: 75%;
     color: white;
-    padding: 3%;
+    padding: 18px;
     background: linear-gradient(180deg, rgba(18, 123, 142, 0.8) 0%, rgb(54, 54, 54, 0.8) 100%);
     border-radius: 50px;
     border: 0px solid rgba(0, 0, 0, 0);
     box-shadow: 0 10px 100px 25px rgba(48, 48, 48, 0.5);
-
 }
 
 textarea:focus{
@@ -101,7 +107,7 @@ textarea:focus{
 
 input#button_chat{
     display: inline-block;
-    width: 19%;
+    width: 94px;
     padding: 5px 0;
     color: rgb(0, 0, 0);
     border-radius: 50px;
