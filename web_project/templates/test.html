@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    {% load static %}
+
+    <meta charset="UTF-8">
+    <title>TEST PAGE</title>
+</head>
+<body>
+    {% block js %}
+
+        <form method="POST" id="login">
+            <label for="username">Username :</label>
+            <br/>
+            <input type="text" id="username" name="username"/>
+            <br/>
+            <label for="password">Password :</label>
+            <br/>
+            <input type="password" id="password" name="password"/>
+            <br/>
+            <br/>
+            <button type="submit" name="submit">Log in</button>
+        </form>
+
+        <script src="{% static 'js/jquery-3.6.3.js' %}"></script>
+        <script src="{% static 'js/test.js' %}"></script>
+
+    {% endblock js %}
+</body>
+</html>

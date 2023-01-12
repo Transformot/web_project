@@ -6,8 +6,11 @@ from .models import *
 
 
 # Create your views here.
+
+
 def home(request):
-    return render(request, 'index.html', {'users': User.objects.count(), 'channels': Channel.objects.count(), 'messages': Message.objects.count()})
+    context = {'users': User.objects.count(), 'channels': Channel.objects.count(), 'messages': Message.objects.count()}
+    return render(request, 'index.html', context)
 
 
 def signin(request):
@@ -33,15 +36,25 @@ def test(request):
     for user in users:
         if user.username == request.session['username']:
             return HttpResponse("You're connected as {}".format(user))
-        else:
-            return HttpResponse("You're not connected to this service")
 
-
-def test_login(request):
-    request.session['username'] = "Transformot"
-    return HttpResponseRedirect("/test")
+    return HttpResponse("You're not connected to this service")
 
 
 def test_logout(request):
     request.session.flush()
     return HttpResponseRedirect("/test")
+
+
+def test_login(request):
+    return render(request, 'test.html')
+
+
+def test_login_data(request):
+    users = User.objects.all()
+
+    for user in users:
+        if request.GET.get('username') == user.username:
+            if request.GET['password'] == user.password:
+                request.session['username'] = user.username
+                request.session['password'] = user.password
+    return HttpResponse(True)
