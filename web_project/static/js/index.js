@@ -3,12 +3,12 @@ let signin = document.querySelector(".signIn-btn");
 let slider = document.querySelector(".slider");
 let formSection = document.querySelector(".sections");
 
-signup.addEventListener("click", () => {
+signin.addEventListener("click", () => {
     slider.classList.add("moveslider");
     formSection.classList.add("sections-move");
 });
 
-signin.addEventListener("click", () => {
+signup.addEventListener("click", () => {
     slider.classList.remove("moveslider");
     formSection.classList.remove("sections-move");
 });
