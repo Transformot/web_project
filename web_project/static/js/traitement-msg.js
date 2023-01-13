@@ -68,7 +68,9 @@ message.addEventListener('keyup', function(event){
 });
 
 function salon(){
-    if (channel.value != "\n" ) {
+    alert("test4");
+    if (channel.value != " \n" ) {
+        alert("test");
         var sal = "<div class='membre'>";
         sal += "<a>"
         sal += channel.value + "</a>";
@@ -80,8 +82,12 @@ function salon(){
 
 channel.addEventListener('keyup', function(event){
     if (event.key == 'Enter'){
+        alert("test2");
         salon();
     }
+    alert("test3");
+    console.log("test3");
+    return true;
 });
 
 /* resource
