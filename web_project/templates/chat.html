@@ -7,20 +7,18 @@
         <title>Chat - N6Chat</title>
 
         {% block css %}
-        <link rel="stylesheet" href="{% static 'css/style-chat.css' %}"/> 
+        <link rel="stylesheet" href="{% static 'css/style-chat.css' %}"/>
         {% endblock %}
 
     </head>
     <body>
 
         <header>
-            <div>
-                <a href="index.html">
-                    <h2>
-                        N6Chat - Web_Chat
-                    </h2>
-                </a>
-            </div>
+            <a href="/home">
+                <h1>
+                    N6Chat - Web_Chat
+                </h1>
+            </a>
         </header>
         <section>
 
@@ -55,7 +53,6 @@
                     <textarea id="barre_chat" placeholder="Envoyer un message"></textarea>
                     <input type="submit" name="envoie" value="envoyer" id="button_chat" />
                 </div>
-                <!-- </form> -->
             </div>
 
             <div id="zone_membres">

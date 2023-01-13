@@ -8,11 +8,11 @@
 
         {% block css %}
         <link rel="stylesheet" href="{% static 'css/style.css' %}"/>
-        {% endblock %}
+        {% endblock css %}
 
         {% block ico %}
-        <link rel="icon" type="image/png" href="{% static 'img/favicon.png' %}" />
-        {% endblock %}
+        <link rel="shortcut icon" href="{% static 'img/favicon.ico' %}"/>
+        {% endblock ico %}
 
     </head>
     <body>
@@ -23,12 +23,12 @@
 
                     {% block img %}
                     <img src="{% static 'img/ensisa_uha_logo.png' %}" alt="Logo de l'ENSISA">
-                    {% endblock %}
+                    {% endblock img %}
 
                 </a>
             </div>
             <div>
-                <a href="index.html">
+                <a href="">
                     <h1>
                         N6Chat
                     </h1>
@@ -37,10 +37,10 @@
             <div>
                 <nav>
                     <div class="nav_div" id="nav_div_signin">
-                        <a id="signup" href="signup.html">Inscription</a>
+                        <a id="signup" href="#" onclick="openForm()">Inscription</a>
                     </div>
                     <div class="nav_div" id="nav_div_signup">
-                        <a id="signin" href="sigin.html">Connexion</a>
+                        <a id="signin" href="#" onclick="openForm()">Connexion</a>
                     </div>
                 </nav>
             </div>
@@ -109,13 +109,19 @@
                 </h2>
                 <div class="text_zone_inside">
                     <div class="paragraph">
-                        <p>0 - Utilisateurs</p>
+                        {% block users %}
+                        <p>{{ users }} - Utilisateurs</p>
+                        {% endblock users %}
                     </div>
                     <div class="paragraph">
-                        <p>0 - Salons</p>
+                        {% block channels %}
+                        <p>{{ channels }} - Salons</p>
+                        {% endblock channels %}
                     </div>
                     <div class="paragraph">
-                        <p>0 - Messages</p>
+                        {% block messages %}
+                        <p>{{ messages }} - Messages</p>
+                        {% endblock messages %}
                     </div>
                 </div>
             </div>
@@ -165,7 +171,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="sign-In-or-Up" id="popupForm">
                     <div class="slider"></div>
                     <div id="close">
@@ -177,7 +183,7 @@
                     </div>
                     <div class="sections">
                         <section id="signUp">
-                            <form method="post" action="../js/traitement.js" name="formSign">
+                            <form method="POST" name="formSign">
                                 <input type="text" name="signUpPseudonyme" id="pseudonymeSignUp" placeholder="ExempleDu68 *" required/>
                                 <input type="password" name="signUpPassword" id="passwordSignUp" placeholder="Mot de passe *" required/>
                                 <input type="password" name="signUpPasswordVerification" id="passwordSignUpVerif" placeholder="Vérifier mot de passe *" required/>
@@ -185,18 +191,18 @@
                             </form>
                         </section>
                         <section id="signIn">
-                            <form method="post" action="../js/traitement.js" name="formSign">
+                            <form method="POST" name="formSign">
                                 <input type="text" name="signInPseudonyme" id="pseudonymeSignIn" placeholder="ExempleDu68 *" required/>
                                 <input type="password" name="signInPassword" id="passwordSignIn" placeholder="Mot de passe *" required/>
-                                <input type="button" name="signIn" id="btnSignIn" class="formButton" value="Se connecter"/>
+                                <button type="submit" name="signIn" id="btnSignIn" class="formButton">Se connecter</button>
                             </form>
                         </section>
                     </div>
                 </div>
-                
+
                 {% block script %}
                 <script src="{% static 'js/index.js' %}"></script>
-                <script src="{% static 'js/traitement.js %}"></script>
+                <script src="{% static 'js/traitement.js' %}"></script>
                 {% endblock %}
                 
         </section>
