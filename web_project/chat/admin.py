@@ -6,3 +6,5 @@ from .models import *
 admin.site.register(User)
 admin.site.register(Channel)
 admin.site.register(Message)
+admin.site.register(State)
+admin.site.register(Role)
