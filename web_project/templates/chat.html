@@ -22,11 +22,25 @@
         </header>
         <section>
 
-            <div class="text_zone">
-                <h2 class="paragraph">
-                    >_ Bienvenue sur le salon XXX
-                </h2>
+            <div id="zone_salons">
+                <textarea id="barre_salon" placeholder="Créer salon"></textarea>
+                <div class="salon">
+                    <a href="google.com">>_ Accueilaaa</a>
+                </div>
+                <div class="salon">
+                    <a>>_ Salon 1</a>
+                </div>
+                <div class="salon">
+                    <a>>_ Salon 2</a>
+                </div>
+            </div>
 
+            <div id="text_zone">
+                <h3 class="paragraph">
+                    >_ Bienvenue sur le salon XXX
+                </h3>
+
+                <!-- <form method="post" action="../js/traitement.js"> -->
                 <div id="chat_box">
                     <p>(hh:mm PM) <span>User_1</span>: Hello world</p>
                     <p>(hh:mm PM) <span>User_2</span>: Je répond</p>
@@ -34,10 +48,20 @@
                     <p>(hh:mm PM) <span>User_2</span>: Je répond</p>
                     <br/>
                     <p id="date"></p>
-                </div>
+                </div>            
                 <div id="barre_box">
                     <textarea id="barre_chat" placeholder="Envoyer un message"></textarea>
                     <input type="submit" name="envoie" value="envoyer" id="button_chat" />
+                </div>
+            </div>
+
+            <div id="zone_membres">
+                <textarea id="barre_membre" placeholder="invité user"></textarea>
+                <div class="membre">
+                    <a href="URL">>_ Toi</a>
+                </div>
+                <div class="membre">
+                    <a href="URL">>_ Membre 1</a>
                 </div>
             </div>
 
