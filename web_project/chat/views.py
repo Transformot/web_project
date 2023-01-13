@@ -26,7 +26,7 @@ def home(request):
         'channels': Channel.objects.count(),
         'messages': Message.objects.count()
     }
-    return render(request, 'index_copy.html', stats)
+    return render(request, 'index.html', stats)
 
 
 @csrf_exempt
