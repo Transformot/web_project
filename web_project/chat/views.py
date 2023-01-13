@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect
+from django.views.decorators.csrf import csrf_exempt
 from django.template import Template, Context, loader
 from django.urls import reverse
 from .models import *
@@ -8,17 +9,58 @@ from .models import *
 # Create your views here.
 
 
+def verify(username, password):
+    users = User.objects.all()
+
+    for user in users:
+        if user.username == username:
+            return user.password == password
+
+    return False
+
+
+@csrf_exempt
 def home(request):
-    context = {'users': User.objects.count(), 'channels': Channel.objects.count(), 'messages': Message.objects.count()}
-    return render(request, 'index.html', context)
+    stats = {
+        'users': User.objects.count(),
+        'channels': Channel.objects.count(),
+        'messages': Message.objects.count()
+    }
+    return render(request, 'index_copy.html', stats)
 
 
+@csrf_exempt
 def signin(request):
-    return HttpResponseRedirect("/chat")
+    username = request.POST.get('username')
+    password = request.POST.get('password')
+
+    if verify(username, password):
+        request.session['username'] = username
+        request.session['password'] = password
+        return HttpResponse(True)
+
+    return HttpResponse(False)
 
 
+@csrf_exempt
 def signup(request):
-    return HttpResponseRedirect("/chat")
+    users = User.objects.all()
+    username = request.POST.get('username')
+    password = request.POST.get('password')
+
+    for user in users:
+        if user.username == username:
+            return HttpResponse(False)
+
+    User(username=username, password=password).save()
+    request.session['username'] = username
+    request.session['password'] = password
+    return HttpResponse(True)
+
+
+def signout(request):
+    request.session.flush()
+    return HttpResponseRedirect("/home")
 
 
 def chat(request):
@@ -38,23 +80,3 @@ def test(request):
             return HttpResponse("You're connected as {}".format(user))
 
     return HttpResponse("You're not connected to this service")
-
-
-def test_logout(request):
-    request.session.flush()
-    return HttpResponseRedirect("/test")
-
-
-def test_login(request):
-    return render(request, 'test.html')
-
-
-def test_login_data(request):
-    users = User.objects.all()
-
-    for user in users:
-        if request.GET.get('username') == user.username:
-            if request.GET['password'] == user.password:
-                request.session['username'] = user.username
-                request.session['password'] = user.password
-    return HttpResponse(True)

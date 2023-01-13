@@ -9,19 +9,19 @@ form.addEventListener("submit", function (event) {
     alert("Username : " + username + "\nPassword : " + password);
 
     $.ajax({
-        url: "/test/login/data",
-        type: "GET",
+        url: "signin/",
+        type: "POST",
         data: {
             username: username,
             password: password,
         },
         success: function (data, textSatus, jqXHR)
         {
-            open('/test', '_self')
+            open('/test', '_self');
         },
         error: function (data, textStatus, jqXHR)
         {
-            alert("There was an issue. Data not sent.")
+            alert("There was an issue. Data not sent.");
         }
     });
 });

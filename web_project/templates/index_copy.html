@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    {% load static %}
+
+    <meta charset="UTF-8">
+    <title>Accueil - N6Chat</title>
+
+    {% block css %}
+        <link rel="stylesheet" href="{% static 'css/style_copy.css' %}"/>
+    {% endblock css %}
+
+    {% block ico %}
+        <link rel="icon" type="image/png" href="{% static 'img/favicon.png' %}"/>
+    {% endblock ico %}
+
+</head>
+<body>
+<!-- Sets the connection window -->
+<div id="background">
+    <div id="window">
+        <form method="POST" id="signup_data">
+            <label for="username">Username :</label>
+            <br/>
+            <input type="text" id="username" name="username"/>
+            <br/>
+            <label for="password">Password :</label>
+            <br/>
+            <input type="password" id="password" name="password"/>
+            <br/>
+            <label for="c_password">Confirm password :</label>
+            <br/>
+            <input type="password" id="c_password" name="c_password"/>
+            <br/>
+            <br/>
+            <button type="submit" name="submit">Sign up</button>
+        </form>
+        <form method="POST" id="signin_data">
+            <label for="username">Username :</label>
+            <br/>
+            <input type="text" id="username" name="username"/>
+            <br/>
+            <label for="password">Password :</label>
+            <br/>
+            <input type="password" id="password" name="password"/>
+            <br/>
+            <br/>
+            <button type="submit" name="submit">Sign in</button>
+        </form>
+    </div>
+</div>
+<!-- Sets the navigation bar, which is fixed in the upper space of the screen -->
+<header>
+    <div>
+        <a href="https://www.ensisa.uha.fr/" target="_blank">
+
+            {% block img %}
+                <img src="{% static 'img/ensisa_uha_logo.png' %}" alt="Logo de l'ENSISA">
+            {% endblock img %}
+
+        </a>
+    </div>
+    <div>
+        <a href="">
+            <h1>
+                N6Chat
+            </h1>
+        </a>
+    </div>
+    <div>
+        <nav>
+            <div class="nav_div" id="nav_div_signin">
+                <a id="signup" href="#" onclick="show_window()">Inscription</a>
+            </div>
+            <div class="nav_div" id="nav_div_signup">
+                <a id="signin" href="#" onclick="show_window()">Connexion</a>
+            </div>
+        </nav>
+    </div>
+</header>
+<section>
+    <!-- Space in the page which contains all the data in text zones -->
+    <div class="text_zone">
+        <h2 class="paragraph">
+            >_ Bienvenue sur N6Chat ! 😼
+        </h2>
+        <div class="paragraph">
+            <h4>
+                N6Chat, c'est quoi ?
+            </h4>
+            <p>>_ C'est un chat centralisé qui te permet de communiquer
+                très facilement avec tes amis, à l'aide de ton navigateur.
+            </p>
+        </div>
+        <div class="paragraph">
+            <h4>
+                Est-ce que N6Chat est payant ?
+            </h4>
+            <p>>_ N6Chat est un service entièrement gratuit, il te faut
+                simplement créer un compte pour pouvoir l'utiliser.
+            </p>
+        </div>
+        <div class="paragraph">
+            <h4>Pourquoi avoir développé N6Chat alors que de nombreux
+                services équivalents sont déjà disponibles ?
+            </h4>
+            <p>>_ N6Chat a été développé dans le cadre d'un projet d'étudiants
+                en école d'ingénieur, en filière Informatique et Réseaux.
+            </p>
+            <p>
+                Ce site constitue donc le rendu final à cette évaluation de
+                fin de semestre.
+            </p>
+        </div>
+        <div class="text_zone_inside">
+            <div class="paragraph">
+                <h4>
+                    Qui a développé N6Chat ?
+                </h4>
+                <p>
+                    >_ Le projet a été développé par trois étudiants de première année
+                    de l'ENSISA à Mulhouse.
+                </p>
+                <ul>
+                    <li>
+                        Arthur SICARD - Sicard1864
+                    </li>
+                    <li>
+                        Guilhem LACASSAGNE - Tolosmoc
+                    </li>
+                    <li>
+                        Pierre GIEN - Transformot
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="text_zone">
+        <h2 class="paragraph">
+            >_ Statistiques 〽️
+        </h2>
+        <div class="text_zone_inside">
+            <div class="paragraph">
+                {% block users %}
+                    <p>{{ users }} - Utilisateurs</p>
+                {% endblock users %}
+            </div>
+            <div class="paragraph">
+                {% block channels %}
+                    <p>{{ channels }} - Salons</p>
+                {% endblock channels %}
+            </div>
+            <div class="paragraph">
+                {% block messages %}
+                    <p>{{ messages }} - Messages</p>
+                {% endblock messages %}
+            </div>
+        </div>
+    </div>
+    <div class="text_zone">
+        <h2 class="paragraph">
+            >_ Présentation du sujet 📄
+        </h2>
+        <div class="paragraph">
+            <p>
+                Lien du repo GitHub :
+                <a href="https://github.com/Transformot/web_project" target="_blank">
+                    web_project
+                </a>
+            </p>
+        </div>
+        <div class="text_zone_inside">
+            <h3 class="paragraph">
+                >_ Cahier des charges :
+            </h3>
+            <div class="paragraph">
+                <h4>
+                    Le projet a pour objectif de respecter les spécifications suivantes :
+                </h4>
+                <ul>
+                    <li>
+                        Technologie Django côté serveur / Javascript côté client
+                    </li>
+                    <li>
+                        Gestion de l’inscription et de la connexion d’utilisateur
+                    </li>
+                    <li>
+                        Fonctionnalités de création de salon de discussion
+                    </li>
+                    <li>
+                        Application avec plusieurs salons de discussion
+                    </li>
+                    <li>
+                        Gestion des émojis
+                    </li>
+                    <li>
+                        Gestion des droits
+                    </li>
+                    <li>
+                        Fonction de modération
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+<footer>
+    <h4>Tous droits réservés.</h4>
+</footer>
+
+{% block js %}
+    <script src="{% static 'js/jquery-3.6.3.js' %}"></script>
+    <script src="{% static 'js/traitement_copy.js' %}"></script>
+    <script src="{% static 'js/index_copy.js' %}"></script>
+{% endblock js %}
+
+</body>
+</html>
