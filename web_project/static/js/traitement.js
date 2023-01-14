@@ -93,7 +93,7 @@ signup_form.addEventListener("submit", function (event) {
             }
             else{
                 alert("Ce pseudonyme est déjà pris.")
-                document.getElementById("username_in").style.border = "solid 2px red";
+                document.getElementById("username_up").style.border = "solid 2px red";
             }
         },
         error: function (data, textStatus, jqXHR)
