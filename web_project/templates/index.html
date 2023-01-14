@@ -26,21 +26,44 @@
                 <div class="div_form">
                     <div class="signUp_div" id="signUp_form">
                         <form method="POST" id="signup_data">
-                            <label for="username"></label>
-                            <input type="text" id="username" name="username" placeholder=">_ Pseudonyme"/>
-                            <label for="password"></label>
-                            <input type="password" id="password" name="password" placeholder=">_ Mot de passe"/>
-                            <label for="c_password"></label>
-                            <input type="password" id="c_password" name="c_password" placeholder=">_ Mot de passe"/>
+                            <label for="username_up">
+                            </label>
+                            <input type="text" id="username_up" name="username" placeholder=">_ Pseudonyme"
+                                   alt="Votre pseudonyme peut contenir :
+                                     - Des lettres majuscules
+                                     - Des lettres minuscules
+                                     - Des chiffres
+                                     - Les caractères : - _"
+                                   title="Votre pseudonyme peut contenir :
+                                     - Des lettres majuscules
+                                     - Des lettres minuscules
+                                     - Des chiffres
+                                     - Les caractère : - _"/>
+                            <label for="password_up"></label>
+                            <input type="password" id="password_up" name="password" placeholder=">_ Mot de passe"
+                                alt="Votre mot de passe doit contenir :
+                                     - 1 lettre majuscule
+                                     - 1 lettre minuscule
+                                     - 1 chiffre
+                                     - 1 caractère spécial (-, _, *)"
+                                title="Votre mot de passe doit contenir :
+                                     - 1 lettre majuscule
+                                     - 1 lettre minuscule
+                                     - 1 chiffre
+                                     - 1 caractère spécial (-, _, *)"/>
+                            <label for="c_password_up"></label>
+                            <input type="password" id="c_password_up" name="c_password" placeholder=">_ Mot de passe"
+                                   alt="Veuillez retaper votre mot de passe."
+                                   title="Veuillez retaper votre mot de passe."/>
                             <button type="submit" name="submit" id="btnSignUp" class="formButton">S'inscrire</button>
                         </form>
                     </div>
                     <div class="signIn_div" id="signIn_form">
                         <form method="POST" id="signin_data">
-                            <label for="username"></label>
-                            <input type="text" id="username" name="username" placeholder=">_ Pseudonyme"/>
-                            <label for="password"></label>
-                            <input type="password" id="password" name="password" placeholder=">_ Mot de passe"/>
+                            <label for="username_in"></label>
+                            <input type="text" id="username_in" name="username" placeholder=">_ Pseudonyme"/>
+                            <label for="password_in"></label>
+                            <input type="password" id="password_in" name="password" placeholder=">_ Mot de passe"/>
                             <button type="submit" name="submit" id="btnSignIn" class="formButton">Se connecter</button>
                         </form>
                     </div>
