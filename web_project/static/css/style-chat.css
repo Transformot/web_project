@@ -54,6 +54,7 @@ section div#zone_salons {
     background-color: rgba(255, 255, 255, 0.25);
     border-radius: 0 50px 50px 0;
     box-shadow: 0 10px 100px 25px rgba(48, 48, 48, 0.5);
+    overflow: scroll;
 }
 
 textarea#barre_salon{
@@ -62,7 +63,6 @@ textarea#barre_salon{
     height: 30px;
     margin-bottom: 20px;
     padding: 7.5px 15px;
-    overflow: hidden;
     color: rgb(0, 0, 0);
     background: linear-gradient(180deg, rgba(201, 195, 17, 0.879) 0%, rgba(106, 97, 1, 0.354) 100%);
     border-radius: 50px;
@@ -104,7 +104,7 @@ section div p{
     color: #000000;
 }
 
-section div#chat_box {
+section div#zone_msg {
     width: 100%;
     height: 450px;
     margin: auto;
@@ -121,7 +121,6 @@ section div#barre_box{
     line-height: 30px;
     margin: 0 auto 50px;
     padding: 5% 5% 5%;
-    background-color: none;
     text-align: center;
 }
 
