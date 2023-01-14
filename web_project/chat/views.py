@@ -52,7 +52,7 @@ def signup(request):
         if user.username == username:
             return HttpResponse(False)
 
-    User(username=username, password=password).save()
+    User(username=username, password=password, connected=True).save()
     request.session['username'] = username
     request.session['password'] = password
     return HttpResponse(True)
