@@ -5,6 +5,7 @@ from django.db import models
 class User(models.Model):
     username = models.CharField(max_length=20)
     password = models.CharField(max_length=20)
+    state = models.BooleanField()
 
     def __str__(self):
         return self.username
@@ -17,6 +18,16 @@ class User(models.Model):
         self.password = password
         return self.password
 
+    def switch(self):
+        self.state = not self.state
+        return self.state
+
+    def print_state(self):
+        if self.state:
+            return "{} : CONNECTED".format(self.username)
+        else:
+            return "{} : DISCONNECTED".format(self.username)
+
     def rem(self):
         self.delete()
         return True
@@ -24,7 +35,7 @@ class User(models.Model):
 
 class Channel(models.Model):
     name = models.CharField(max_length=20)
-    owner = models.ForeignKey(User, on_delete=models.DO_NOTHING, related_name="owned")
+    owner = models.ForeignKey(User, on_delete=models.CASCADE, related_name="owned")
     users = models.ManyToManyField(User, related_name="channels")
     banned = models.ManyToManyField(User, related_name="banned_channels", blank=True)
 
@@ -78,21 +89,6 @@ class Message(models.Model):
     def rem(self):
         self.delete()
         return True
-
-
-class State(models.Model):
-    connected = models.BooleanField()
-    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name="state")
-
-    def __str__(self):
-        if self.connected:
-            return "{} : CONNECTED".format(self.user)
-        else:
-            return "{} : DISCONNECTED".format(self.user)
-
-    def switch(self):
-        self.connected = not self.connected
-        return self.connected
 
 
 class Role(models.Model):
