@@ -17,17 +17,23 @@ header {
     top: 50px;
     left: 0;
     width: 90%;
-    height: auto;
+    height: 130px;
+    line-height: 130px;
     margin: 0 5%;
     padding: 20px 60px;
     text-align: center;
     background: linear-gradient(135deg, rgba(141,164,210,0.50) 0%, rgba(88,101,113,0.50) 100%);
     border-radius: 150px;
+    box-shadow: 0 10px 50px rgba(24, 24, 24, 0.8);
+    text-align: justify;
 }
 
-header div {
-    width: 100%;
-    height: 100%;
+header div#div_title{
+    display: inline-block;
+    height: 90px;
+    width: 60%;
+    margin: 0 10% 0 8%; 
+    line-height: 90px;
     text-align: center;
 }
 
@@ -37,6 +43,36 @@ header h2 {
     color: white;
     font-size: 75px;
 }
+
+header div#div_signout{
+    display: inline-block;
+    width: 130px;
+    height: 90px;
+    line-height: 90px;
+}
+
+#div_signout {
+    float: right;
+    width: 50%;
+    height: 100%;
+}
+
+#div_signout a, #div_signout a:hover, #div_signout a:active, #div_signout a:visited {
+    color: white;
+}
+
+#div_signout a {
+    background: linear-gradient(135deg, rgba(12,12,12,0.5) 0%, rgba(80,80,80,0.5) 100%);
+    box-shadow: 5px 5px 25px 0 rgba(24, 24, 24, 0.5);
+    padding: 25px;
+    border-radius: 150px;
+}
+
+#div_signout a:hover {
+    background: linear-gradient(135deg, rgba(80,80,80,0.5) 0%, rgba(12,12,12,0.5) 100%);
+    padding: 35px;
+}
+
 
 section {
     padding-top: 200px;
