@@ -28,28 +28,25 @@
 
             <div id="zone_salons">
                 <textarea id="barre_salon" placeholder="Créer salon"></textarea>
+                {% block channel %}
                 <div class="salon">
-                    <a href="google.com">>_ Accueilaaa</a>
+                    <a href="url">>_ salon</a>
                 </div>
-                <div class="salon">
-                    <a>>_ Salon 1</a>
-                </div>
-                <div class="salon">
-                    <a>>_ Salon 2</a>
-                </div>
+                {% endblock channel %}
+
             </div>
             <div id="text_zone">
                 <h3 class="paragraph">
                     >_ Bienvenue sur le salon XXX
                 </h3>
                 <div id="zone_msg">
-                    <p>(hh:mm PM) <span>User_1</span>: Hello world</p>
-                    <p>(hh:mm PM) <span>User_2</span>: Je répond</p>
-                    <p>(hh:mm PM) <span>User_1</span>: Hello world</p>
-                    <p>(hh:mm PM) <span>User_2</span>: Je répond</p>
-                    <br/>
-                    <p id="date"></p>
-                </div>            
+                    {% block message %}
+                    <p>(**h**) <span style="color:red">Proprio </span>: Hello world</p>
+                    <p>(**h**) <span>User_2</span> : Je répond</p>
+                    <p>(**h**) <span>User_1</span> : Hello world</p>
+                    <p>(**h**) <span>User_2</span> : Je répond</p>
+                    {% endblock message %} 
+                </div>      
                 <div id="barre_box">
                     <textarea id="barre_chat" placeholder="Envoyer un message"></textarea>
                     <input type="submit" name="envoie" value="envoyer" id="button_chat" />
@@ -58,12 +55,11 @@
 
             <div id="zone_membres">
                 <textarea id="barre_membre" placeholder="invité user"></textarea>
+                {% block membre %}
                 <div class="membre">
-                    <a href="URL">>_ Toi</a>
+                    <a href="URL">>_ Membre XXXX</a>
                 </div>
-                <div class="membre">
-                    <a href="URL">>_ Membre 1</a>
-                </div>
+                {% endblock membre %}
             </div>
 
 
