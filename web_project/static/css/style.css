@@ -211,19 +211,6 @@ footer h4 {
     width: 100%;
 }
 
-#window_background {
-    z-index: 3;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    height: 50%;
-    width: 40%;
-    padding: 50px;
-    border-radius: 50px;
-    background: linear-gradient(180deg, rgba(12,84,96,1) 0%, rgba(55,55,55,1) 100%);
-}
-
 #window {
     z-index: 3;
     position: fixed;

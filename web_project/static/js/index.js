@@ -5,10 +5,10 @@ let signInDiv = document.querySelector(".signIn_div");
 const bckg = document.querySelector('#background');
 
 function show_window() {
-    bckg.style.display = 'block'
+    bckg.style.display = 'block';
 }
 function hide_window() {
-    bckg.style.display = 'none'
+    bckg.style.display = 'none';
 }
 
 function func_signIn() {
