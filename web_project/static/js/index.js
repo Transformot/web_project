@@ -39,6 +39,6 @@ $('#background').on('click', function(event) {
     document.getElementById("password_up").style.border = "none";
     document.getElementById("c_password_up").style.border = "none";
     document.getElementById("username_in").style.border = "none";
-    document.getElementById("password_up").style.border = "none";
+    document.getElementById("password_in").style.border = "none";
     hide_window()
 });
