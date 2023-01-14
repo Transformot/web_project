@@ -52,7 +52,6 @@
                     <input type="submit" name="envoie" value="envoyer" id="button_chat" />
                 </div>
             </div>
-
             <div id="zone_membres">
                 <textarea id="barre_membre" placeholder="invité user"></textarea>
                 {% block membre %}
@@ -60,6 +59,19 @@
                     <a href="URL">>_ Membre XXXX</a>
                 </div>
                 {% endblock membre %}
+            </div>
+            <div class="text_zone">
+                <h3 class="paragraph">
+                    >_ Bannir utilisateur :
+                </h3>
+                <textarea id="barre_bannished" placeholder="username"></textarea>
+                <button id="button_bannished">Ok</button>
+                <h3 class="paragraph">
+                    >_ Se renommer :
+                </h3>
+                <textarea id="barre_rename" placeholder="username"></textarea>
+                <button id="button_rename">Ok</button>
+
             </div>
 
 

@@ -100,7 +100,6 @@ div.zone_salons {
 textarea#barre_salon{
     display: inline-block;
     width: 90%;
-    height: 30px;
     margin-bottom: 20px;
     padding: 7.5px 15px;
     color: rgb(0, 0, 0);
@@ -208,7 +207,6 @@ section div#zone_membres {
 textarea#barre_membre{
     display: inline-block;
     width: 90%;
-    height: 30px;
     margin-bottom: 20px;
     padding: 7.5px 15px;
     overflow: hidden;
@@ -237,6 +235,80 @@ textarea#barre_membre{
     padding: 20px 5px 15px 20px;
     color: rgb(255, 255, 255);
     text-decoration: none;
+}
+
+.text_zone {
+    color: white;
+    margin: 0 auto 90px;
+    margin: 0 10% 90px;
+    padding: 70px 4% 15px;
+    background-color: rgba(255, 255, 255, 0.25);
+    border-radius: 50px;
+    box-shadow: 0 10px 100px 25px rgba(48, 48, 48, 0.5);
+}
+
+.text_zone_inside {
+    color: white;
+    margin-bottom: 50px;
+    width: 100%;
+    padding: 75px 75px 15px;
+    background-color: rgba(255, 255, 255, 0.25);
+    border-radius: 50px;
+    box-shadow: 0 10px 100px 25px rgba(48, 48, 48, 0.5);
+}
+
+.paragraph {
+    padding-bottom: 10px;
+    line-height: 30px;
+}
+
+
+textarea#barre_bannished{
+    display: inline-block;
+    width: 80%;
+    margin: 0 auto 20px;
+    padding: 7.5px 15px;
+    overflow: hidden;
+    color: rgb(0, 0, 0);
+    background: linear-gradient(180deg, rgba(201, 195, 17, 0.879) 0%, rgba(106, 97, 1, 0.354) 100%);
+    border-radius: 50px;
+    border: 0px solid rgba(0, 0, 0, 0);
+    box-shadow: 0 10px 100px 25px rgba(48, 48, 48, 0.5);
+}
+
+button#button_bannished{
+    display: inline-block;
+    width: 94px;
+    padding: 5px 0;
+    color: rgb(0, 0, 0);
+    background: linear-gradient(180deg, rgba(202, 50, 36, 0.8) 0%, rgba(54, 54, 54, 0.354) 100%);
+    box-shadow: 0 10px 100px 25px rgba(48, 48, 48, 0.5);
+    border-radius: 50px;
+    border: none;
+}
+
+textarea#barre_rename{
+    display: inline-block;
+    width: 80%;
+    margin: 0 auto 20px;
+    padding: 7.5px 15px;
+    overflow: hidden;
+    color: rgb(0, 0, 0);
+    background: linear-gradient(180deg, rgba(201, 195, 17, 0.879) 0%, rgba(106, 97, 1, 0.354) 100%);
+    border-radius: 50px;
+    border: 0px solid rgba(0, 0, 0, 0);
+    box-shadow: 0 10px 100px 25px rgba(48, 48, 48, 0.5);
+}
+
+button#button_rename{
+    display: inline-block;
+    width: 94px;
+    padding: 5px 0;
+    color: rgb(0, 0, 0);
+    background: linear-gradient(180deg, rgba(202, 50, 36, 0.8) 0%, rgba(54, 54, 54, 0.354) 100%);
+    box-shadow: 0 10px 100px 25px rgba(48, 48, 48, 0.5);
+    border-radius: 50px;
+    border: none;
 }
 
 footer {
