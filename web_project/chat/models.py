@@ -12,14 +12,17 @@ class User(models.Model):
 
     def chg_username(self, username):
         self.username = username
+        self.save()
         return self.username
 
     def chg_password(self, password):
         self.password = password
+        self.save()
         return self.password
 
     def switch(self):
         self.connected = not self.connected
+        self.save()
         return self.connected
 
     def print_state(self):
@@ -44,28 +47,34 @@ class Channel(models.Model):
 
     def chg_name(self, name):
         self.name = name
+        self.save()
         return self.name
 
     def chg_owner(self, user):
         self.owner = user
+        self.save()
         return user.username
 
     def add_user(self, user):
         self.users.add(user)
+        self.save()
         return user.username
 
     def rem_user(self, user):
         self.users.remove(user)
+        self.save()
         return user.username
 
     def ban_user(self, user):
         self.users.remove(user)
         self.banned.add(user)
+        self.save()
         return user.username
 
     def unban_user(self, user):
         self.banned.remove(user)
         self.users.add(user)
+        self.save()
         return user.username
 
     def rem(self):
@@ -84,6 +93,7 @@ class Message(models.Model):
 
     def chg_data(self, data):
         self.data = data
+        self.save()
         return self.data
 
     def rem(self):
@@ -111,6 +121,7 @@ class Role(models.Model):
         self.rem_user = rights[2]
         self.rem_message = rights[3]
         self.not_bannable = rights[4]
+        self.save()
         return
 
     def rem(self):
