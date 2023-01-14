@@ -1,133 +1,81 @@
-// Var
-allowed = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-_.'.split('');
+let signin_form = document.querySelector('#signin_data');
+let signup_form = document.querySelector('#signup_data');
+signin_form.addEventListener("submit", function (event) {
+    event.preventDefault();
 
-// Verification for sign in
-let btnIn = document.querySelector("#btnSignIn");
+    let username = signin_form.elements["username"].value;
+    let password = signin_form.elements["password"].value;
 
-btnIn.addEventListener('click', signInVerification);
-function signInVerification () {
-    let pseudo = document.getElementById("pseudonymeSignIn").value;
-    let password = document.getElementById("passwordSignIn").value;
+    //Code de vérification, si tous ok, effectuer la requête suivante
+    //data pour la fonction success correspond au return de la vue django, ici True si l'utilisateur est connecté, False sinon
+
+    $.ajax({
+        url: "signin/",
+        type: "POST",
+        data: {
+            username: username,
+            password: password,
+        },
+        success: function (data, textSatus, jqXHR)
+        {
+            open('/test', '_self');
+        },
+        error: function (data, textStatus, jqXHR)
+        {
+            alert("There was an issue. Data not sent.");
+        }
+    });
+});
+
+signup_form.addEventListener("submit", function (event) {
     let verification = true;
 
-    if (pseudo == "") {
-        document.getElementById("pseudonymeSignIn").style.border = "solid 2px red";
-        alert("Merci de renseigner un pseudonyme.");
-        verification = false;
-    }
-    else{
-        document.getElementById("pseudonymeSignIn").style.border = "none";
-    }
+    event.preventDefault();
 
-    if (password == "") {
-        document.getElementById("passwordSignIn").style.border = "solid 2px red";
-        alert("Merci d'entrer votre un mot de passe.");
-        verification = false;
-    }
-    else if (password.length < 6 || password.length > 20) {
-        document.getElementById("passwordSignIn").style.border = "solid 2px red";
-        alert("Mauvais mot de passe.");
-        verification = false;
-    }
-    else{
-        document.getElementById("passwordSignIn").style.border = "none";
-    }
+    let username = signup_form.elements["username"].value;
+    let password = signup_form.elements["password"].value;
+    let c_password = signup_form.elements["c_password"].value;
 
-    if (verification === true)
-    {
-        // [Verification si bonnes données dans la base]
-        alert("Comming soon...");
-        return true;
-    }
-    else{
-        return false;
-    }
-}
-
-// Verification for sign up
-let btnUp = document.querySelector("#btnSignUp");
-
-btnUp.addEventListener('click', signUpVerification);
-function signUpVerification () {
-    let pseudo = document.getElementById("pseudonymeSignUp").value;
-    let password = document.getElementById("passwordSignUp").value;
-    let passwordVerif = document.getElementById("passwordSignUpVerif").value;
-    let verification = true;
-
-    if (pseudo == "") {
-        document.getElementById("pseudonymeSignUp").style.border = "solid 2px red";
+    //Code de vérification, si tous ok, effectuer la requête suivante
+    if (username === "") {
+        document.getElementById("username").style.border = "solid 2px red";
         alert("Merci de renseigner un pseudonyme.");
         verification = false;
     }
     else {
-        for (let i=0; i < pseudo.length; i++) {
-            if (!(pseudo[i] in allowed)){
-                alert("Votre pseudonyme ne remplit pas les critères.");
-            }
-        }
-        if ('b'=='a') {
-            alert("hello.")
-        }
-        else {
-            document.getElementById("pseudonymeSignUp").style.border = "none";
-        }
+        document.getElementById("username").style.border = "none";
     }
-    if (password == "") {
-        document.getElementById("passwordSignUp").style.border = "solid 2px red";
-        document.getElementById("passwordSignUpVerif").style.border = "solid 2px red";
+
+    if (password === "") {
+        document.getElementById("password").style.border = "solid 2px red";
+        document.getElementById("c_password").style.border = "solid 2px red";
         alert("Merci de renseigner un mot de passe.");
         verification = false;
     }
-    else if (password.length < 6) {
-        document.getElementById("passwordSignUp").style.border = "solid 2px red";
-        document.getElementById("passwordSignUpVerif").style.border = "solid 2px red";
-        alert("Le mot de passe doit comporter six caractères au minimum.");
-        verification = false;
-    }
-    else{
-        document.getElementById("passwordSignUp").style.border = "none";
-        if (passwordVerif == "") {
-            document.getElementById("passwordSignUpVerif").style.border = "solid 2px red";
-            alert("Merci de confirmer le mot de passe.");
-            verification = false;
-        }
-        else if (password !== passwordVerif) {
-            document.getElementById("passwordSignUpVerif").style.border = "solid 2px red";
-            alert("Merci de renseigner le même mot de passe.");
-            verification = false;
-        }
-        else{
-            document.getElementById("passwordSignUpVerif").style.border = "none";
-        }
+    else {
+        document.getElementById("password").style.border = "none";
+        document.getElementById("c_password").style.border = "none";
     }
 
-    if (verification === true)
-    {
-        // Verification si bonnes données dans la base
-        alert("Comming soon...");
-        return true;
+    if (verification !== true) {
+        return 0;
     }
-    else{
-        return false;
-    }
-}
+    //data pour la fonction success correspond au return de la vue django, ici True si l'utilisateur est connecté, False sinon
 
-// Notes :
-    /*
-    // Password verification before send to server
-    if ((password.lenght < 6)) {
-        alert ("Le mot de passe doit faire au moins 6 caractères.");
-        return False;
-    }
-    if ((password.lenght < 6)) {
-        alert ("Le mot de passe doit faire au moins 6 caractères.");
-        return False;
-    }
-
-     */
-    /*
-    var caracSpé = 0;
-    if (password(0)!=1){
-        caracSpé += 1;
-    }
-    */
+    $.ajax({
+        url: "signup/",
+        type: "POST",
+        data: {
+            username: username,
+            password: password,
+        },
+        success: function (data, textSatus, jqXHR)
+        {
+            open('/test', '_self');
+        },
+        error: function (data, textStatus, jqXHR)
+        {
+            alert("There was an issue. Data not sent.");
+        }
+    });
+});
