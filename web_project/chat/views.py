@@ -25,6 +25,12 @@ def get_user(username):
 
 @csrf_exempt
 def home(request):
+    username = request.session.get('username')
+    password = request.session.get('password')
+
+    if verify(username, password):
+        return HttpResponseRedirect('/chat')
+
     stats = \
         {
             'users': User.objects.count(),
@@ -81,6 +87,12 @@ def signout(request):
 
 
 def chat(request):
+    username = request.session.get('username')
+    password = request.session.get('password')
+
+    if not verify(username, password):
+        return HttpResponseRedirect('/error404')
+
     return render(request, 'chat.html')
 
 

@@ -88,8 +88,8 @@ signup_form.addEventListener("submit", function (event) {
         },
         success: function (data, textSatus, jqXHR)
         {
-            if(data) {
-                open('/test', '_self');
+            if(data === "True") {
+                open('/chat', '_self');
             }
             else{
                 alert("Ce pseudonyme est déjà pris.")
@@ -163,8 +163,8 @@ signin_form.addEventListener("submit", function (event) {
         },
         success: function (data, textSatus, jqXHR)
         {
-            if(data) {
-                open('/test', '_self');
+            if(data === "True") {
+                open('/chat', '_self');
             }
             else {
                 document.getElementById("username_in").style.border = "solid 2px red";
