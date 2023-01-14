@@ -35,5 +35,10 @@ function func_signUp() {
 $('#background').on('click', function(event) {
     if (event.target !== this)
         return;
+    document.getElementById("username_up").style.border = "none";
+    document.getElementById("password-up").style.border = "none";
+    document.getElementById("c_password_up").style.border = "none";
+    document.getElementById("username_in").style.border = "none";
+    document.getElementById("password-up").style.border = "none";
     hide_window()
 });
