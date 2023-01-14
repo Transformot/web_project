@@ -45,7 +45,6 @@ function create_channel() {
         {
             alert("There was an issue. Data not sent. \n channel name : " + barre_channel.value);
             salon();
-            membre();
         }
     }); 
     setTimeout(clear_ch, 1000);
@@ -95,7 +94,6 @@ function send_msg(){
         {
             alert("There was an issue. Data not sent. -> " + barre_message.value);
             chat();
-            membre();
         }
     });
     setTimeout(clear_msg, 500);
@@ -146,7 +144,7 @@ function invite_user() {
         error: function (data, textStatus, jqXHR)
         {
             alert("There was an issue. Data not sent. \n user name : " + barre_membre.value);
-            salon();
+            membre();
         }
     }); 
     setTimeout(clear_usr, 500);
