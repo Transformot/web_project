@@ -200,33 +200,46 @@ footer h4 {
     margin-right: 30%;
 }
 
-/*////////////////////////
-//////////////////////////
-//////////////////////////
-//////////////////////////
-//////////////////////////
-//////////////////////////
-//////////////////////////*/
+/*Window CSS here*/
 
-#close{
-    float:right;
-}
-#close-btn{
-    font-size: 20px;
-    padding: 10px;
-}
-
-#popupForm{
+#background {
+    z-index: 2;
     display: none;
     position: fixed;
-    left: 45%;
-    top: 25%;
-    transform: translate(-45%, 5%);
-    border: none;
-    z-index: 9;
+    background-color: rgba(128,128,128,0.8);
+    height: 100%;
+    width: 100%;
 }
 
-.sign-In-or-Up{
+#window_background {
+    z-index: 3;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 50%;
+    width: 40%;
+    padding: 50px;
+    border-radius: 50px;
+    background: linear-gradient(180deg, rgba(12,84,96,1) 0%, rgba(55,55,55,1) 100%);
+}
+
+#window {
+    z-index: 3;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 50%;
+    width: 40%;
+    padding: 50px;
+    background: linear-gradient(180deg, rgba(12,84,96,1) 0%, rgba(55,55,55,1) 100%);
+    box-shadow: 0 10px 50px rgba(48, 48, 48, 0.8);
+    border-radius: 50px;
+    text-align: center;
+}
+
+.sign_in_up{
     height: 600px;
     width: 500px;
     background-color: #0c5460;
@@ -238,8 +251,7 @@ footer h4 {
 #button{
     height: 60px;
     width: 320px;
-    margin: 20px auto;
-    box-shadow: 10px 10px 30px rgb(254, 215, 188);
+    margin: 2% auto 5% auto;
     border-radius: 50px;
     display: flex;
     justify-content: space-around;
@@ -247,49 +259,51 @@ footer h4 {
 }
 
 .signIn-btn, .signUp-btn {
-    margin-left:15px;
     font-size: 22px;
     border: none;
     outline: none;
-    background-color: transparent;
+    background-color: rgba(255, 255, 255, 0.05);
     position: relative;
     cursor: pointer;
-}
-
-.slider {
-    height: 60px;
-    width: 160px;
+    padding: 20px;
     border-radius: 50px;
-    background-image: linear-gradient(to right,
-    rgb(254, 213, 1),
-    rgb(254, 233, 75));
-    position: absolute;
-    top: 20px;
-    left: 72px;
-    transition: all 0.5s ease-in-out;
+    0margin: 0 2%;
 }
 
-.moveslider {
-    left: 235px;
+.div_form {
+    display: inline-block;
+    text-align: center;
 }
 
-.sections{
+.signUp_div {
+    margin: auto;
     height: 500px;
-    width: 1000px;
-    padding: 0;
-    display: flex;
+    width: 50%;
+    position: absolute;
+    transition: all 0.5s ease-in-out;
+    right: 12vw;
+}
+
+.signUp_div_move {
+    right: 200vw;
+}
+
+.signIn_div {
+    margin: auto;
+    height: 500px;
+    width: 50%;
     position: relative;
     transition: all 0.5s ease-in-out;
-    left: 0px;
+    left: 200vw;
 }
 
-.sections-move {
-    left: -500px;
+.signIn_div_move {
+    left: 0vw;
 }
 
 #signIn, #signUp {
     height: 100%;
-    width: 500px;
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -306,32 +320,35 @@ footer h4 {
 }
 
 form input{
+    display: inline;
     height: 60px;
-    width: 400px;
+    width: 80%;
     outline: none;
     border: none;
-    color: rgb(77, 77, 77);
-    background-color: rgb(240, 240, 240);
+    color: white;
+    background-color: rgba(255, 255, 255, 0.25);
     border-radius: 50px;
-    padding-left: 30px;
+    padding: 0 10%;
     margin-bottom:5px;
     font-size: 18px;
-}
-
-form input:invalid{
-    border: solid 2px red;
+    text-overflow: ellipsis;
 }
 
 form input::placeholder{
-    color:#000000;
+    color:#FFFFFF;
 }
 
-.form-submit-button {
+.formButton {
+    margin: 5% 0;
+    border: none;
+    border-radius: 50px;
+    padding: 5% 10%;
+    font-size: 18px;
     font-weight: bold;
     color: white;
-    background: linear-gradient(135deg, rgba(141, 164, 210, 0.75) 0%, rgba(93, 109, 141, 0.35) 100%);
+    background: linear-gradient(135deg, rgb(88, 99, 133) 0%, rgba(93, 109, 141, 0.35) 100%);
 }
-.form-submit-button:hover{
+.formButton:hover{
     font-weight: bold;
     color:white;
     background: linear-gradient(135deg, rgba(100, 125, 150, 0.75) 0%, rgb(93, 109, 141, 0.35) 100%);
