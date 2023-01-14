@@ -5,7 +5,7 @@ from django.db import models
 class User(models.Model):
     username = models.CharField(max_length=20)
     password = models.CharField(max_length=20)
-    state = models.BooleanField()
+    connected = models.BooleanField()
 
     def __str__(self):
         return self.username
@@ -19,11 +19,11 @@ class User(models.Model):
         return self.password
 
     def switch(self):
-        self.state = not self.state
-        return self.state
+        self.connected = not self.connected
+        return self.connected
 
     def print_state(self):
-        if self.state:
+        if self.connected:
             return "{} : CONNECTED".format(self.username)
         else:
             return "{} : DISCONNECTED".format(self.username)
