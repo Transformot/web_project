@@ -1,94 +1,169 @@
 
-var message = document.getElementById("barre_chat");
-message.rows = 3;
-message.maxLength = 25;
-message.style.resize = 'none';
-
-var channel = document.getElementById("barre_salon");
-channel.maxLength = 10;
-channel.style.resize = 'none';
-
-var membre = document.getElementById("barre_membre");
-membre.maxLength = 10;
-membre.style.resize = 'none';
+/* ---------------- longeur max ---------------- */
 
 function maxLength(el){
     if ( !('maxLength' in el) ){
-        var max = el.maxLength.value;
+        let max = el.maxLength.value;
         el.onkeypress = function (){
             if (this.value.length >= max) return false;
         };
     }
 }
-maxLength(message);
-maxLength(channel);
-maxLength(membre);
 
-/* -------- fonction à remplacé par les requête HTTP ---------- */
+/* --------------- salon --------------------- */
 
-// UTC+1 : heure francaise
-function horaire(n){
-    var h, m;
-    h = new Date().getUTCHours() + n;
-    m = new Date().getMinutes();
-    var hor = "(";
-    if (h < 10) {
-        hor += "0";
-    }
-    hor += h +"h";
-    if (m < 10) {
-        hor += "0";
-    }
-    return hor + m +")" ;
-}
-
-function name_user(){
-    var x_name = "admin";
-    var x_color = "red";
-    return "<span style='color:"+ x_color +"'>"+ x_name +"</span>";
-}
-
-function chat(){
-    if (message.value != "\n" ) {
-        var msg = "<p>";
-        msg += horaire(1) + " " + name_user() + ": ";
-        msg += message.value;
-        msg += "</p>";
-        document.getElementById("chat_box").innerHTML += msg;
-    }
-    message.value = '';
-}
-
-let btnSend = document.querySelector("#button_chat");
-btnSend.addEventListener('click', chat);
-message.addEventListener('keyup', function(event){
-    if (event.key == 'Enter'){
-        chat();
-    }
-});
+var barre_channel = document.querySelector("#barre_salon");
+barre_channel.maxLength = 10;
+barre_channel.style.resize = 'none';
+maxLength(barre_channel);
 
 function salon(){
-    alert("test4");
-    if (channel.value != " \n" ) {
-        alert("test");
-        var sal = "<div class='membre'>";
+    if (barre_channel.value != "\n" ) {
+        let sal = "<div class='salon'>";
         sal += "<a>"
-        sal += channel.value + "</a>";
+        sal += ">_ " + barre_channel.value + "</a>";
         sal += "</div>";
-        document.getElementById("zone_salons").innerHTML += sal;
+        document.querySelector("#zone_salons").innerHTML += sal;
     }
-    channel.value = '';
+    else {
+        alert("Vous devez metre un mot");
+    }
 }
 
-channel.addEventListener('keyup', function(event){
+function create_channel() {
+    $.ajax({
+        url: "/test/login/data",
+        type: "POST",
+        data: {
+            name_channel : barre_channel.value,
+        },
+        success: function (data, textSatus, jqXHR)
+        {
+            open('/chat', '_self');
+        },
+        error: function (data, textStatus, jqXHR)
+        {
+            alert("There was an issue. Data not sent. \n channel name : " + barre_channel.value);
+            salon();
+            membre();
+        }
+    }); 
+    setTimeout(clear_ch, 1000);
+}
+
+function clear_ch(){
+    barre_channel.value = '';
+}
+
+barre_channel.addEventListener('keypress', function (event) {
     if (event.key == 'Enter'){
-        alert("test2");
-        salon();
+        create_channel();
     }
-    alert("test3");
-    console.log("test3");
-    return true;
 });
+
+/* --------------- message --------------------- */
+
+var bouton_message = document.querySelector("#button_chat");
+var barre_message = document.querySelector("#barre_chat");
+barre_message.rows = 3;
+barre_message.maxLength = 25;
+barre_message.style.resize = 'none';
+maxLength(barre_message);
+
+function chat(){
+    if (barre_message.value != "\n" ) {
+        let msg = "<p>";
+        msg += " " + ": ";
+        msg += barre_message.value;
+        msg += "</p>";
+        document.querySelector("#zone_msg").innerHTML += msg;
+    }
+}
+
+function send_msg(){
+    $.ajax({
+        url: "/test/login/data",
+        type: "POST",
+        data: {
+           message : barre_message.value,
+        },
+        success: function (data, textSatus, jqXHR)
+        {
+            open('/chat', '_self');
+        },
+        error: function (data, textStatus, jqXHR)
+        {
+            alert("There was an issue. Data not sent. -> " + barre_message.value);
+            chat();
+            membre();
+        }
+    });
+    setTimeout(clear_msg, 500);
+}
+
+function clear_msg(){
+    barre_message.value = '';
+}
+
+bouton_message.addEventListener('click', send_msg);
+barre_message.addEventListener('keypress', function (event) {
+    if (event.key == 'Enter'){
+        send_msg();
+    }
+});
+
+/* ---------------- membre ------------------- */
+
+var barre_membre = document.querySelector("#barre_membre");
+barre_membre.maxLength = 10;
+barre_membre.style.resize = 'none';
+maxLength(barre_membre);
+
+function membre(){
+    if (barre_membre.value != "\n" ) {
+        let usr = "<div class='membre'>";
+        usr += "<a>"
+        usr += ">_ " + barre_membre.value + "</a>";
+        usr += "</div>";
+        document.querySelector("#zone_membres").innerHTML += usr;
+    }
+    else {
+        alert("Vous devez metre un mot");
+    }
+}
+
+function invite_user() {
+    $.ajax({
+        url: "/test/login/data",
+        type: "POST",
+        data: {
+            username : barre_membre.value,
+        },
+        success: function (data, textSatus, jqXHR)
+        {
+            open('/chat', '_self');
+        },
+        error: function (data, textStatus, jqXHR)
+        {
+            alert("There was an issue. Data not sent. \n user name : " + barre_membre.value);
+            salon();
+        }
+    }); 
+    setTimeout(clear_usr, 500);
+}
+
+function clear_usr(){
+    barre_membre.value = '';
+}
+
+barre_membre.addEventListener('keypress', function (event) {
+    if (event.key == 'Enter'){
+        invite_user();
+    }
+});
+
+
+/* ------------------- ------------------------------- */
 
 /* resource
 // https://www.pierre-giraud.com/jquery-apprendre-cours/creation-requete-ajax/
