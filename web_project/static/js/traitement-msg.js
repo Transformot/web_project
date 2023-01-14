@@ -17,6 +17,7 @@ function maxLength(el){
 var barre_channel = document.querySelector("#barre_salon");
 var channel = document.querySelector(".salon");
 barre_channel.maxLength = 10;
+barre_channel.rows = 1;
 barre_channel.style.resize = 'none';
 maxLength(barre_channel);
 
@@ -106,7 +107,7 @@ $('#background').on('click', function(event) {
 var bouton_message = document.querySelector("#button_chat");
 var barre_message = document.querySelector("#barre_chat");
 barre_message.rows = 3;
-barre_message.maxLength = 25;
+barre_message.maxLength = 300;
 barre_message.style.resize = 'none';
 maxLength(barre_message);
 
@@ -159,6 +160,7 @@ barre_message.addEventListener('keypress', function (event) {
 
 var barre_membre = document.querySelector("#barre_membre");
 barre_membre.maxLength = 10;
+barre_membre.rows = 1;
 barre_membre.style.resize = 'none';
 maxLength(barre_membre);
 
@@ -207,11 +209,23 @@ barre_membre.addEventListener('keypress', function (event) {
 
 // ------- bannir membre
 
+var bouton_bannir = document.querySelector("#button_bannished");
+var barre_bannir = document.querySelector("#barre_bannished");
+barre_bannir.rows = 1;
+barre_bannir.maxLength = 25;
+barre_bannir.style.resize = 'none';
+maxLength(barre_bannir);
+
 // ------- affecter role à un membre
 
-/* ------------ profils
+/* ------------------ profils ----------------------- */
 
-
+var bouton_rename = document.querySelector("#button_rename");
+var barre_rename = document.querySelector("#barre_rename");
+barre_rename.rows = 1;
+barre_rename.maxLength = 25;
+barre_rename.style.resize = 'none';
+maxLength(barre_bannir);
 
 
 /* --------------------------------------------------- */
