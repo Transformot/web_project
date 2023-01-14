@@ -204,34 +204,6 @@
                 </div>
             </div>
 
-            <div class="sign-In-or-Up" id="popupForm">
-                    <div class="slider"></div>
-                    <div id="close">
-                        <button type="button" id="close-btn" onclick="closeForm()">X</button>
-                    </div>
-                    <div id="button">
-                        <button class="signUp-btn">Inscription</button>
-                        <button class="signIn-btn">Connexion</button>
-                    </div>
-                    <div class="sections">
-                        <section id="signUp">
-                            <form method="POST" name="formSign">
-                                <input type="text" name="signUpPseudonyme" id="pseudonymeSignUp" placeholder="ExempleDu68 *" required/>
-                                <input type="password" name="signUpPassword" id="passwordSignUp" placeholder="Mot de passe *" required/>
-                                <input type="password" name="signUpPasswordVerification" id="passwordSignUpVerif" placeholder="Vérifier mot de passe *" required/>
-                                <input type="button" name="signUp" id="btnSignUp" class="formButton" value="S'inscrire" />
-                            </form>
-                        </section>
-                        <section id="signIn">
-                            <form method="POST" name="formSign">
-                                <input type="text" name="signInPseudonyme" id="pseudonymeSignIn" placeholder="ExempleDu68 *" required/>
-                                <input type="password" name="signInPassword" id="passwordSignIn" placeholder="Mot de passe *" required/>
-                                <button type="submit" name="signIn" id="btnSignIn" class="formButton">Se connecter</button>
-                            </form>
-                        </section>
-                    </div>
-                </div>
-
                 {% block script %}
                 <script src="{% static 'js/index.js' %}"></script>
                 <script src="{% static 'js/traitement.js' %}"></script>
