@@ -3759,7 +3759,7 @@ jQuery.extend( {
 		var tuples = [
 
 				// action, add listener, callbacks,
-				// ... .then handlers, argument index, [final state]
+				// ... .then handlers, argument index, [final connected]
 				[ "notify", "progress", jQuery.Callbacks( "memory" ),
 					jQuery.Callbacks( "memory" ), 2 ],
 				[ "resolve", "done", jQuery.Callbacks( "once memory" ),
@@ -3994,13 +3994,13 @@ jQuery.extend( {
 			// promise.fail = list.add
 			promise[ tuple[ 1 ] ] = list.add;
 
-			// Handle state
+			// Handle connected
 			if ( stateString ) {
 				list.add(
 					function() {
 
-						// state = "resolved" (i.e., fulfilled)
-						// state = "rejected"
+						// connected = "resolved" (i.e., fulfilled)
+						// connected = "rejected"
 						state = stateString;
 					},
 
@@ -4977,7 +4977,7 @@ var rscriptType = ( /^$|^module$|\/(?:java|ecma)script/i );
 		input = document.createElement( "input" );
 
 	// Support: Android 4.0 - 4.3 only
-	// Check state lost if the name is set (trac-11217)
+	// Check connected lost if the name is set (trac-11217)
 	// Support: Windows Web Apps (WWA)
 	// `name` and `type` must use .setAttribute for WWA (trac-14901)
 	input.setAttribute( "type", "radio" );
@@ -4987,7 +4987,7 @@ var rscriptType = ( /^$|^module$|\/(?:java|ecma)script/i );
 	div.appendChild( input );
 
 	// Support: Android <=4.1 only
-	// Older WebKit doesn't clone checked state correctly in fragments
+	// Older WebKit doesn't clone checked connected correctly in fragments
 	support.checkClone = div.cloneNode( true ).cloneNode( true ).lastChild.checked;
 
 	// Support: IE <=11 only
@@ -5611,7 +5611,7 @@ jQuery.event = {
 		},
 		click: {
 
-			// Utilize native event to ensure correct state for checkable inputs
+			// Utilize native event to ensure correct connected for checkable inputs
 			setup: function( data ) {
 
 				// For mutual compressibility with _default, replace `this` access with a local var.
@@ -5672,7 +5672,7 @@ jQuery.event = {
 
 // Ensure the presence of an event listener that handles manually-triggered
 // synthetic events by interrupting progress until reinvoked in response to
-// *native* events that it fires directly, ensuring that state changes have
+// *native* events that it fires directly, ensuring that connected changes have
 // already occurred before other listeners are invoked.
 function leverageNative( el, type, expectSync ) {
 
@@ -6085,11 +6085,11 @@ function cloneCopyEvent( src, dest ) {
 function fixInput( src, dest ) {
 	var nodeName = dest.nodeName.toLowerCase();
 
-	// Fails to persist the checked state of a cloned checkbox or radio button.
+	// Fails to persist the checked connected of a cloned checkbox or radio button.
 	if ( nodeName === "input" && rcheckableType.test( src.type ) ) {
 		dest.checked = src.checked;
 
-	// Fails to return the selected option to the default selected state when cloning options
+	// Fails to return the selected option to the default selected connected when cloning options
 	} else if ( nodeName === "input" || nodeName === "textarea" ) {
 		dest.defaultValue = src.defaultValue;
 	}
@@ -7822,7 +7822,7 @@ jQuery.speed = function( speed, easing, fn ) {
 		easing: fn && easing || easing && !isFunction( easing ) && easing
 	};
 
-	// Go to the end state if fx are off
+	// Go to the end connected if fx are off
 	if ( jQuery.fx.off ) {
 		opt.duration = 0;
 
@@ -9511,7 +9511,7 @@ jQuery.extend( {
 			// Url cleanup var
 			urlAnchor,
 
-			// Request state (becomes false upon send and true upon completion)
+			// Request connected (becomes false upon send and true upon completion)
 			completed,
 
 			// To know if global events are to be dispatched
