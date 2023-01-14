@@ -1,3 +1,4 @@
+const bckg = document.querySelector('#background');
 
 /* ---------------- longeur max ---------------- */
 
@@ -69,6 +70,34 @@ barre_channel.addEventListener('keypress', function (event) {
 
 // ------- quitter def salon
 
+function show_window() {
+    bckg.style.display = 'block';
+}
+
+function hide_window() {
+    bckg.style.display = 'none';
+}
+
+function quit_channel() {
+    $.ajax({
+        url: "/test/login/data",
+        type: "GET",
+
+        success: function (data, textSatus, jqXHR) {
+            open('/chat', '_self');
+        },
+
+        error: function (data, textStatus, jqXHR) {
+            alert("Vous n'avez pas réussi à partir du salon.");
+        }
+    });
+}
+
+$('#background').on('click', function(event) {
+    if (event.target !== this)
+        return;
+    hide_window()
+});
 
 /* --------------- message --------------------- */
 
