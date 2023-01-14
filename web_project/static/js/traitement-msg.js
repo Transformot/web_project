@@ -10,12 +10,16 @@ function maxLength(el){
     }
 }
 
+
 /* --------------- salon --------------------- */
 
 var barre_channel = document.querySelector("#barre_salon");
+var channel = document.querySelector(".salon");
 barre_channel.maxLength = 10;
 barre_channel.style.resize = 'none';
 maxLength(barre_channel);
+
+// ---------- crée salon
 
 function salon(){
     if (barre_channel.value != "\n" ) {
@@ -60,7 +64,15 @@ barre_channel.addEventListener('keypress', function (event) {
     }
 });
 
+// ------- aller dans salon
+
+
+// ------- quitter def salon
+
+
 /* --------------- message --------------------- */
+
+// --------- envoyer message
 
 var bouton_message = document.querySelector("#button_chat");
 var barre_message = document.querySelector("#barre_chat");
@@ -73,7 +85,7 @@ function chat(){
     if (barre_message.value != "\n" ) {
         let msg = "<p>";
         msg += " " + ": ";
-        msg += barre_message.value;
+        msg += barre_message.value +"(envoie loupé)";
         msg += "</p>";
         document.querySelector("#zone_msg").innerHTML += msg;
     }
@@ -84,11 +96,11 @@ function send_msg(){
         url: "/test/login/data",
         type: "POST",
         data: {
-           message : barre_message.value,
+           data : barre_message.value,
         },
         success: function (data, textSatus, jqXHR)
         {
-            open('/chat', '_self');
+            open('/chat/user/channel', '_self');
         },
         error: function (data, textStatus, jqXHR)
         {
@@ -110,7 +122,11 @@ barre_message.addEventListener('keypress', function (event) {
     }
 });
 
+// -------- suprimer message
+
 /* ---------------- membre ------------------- */
+
+// inviter utilisateur
 
 var barre_membre = document.querySelector("#barre_membre");
 barre_membre.maxLength = 10;
@@ -139,7 +155,7 @@ function invite_user() {
         },
         success: function (data, textSatus, jqXHR)
         {
-            open('/chat', '_self');
+            open('/chat/user/channel', '_self');
         },
         error: function (data, textStatus, jqXHR)
         {
@@ -160,7 +176,17 @@ barre_membre.addEventListener('keypress', function (event) {
     }
 });
 
+// ------- bannir membre
 
+// ------- affecter role à un membre
+
+/* ------------ profils
+
+
+
+
+/* --------------------------------------------------- */
+/* --------------------------------------------------- */
 /* ------------------- ------------------------------- */
 
 /* resource
