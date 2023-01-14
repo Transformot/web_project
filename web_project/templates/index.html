@@ -16,6 +16,38 @@
 
     </head>
     <body>
+        <!-- Sets the connection window -->
+        <div id="background">
+                <div class="sign_in_up" id="window">
+                    <div class="slider"></div>
+                    <div id="button">
+                        <button class="signUp-btn" onclick="func_signUp()">Inscription</button>
+                        <button class="signIn-btn" onclick="func_signIn()">Connexion</button>
+                    </div>
+                    <div class="div_form">
+                        <div class="signUp_div" id="signUp_form">
+                            <form method="POST" id="signup_data">
+                                <label for="username"></label>
+                                <input type="text" id="username" name="username" placeholder=">_ Pseudonyme"/>
+                                <label for="password"></label>
+                                <input type="password" id="password" name="password" placeholder=">_ Mot de passe"/>
+                                <label for="c_password"></label>
+                                <input type="password" id="c_password" name="c_password" placeholder=">_ Mot de passe"/>
+                                <button type="submit" name="submit" id="btnSignUp" class="formButton">S'inscrire</button>
+                            </form>
+                        </div>
+                        <div class="signIn_div" id="signIn_form">
+                            <form method="POST" id="signin_data">
+                                <label for="username"></label>
+                                <input type="text" id="username" name="username" placeholder=">_ Pseudonyme"/>
+                                <label for="password"></label>
+                                <input type="password" id="password" name="password" placeholder=">_ Mot de passe"/>
+                                <button type="submit" name="submit" id="btnSignIn" class="formButton">Se connecter</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+        </div>
         <!-- Sets the navigation bar, which is fixed in the upper space of the screen -->
         <header>
             <div>
