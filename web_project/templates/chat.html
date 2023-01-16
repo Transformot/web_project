@@ -6,6 +6,10 @@
         <meta charset="UTF-8">
         <title>Chat - N6Chat</title>
 
+        {% block ico %}
+        <link rel="shortcut icon" href="{% static 'img/favicon.ico' %}"/>
+        {% endblock ico %}
+
         {% block css %}
         <link rel="stylesheet" href="{% static 'css/style-chat.css' %}"/>
         {% endblock %}
