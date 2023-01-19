@@ -28,6 +28,10 @@ def get_channel(uuid):
     return Channel.objects.get(uuid=uuid)
 
 
+def default(request):
+    return HttpResponseRedirect('/home')
+
+
 def home(request):
     username = request.session.get('username')
     password = request.session.get('password')
@@ -73,7 +77,7 @@ def signup(request):
         if user.username == username:
             return HttpResponse(False)
 
-    User(username=username, password=password, connected=True).save()
+    User.create(username, password)
     request.session['username'] = username
     request.session['password'] = password
     return HttpResponse(True)
@@ -101,11 +105,29 @@ def chat(request):
     context = {
         'username': username,
         'list_channels': list(user.channels.all()),
+        'nb_owned': user.owned.count(),
         'nb_channels': user.channels.count(),
         'nb_messages': user.messages.count()
     }
 
     return render(request, 'chat.html', context)
+
+
+def add_channel(request):
+    if request.method == "GET":
+        return HttpResponseRedirect('/error')
+
+    username = request.session.get('username')
+    password = request.session.get('password')
+
+    if not verify(username, password):
+        return HttpResponseRedirect('/error')
+
+    user = get_user(username)
+    name = request.POST.get('name')
+    channel = Channel.create(name, user)
+
+    return HttpResponse('/chat/' + str(channel.uuid))
 
 
 def chat_channel(request):

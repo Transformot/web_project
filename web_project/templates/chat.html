@@ -4,16 +4,17 @@
         {% load static %}
 
         <meta charset="UTF-8">
-        <title>Chat - N6Chat</title>
-
-        {% block ico %}
-        <link rel="shortcut icon" href="{% static 'img/favicon.ico' %}"/>
-        {% endblock ico %}
+        <title>N6Chat - Chat</title>
 
         {% block css %}
-        <link rel="stylesheet" href="{% static 'css/style-chat.css' %}"/>
-        {% endblock %}
+            <link rel="stylesheet" href="{% static 'css/style-chat.css' %}"/>
+        {% endblock css %}
 
+        {% block ico %}
+            <link rel="shortcut icon" href="{% static 'img/favicon.ico' %}"/>
+        {% endblock ico %}
+
+        {% csrf_token %}
     </head>
     <body>
         <header>
@@ -27,7 +28,7 @@
                 </a>
             </div>
             <div>
-                <a href="">
+                <a href="/home">
                     <h1>
                         N6Chat
                     </h1>
@@ -42,7 +43,70 @@
             </div>
         </header>
         <section>
+            <!-- Space in the page which contains all the data in text zones -->
+            <div class="text_zone">
 
+                {% block username %}
+                    <h2 class="paragraph">
+                        >_ Bonjour {{ username }} !
+                    </h2>
+                {% endblock username %}
+
+                <div class="paragraph">
+                    <h3>
+                        Bienvenue sur votre page d'accueil personnalisée 😼
+                    </h3>
+                    <p>
+                        - Nombre de salons total : {{ nb_channels }}
+                    </p>
+                    <p>
+                        - Nombre de salons possédés : {{ nb_owned }}
+                    </p>
+                    <p>
+                        - Nombre de messages écrits : {{ nb_messages }}
+                    </p>
+                </div>
+                <div class="text_zone_inside">
+                    <h3 class="paragraph">
+                        >_ Choisissez un salon :
+                    </h3>
+                    <div class="paragraph">
+                        {% block channel %}
+                            {% if nb_channels != 0 %}
+                                {% for channel in list_channels %}
+                                    <a class="channel" href="{{ channel.uuid }}">{{ channel.name }}</a>
+                                {% endfor %}
+                            {% else %}
+                                <div class="paragraph">
+                                    <h4>
+                                        Vous n'avez pas de salon !
+                                    </h4>
+                                    <p>
+                                        Faites-vous inviter dans un salon par un ami ou créez-en un
+                                    </p>
+                                </div>
+                            {% endif %}
+                        {% endblock channel %}
+                    </div>
+                </div>
+                <div class="text_zone_inside">
+                    <h3 class="paragraph">
+                        >_ Créez un nouveau salon :
+                    </h3>
+                    <div class="paragraph">
+                        <label for="input"></label>
+                        <input type="text" class="input" id="input" name="channel" maxlength="20"
+                               title="
+                               Votre nom de serveur peut contenir :
+                               - Des lettres majuscules
+                               - Des lettres minuscules
+                               - Des chiffres
+                               - Les caractères : - _
+                               - Des espaces"
+                        >
+                    </div>
+                </div>
+            </div>
         </section>
         <footer>
             <h4>Tous droits réservés.</h4>
@@ -51,8 +115,7 @@
         {% block script %}
             <script src="{% static 'js/csrftoken.js' %}"></script>
             <script src="{% static 'js/jquery-3.6.3.js' %}"></script>
-            <script src="{% static 'js/index.js' %}"></script>
-            <script src="{% static 'js/traitement.js' %}"></script>
+            <script src="{% static 'js/chat.js' %}"></script>
         {% endblock %}
 
     </body>

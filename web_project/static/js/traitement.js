@@ -60,7 +60,7 @@ signup_form.addEventListener("submit", function (event) {
             alert("Votre mot de passe doit contenir au moins un chiffre.");
         }
         else if(password.match(/[-_*]/g) == null) {
-            alert("Votre mot de passe doit contenir au moins un acractère spécial : -_*")
+            alert("Votre mot de passe doit contenir au moins un caractère spécial : -_*")
         }
 
         else if(password !== c_password) {
