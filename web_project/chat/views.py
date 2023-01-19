@@ -1,9 +1,10 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect
-from django.views.decorators.csrf import csrf_exempt
+from django.views.decorators.csrf import csrf_exempt, csrf_protect
 from django.template import Template, Context, loader
 from django.urls import reverse
 from .models import *
+from uuid import uuid4
 
 
 # Create your views here.
@@ -23,7 +24,6 @@ def get_user(username):
     return User.objects.get(username=username)
 
 
-@csrf_exempt
 def home(request):
     username = request.session.get('username')
     password = request.session.get('password')
@@ -40,10 +40,9 @@ def home(request):
     return render(request, 'index.html', stats)
 
 
-@csrf_exempt
 def signin(request):
     if request.method == "GET":
-        return HttpResponseRedirect('/error404')
+        return HttpResponseRedirect('/error')
 
     username = request.POST.get('username')
     password = request.POST.get('password')
@@ -52,15 +51,15 @@ def signin(request):
         request.session['username'] = username
         request.session['password'] = password
         get_user(username).switch()
+        request.session.set_expiry(0)
         return HttpResponse(True)
 
     return HttpResponse(False)
 
 
-@csrf_exempt
 def signup(request):
     if request.method == "GET":
-        return HttpResponseRedirect('/error404')
+        return HttpResponseRedirect('/error')
 
     users = User.objects.all()
     username = request.POST.get('username')
@@ -93,11 +92,18 @@ def chat(request):
     if not verify(username, password):
         return HttpResponseRedirect('/error404')
 
-    return render(request, 'chat.html')
+    user = get_user(username)
+
+    context = {
+        'list_channel': list(user.channels.all())
+    }
+
+    return render(request, 'chat.html', context)
 
 
-def error404(request):
-    return render(request, 'error404.html')
+def error(request, exception):
+    data = {}
+    return render(request, 'error.html', data)
 
 
 def test(request):

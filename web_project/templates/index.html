@@ -14,6 +14,7 @@
         <link rel="shortcut icon" href="{% static 'img/favicon.ico' %}"/>
         {% endblock ico %}
 
+        {% csrf_token %}
     </head>
     <body>
         <!-- Sets the connection window -->
@@ -227,6 +228,7 @@
             </div>
 
                 {% block script %}
+                    <script src="{% static 'js/csrftoken.js' %}"></script>
                     <script src="{% static 'js/jquery-3.6.3.js' %}"></script>
                     <script src="{% static 'js/index.js' %}"></script>
                     <script src="{% static 'js/traitement.js' %}"></script>

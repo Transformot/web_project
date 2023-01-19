@@ -82,6 +82,7 @@ signup_form.addEventListener("submit", function (event) {
     $.ajax({
         url: "signup/",
         type: "POST",
+        headers: {'X-CSRFToken': csrftoken},
         data: {
             username: username,
             password: password,
@@ -157,6 +158,7 @@ signin_form.addEventListener("submit", function (event) {
     $.ajax({
         url: "signin/",
         type: "POST",
+        headers: {'X-CSRFToken': csrftoken},
         data: {
             username: username,
             password: password,

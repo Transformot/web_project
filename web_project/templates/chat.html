@@ -42,11 +42,12 @@
             <div id="zone_salons">
                 <textarea id="barre_salon" placeholder="Créer salon"></textarea>
                 {% block channel %}
-                <div class="salon">
-                    <a href="url">>_ salon</a>
-                </div>
+                    {% for channel in list_channel %}
+                        <div class="salon">
+                            <a href="{{ channel.uuid }}">{{ channel.name }}</a>
+                        </div>
+                    {% endfor %}
                 {% endblock channel %}
-
             </div>
             <div id="text_zone">
                 <h3 class="paragraph">
