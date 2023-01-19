@@ -27,6 +27,9 @@
         </div>
         
         <header>
+            <div id="div_back">
+                <a href="/chat" id="back">Retour</a>
+            </div>
             <div id="div_title">
                 <h2>
                     Web_Chat
@@ -34,7 +37,6 @@
             </div>
             <div id="div_signout">
                 <a href="/home/signout" id="signout">Déconnexion</a>
-                
             </div>
         </header>
         <section>
@@ -64,8 +66,9 @@
                 <div id="barre_box">
                     <textarea id="barre_chat" placeholder="Envoyer un message"></textarea>
                     <input type="submit" name="envoie" value="envoyer" id="button_chat" />
+                </div>
+                <div>
                     <button class="quit_channel" onclick="show_window()">Quitter ce salon</button>
-
                 </div>
             </div>
             <div id="zone_membres">
@@ -82,12 +85,19 @@
                 </h3>
                 <textarea id="barre_bannished" placeholder="username"></textarea>
                 <button id="button_bannished">Ok</button>
-                <h3 class="paragraph">
-                    >_ Se renommer :
-                </h3>
-                <textarea id="barre_rename" placeholder="username"></textarea>
-                <button id="button_rename">Ok</button>
 
+                <div class="text_zone_inside">
+                    <h2>Profil utilisateur</h2>
+                    <h3 class="paragraph">
+                        >_ Se renommer :
+                    </h3>
+                    <textarea id="barre_rename" placeholder="username"></textarea>
+                    <button id="button_rename">Ok</button>
+                    <h3 class="paragraph">
+                        >_ Supprimer compte utilisateur :
+                    </h3>
+                    <button id="button_delete" onclick="show_window()">supprimer son compte</button>
+                </div>
             </div>
 
 
