@@ -108,8 +108,23 @@ def chat(request):
     return render(request, 'chat.html', context)
 
 
-def chat_channel(request, uuid):
-    return HttpResponseRedirect('/error')
+def chat_channel(request):
+    username = request.session.get('username')
+    password = request.session.get('password')
+
+    if not verify(username, password):
+        return HttpResponseRedirect('/error')
+
+    user = get_user(username)
+
+    context = {
+        'username': username,
+        'list_channels': list(user.channels.all()),
+        'nb_channels': user.channels.count(),
+        'nb_messages': user.messages.count()
+    }
+
+    return render(request, 'chat_channel.html', context)
 
 
 def error(request):
