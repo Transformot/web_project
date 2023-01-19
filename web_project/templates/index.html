@@ -4,14 +4,14 @@
         {% load static %}
 
         <meta charset="UTF-8">
-        <title>Accueil - N6Chat</title>
+        <title>N6Chat - Accueil</title>
 
         {% block css %}
-        <link rel="stylesheet" href="{% static 'css/style.css' %}"/>
+            <link rel="stylesheet" href="{% static 'css/style.css' %}"/>
         {% endblock css %}
 
         {% block ico %}
-        <link rel="shortcut icon" href="{% static 'img/favicon.ico' %}"/>
+            <link rel="shortcut icon" href="{% static 'img/favicon.ico' %}"/>
         {% endblock ico %}
 
         {% csrf_token %}
@@ -77,13 +77,13 @@
                 <a href="https://www.ensisa.uha.fr/" target="_blank">
 
                     {% block img %}
-                    <img src="{% static 'img/ensisa_uha_logo.png' %}" alt="Logo de l'ENSISA">
+                        <img src="{% static 'img/ensisa_uha_logo.png' %}" alt="Logo de l'ENSISA">
                     {% endblock img %}
 
                 </a>
             </div>
             <div>
-                <a href="">
+                <a href="/home">
                     <h1>
                         N6Chat
                     </h1>
@@ -110,7 +110,8 @@
                     <h4>
                         N6Chat, c'est quoi ?
                     </h4>
-                    <p>>_ C'est un chat centralisé qui te permet de communiquer
+                    <p>
+                        >_ C'est un chat centralisé qui te permet de communiquer
                         très facilement avec tes amis, à l'aide de ton navigateur.
                     </p>
                 </div>
@@ -118,15 +119,18 @@
                     <h4>
                         Est-ce que N6Chat est payant ?
                     </h4>
-                    <p>>_ N6Chat est un service entièrement gratuit, il te faut
+                    <p>
+                        >_ N6Chat est un service entièrement gratuit, il te faut
                         simplement créer un compte pour pouvoir l'utiliser.
                     </p>
                 </div>
                 <div class="paragraph">
-                    <h4>Pourquoi avoir développé N6Chat alors que de nombreux
+                    <h4>
+                        Pourquoi avoir développé N6Chat alors que de nombreux
                         services équivalents sont déjà disponibles ?
                     </h4>
-                    <p>>_ N6Chat a été développé dans le cadre d'un projet d'étudiants
+                    <p>
+                        >_ N6Chat a été développé dans le cadre d'un projet d'étudiants
                         en école d'ingénieur, en filière Informatique et Réseaux.
                     </p>
                     <p>
@@ -165,17 +169,17 @@
                 <div class="text_zone_inside">
                     <div class="paragraph">
                         {% block users %}
-                        <p>{{ users }} - Utilisateurs</p>
+                            <p>{{ users }} - Utilisateurs</p>
                         {% endblock users %}
                     </div>
                     <div class="paragraph">
                         {% block channels %}
-                        <p>{{ channels }} - Salons</p>
+                            <p>{{ channels }} - Salons</p>
                         {% endblock channels %}
                     </div>
                     <div class="paragraph">
                         {% block messages %}
-                        <p>{{ messages }} - Messages</p>
+                            <p>{{ messages }} - Messages</p>
                         {% endblock messages %}
                     </div>
                 </div>
@@ -232,10 +236,10 @@
         </footer>
 
         {% block script %}
-                <script src="{% static 'js/csrftoken.js' %}"></script>
-                <script src="{% static 'js/jquery-3.6.3.js' %}"></script>
-                <script src="{% static 'js/index.js' %}"></script>
-                <script src="{% static 'js/traitement.js' %}"></script>
+            <script src="{% static 'js/csrftoken.js' %}"></script>
+            <script src="{% static 'js/jquery-3.6.3.js' %}"></script>
+            <script src="{% static 'js/index.js' %}"></script>
+            <script src="{% static 'js/traitement.js' %}"></script>
         {% endblock %}
 
     </body>

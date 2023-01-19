@@ -1,3 +1,5 @@
+import datetime
+
 from django.db import models
 from uuid import uuid4
 
@@ -35,6 +37,12 @@ class User(models.Model):
     def rem(self):
         self.delete()
         return True
+
+    @classmethod
+    def create(cls, username, password):
+        user = cls(username=username, password=password, connected=True)
+        user.save()
+        return user
 
 
 class Channel(models.Model):
@@ -83,6 +91,13 @@ class Channel(models.Model):
         self.delete()
         return True
 
+    @classmethod
+    def create(cls, name, user):
+        channel = Channel(name=name, owner=user)
+        channel.save()
+        channel.add_user(user)
+        return channel
+
 
 class Message(models.Model):
     user = models.ForeignKey(User, on_delete=models.SET_NULL, related_name="messages", null=True)
@@ -101,6 +116,12 @@ class Message(models.Model):
     def rem(self):
         self.delete()
         return True
+
+    @classmethod
+    def create(cls, user, channel, data):
+        message = Message(user=user, channel=channel, date=datetime.datetime.now(), data=data)
+        message.save()
+        return message
 
 
 class Role(models.Model):
