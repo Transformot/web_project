@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        {% load static %}
+
+        <meta charset="UTF-8">
+        <title>Chat - N6Chat</title>
+
+        {% block ico %}
+        <link rel="shortcut icon" href="{% static 'img/favicon.ico' %}"/>
+        {% endblock ico %}
+
+        {% block css %}
+        <link rel="stylesheet" href="{% static 'css/style-chat_channel.css' %}"/>
+        {% endblock %}
+
+    </head>
+    <body>
+
+        <div id="background">
+            <div class="confirm_pop_up" id="window">
+                <div id="button">
+                    <button class="confirm_btn" onclick="quit_channel()">Confirmer</button>
+                    <button class="cancel_btn" onclick="hide_window()">Annuler</button>
+                </div>
+            </div>
+        </div>
+        
+        <header>
+            <div id="div_title">
+                <h2>
+                    Web_Chat
+                </h2>
+            </div>
+            <div id="div_signout">
+                <a href="/home/signout" id="signout">Déconnexion</a>
+                
+            </div>
+        </header>
+        <section>
+
+            <div id="zone_salons">
+                <textarea id="barre_salon" placeholder="Créer salon"></textarea>
+                {% block channel %}
+                    {% for channel in list_channels %}
+                        <div class="salon">
+                            <a href="{{ channel.uuid }}">>_ {{ channel.name }}</a>
+                        </div>
+                    {% endfor %}
+                {% endblock channel %}
+            </div>
+            <div id="text_zone">
+                <h3 class="paragraph">
+                    >_ Bienvenue sur le salon XXX
+                </h3>
+                <div id="zone_msg">
+                    {% block message %}
+                    <p>(**h**) <span style="color:red">Proprio </span>: Hello world</p>
+                    <p>(**h**) <span>User_2</span> : Je répond</p>
+                    <p>(**h**) <span>User_1</span> : Hello world</p>
+                    <p>(**h**) <span>User_2</span> : Je répond</p>
+                    {% endblock message %} 
+                </div>      
+                <div id="barre_box">
+                    <textarea id="barre_chat" placeholder="Envoyer un message"></textarea>
+                    <input type="submit" name="envoie" value="envoyer" id="button_chat" />
+                    <button class="quit_channel" onclick="show_window()">Quitter ce salon</button>
+
+                </div>
+            </div>
+            <div id="zone_membres">
+                <textarea id="barre_membre" placeholder="invité user"></textarea>
+                {% block membre %}
+                <div class="membre">
+                    <a href="URL">>_ Membre XXXX</a>
+                </div>
+                {% endblock membre %}
+            </div>
+            <div class="text_zone">
+                <h3 class="paragraph">
+                    >_ Bannir utilisateur :
+                </h3>
+                <textarea id="barre_bannished" placeholder="username"></textarea>
+                <button id="button_bannished">Ok</button>
+                <h3 class="paragraph">
+                    >_ Se renommer :
+                </h3>
+                <textarea id="barre_rename" placeholder="username"></textarea>
+                <button id="button_rename">Ok</button>
+
+            </div>
+
+
+            {% block js %}
+            <script src="{% static 'js/jquery-3.6.3.js' %}"></script>
+            <script src="{% static 'js/traitement-msg.js' %}"></script>
+            {% endblock %}
+
+        </section>
+        <footer>
+            <h4>Tous droits réservés.</h4>
+        </footer>
+    </body>
+</html>
