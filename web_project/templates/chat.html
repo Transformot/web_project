@@ -17,14 +17,29 @@
     </head>
     <body>
         <header>
-        <div id="div_title">
-            <h2>
-                N6Chat
-            </h2>
-        </div>
-        <div id="div_signout">
-            <a href="/home/signout" id="signout">Déconnexion</a>
-        </div>
+            <div>
+                <a href="https://www.ensisa.uha.fr/" target="_blank">
+
+                    {% block img %}
+                    <img src="{% static 'img/ensisa_uha_logo.png' %}" alt="Logo de l'ENSISA">
+                    {% endblock img %}
+
+                </a>
+            </div>
+            <div>
+                <a href="">
+                    <h1>
+                        N6Chat
+                    </h1>
+                </a>
+            </div>
+            <div>
+                <nav>
+                    <div class="nav_div">
+                        <a href="/home/signout">Déconnexion</a>
+                    </div>
+                </nav>
+            </div>
         </header>
         <section>
 
