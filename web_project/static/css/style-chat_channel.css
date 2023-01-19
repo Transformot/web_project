@@ -1,0 +1,401 @@
+*{
+    margin: 0;
+    padding: 0;
+    hyphens: none;
+    font-family: "Courier", sans-serif;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    background: linear-gradient(180deg, rgba(12,84,96,1) 0%, rgba(55,55,55,1) 100%);
+}
+
+header {
+    position: absolute;
+    top: 50px;
+    left: 0;
+    width: 90%;
+    height: 130px;
+    line-height: 130px;
+    margin: 0 5%;
+    padding: 20px 60px;
+    text-align: center;
+    background: linear-gradient(135deg, rgba(141,164,210,0.50) 0%, rgba(88,101,113,0.50) 100%);
+    border-radius: 150px;
+    box-shadow: 0 10px 50px rgba(24, 24, 24, 0.8);
+    text-align: justify;
+}
+
+header div#div_title{
+    display: inline-block;
+    height: 90px;
+    width: 60%;
+    margin: 0 10% 0 8%; 
+    line-height: 90px;
+    text-align: center;
+}
+
+header h2 {
+    line-height: normal;
+    font-family: "Lato", sans-serif;
+    color: white;
+    font-size: 75px;
+}
+
+header div#div_signout{
+    display: inline-block;
+    width: 130px;
+    height: 90px;
+    line-height: 90px;
+}
+
+#div_signout {
+    float: right;
+    width: 50%;
+    height: 100%;
+}
+
+#div_signout a, #div_signout a:hover, #div_signout a:active, #div_signout a:visited {
+    color: white;
+}
+
+#div_signout a {
+    background: linear-gradient(135deg, rgba(12,12,12,0.5) 0%, rgba(80,80,80,0.5) 100%);
+    box-shadow: 5px 5px 25px 0 rgba(24, 24, 24, 0.5);
+    padding: 25px;
+    border-radius: 150px;
+}
+
+#div_signout a:hover {
+    background: linear-gradient(135deg, rgba(80,80,80,0.5) 0%, rgba(12,12,12,0.5) 100%);
+    padding: 35px;
+}
+
+
+section {
+    padding-top: 200px;
+}
+
+section div#zone_salons {
+    display: inline-block;
+    position: absolute;
+    left:0;
+    width: 18%;
+    height: 750px;
+    margin: 90px 1% 90px 0;
+    padding: 25px 5px 15px 5px;
+    color: white;
+    background-color: rgba(255, 255, 255, 0.25);
+    border-radius: 0 50px 50px 0;
+    box-shadow: 0 10px 100px 25px rgba(48, 48, 48, 0.5);
+    /* overflow: scroll; */
+}
+
+div.zone_salons {
+    text-overflow: ellipsis;
+}
+
+textarea#barre_salon{
+    display: inline-block;
+    width: 90%;
+    margin-bottom: 20px;
+    padding: 7.5px 15px;
+    color: rgb(0, 0, 0);
+    background: linear-gradient(180deg, rgba(201, 195, 17, 0.879) 0%, rgba(106, 97, 1, 0.354) 100%);
+    border-radius: 50px;
+    border: 0px solid rgba(0, 0, 0, 0);
+    box-shadow: 0 10px 100px 25px rgba(48, 48, 48, 0.5);
+}
+
+.salon {
+    display: inline-block;
+    height: 50px;
+    line-height: 50px;
+    margin: 5px 0;
+    padding: 3px 0 3px 0;
+    color: white;
+    background-color: rgba(255, 255, 255, 0.25);
+    border-radius: 30px;
+    box-shadow: 0 10px 100px 25px rgba(48, 48, 48, 0.5);
+}
+
+.salon a{
+    margin: 0 0 0 10px;
+    padding: 20px 20px 15px 5px;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+}
+
+section div#text_zone {
+    display: inline-block;
+    width: 60%;
+    margin: 90px 20%;
+    padding: 70px 4% 15px;
+    color: rgb(255, 255, 255);
+    background-color: rgba(255, 255, 255, 0.25);
+    border-radius: 50px;
+    box-shadow: 0 10px 100px 25px rgba(48, 48, 48, 0.5);
+}
+
+section div p{
+    color: #000000;
+}
+
+section div#zone_msg {
+    width: 100%;
+    height: 450px;
+    margin: auto;
+    padding: 50px 50px 15px;
+    color: white;
+    background-color: rgba(255, 255, 255, 0.25);
+    border-radius: 50px;
+    box-shadow: 0 10px 100px 25px rgba(48, 48, 48, 0.5);
+}
+
+section div#barre_box{
+    width: 100%;
+    height: 150px;
+    line-height: 30px;
+    margin: 0 auto 50px;
+    padding: 5% 5% 5%;
+    text-align: center;
+}
+
+textarea#barre_chat{
+    display: inline-block;
+    width: 75%;
+    padding: 18px;
+    color: white;
+    background: linear-gradient(180deg, rgba(18, 123, 142, 0.8) 0%, rgb(54, 54, 54, 0.8) 100%);
+    border-radius: 50px;
+    border: 0px solid rgba(0, 0, 0, 0);
+    box-shadow: 0 10px 100px 25px rgba(48, 48, 48, 0.5);
+}
+
+textarea:focus{
+    outline: none;
+}
+
+input#button_chat{
+    display: inline-block;
+    width: 94px;
+    padding: 5px 0;
+    color: rgb(0, 0, 0);
+    background: linear-gradient(180deg, rgba(186, 202, 36, 0.8) 0%, rgba(54, 54, 54, 0.354) 100%);
+    box-shadow: 0 10px 100px 25px rgba(48, 48, 48, 0.5);
+    border-radius: 50px;
+    border: none;
+}
+
+.quit_channel {
+    display: inline-block;
+    width: 150px;
+    padding: 5px 0;
+    color: rgb(0, 0, 0);
+    background: linear-gradient(180deg, rgba(202, 61, 36, 0.8) 0%, rgba(54, 54, 54, 0.354) 100%);
+    box-shadow: 0 10px 100px 25px rgba(48, 48, 48, 0.5);
+    border-radius: 50px;
+    border: none;
+}
+
+section div#zone_membres {
+    display: inline-block;
+    position: absolute;
+    right: 0;
+    width: 18%;
+    height: 750px;
+    margin: 90px 0 90px 1%;
+    padding: 25px 5px 15px 5px;
+    color: white;
+    background-color: rgba(255, 255, 255, 0.25);
+    border-radius: 50px 0 0 50px;
+    box-shadow: 0 10px 100px 25px rgba(48, 48, 48, 0.5);
+    text-align: right;
+}
+
+textarea#barre_membre{
+    display: inline-block;
+    width: 90%;
+    margin-bottom: 20px;
+    padding: 7.5px 15px;
+    overflow: hidden;
+    color: rgb(0, 0, 0);
+    background: linear-gradient(180deg, rgba(201, 195, 17, 0.879) 0%, rgba(106, 97, 1, 0.354) 100%);
+    border-radius: 50px;
+    border: 0px solid rgba(0, 0, 0, 0);
+    box-shadow: 0 10px 100px 25px rgba(48, 48, 48, 0.5);
+    text-align: right;
+}
+
+.membre {
+    display: inline-block;
+    height: 50px;
+    line-height: 50px;
+    margin: 5px 0;
+    padding: 3px 0 3px 0;
+    color: white;
+    background-color: rgba(255, 255, 255, 0.25);
+    border-radius: 30px;
+    box-shadow: 0 10px 100px 25px rgba(48, 48, 48, 0.5);
+}
+
+.membre a{
+    margin: 0 10px 0 0;
+    padding: 20px 5px 15px 20px;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+}
+
+.text_zone {
+    color: white;
+    margin: 0 auto 90px;
+    margin: 0 10% 90px;
+    padding: 70px 4% 15px;
+    background-color: rgba(255, 255, 255, 0.25);
+    border-radius: 50px;
+    box-shadow: 0 10px 100px 25px rgba(48, 48, 48, 0.5);
+}
+
+.text_zone_inside {
+    color: white;
+    margin-bottom: 50px;
+    width: 100%;
+    padding: 75px 75px 15px;
+    background-color: rgba(255, 255, 255, 0.25);
+    border-radius: 50px;
+    box-shadow: 0 10px 100px 25px rgba(48, 48, 48, 0.5);
+}
+
+.paragraph {
+    padding-bottom: 10px;
+    line-height: 30px;
+}
+
+
+textarea#barre_bannished{
+    display: inline-block;
+    width: 80%;
+    margin: 0 auto 20px;
+    padding: 7.5px 15px;
+    overflow: hidden;
+    color: rgb(0, 0, 0);
+    background: linear-gradient(180deg, rgba(201, 195, 17, 0.879) 0%, rgba(106, 97, 1, 0.354) 100%);
+    border-radius: 50px;
+    border: 0px solid rgba(0, 0, 0, 0);
+    box-shadow: 0 10px 100px 25px rgba(48, 48, 48, 0.5);
+}
+
+button#button_bannished{
+    display: inline-block;
+    width: 94px;
+    padding: 5px 0;
+    color: rgb(0, 0, 0);
+    background: linear-gradient(180deg, rgba(202, 50, 36, 0.8) 0%, rgba(54, 54, 54, 0.354) 100%);
+    box-shadow: 0 10px 100px 25px rgba(48, 48, 48, 0.5);
+    border-radius: 50px;
+    border: none;
+}
+
+textarea#barre_rename{
+    display: inline-block;
+    width: 80%;
+    margin: 0 auto 20px;
+    padding: 7.5px 15px;
+    overflow: hidden;
+    color: rgb(0, 0, 0);
+    background: linear-gradient(180deg, rgba(201, 195, 17, 0.879) 0%, rgba(106, 97, 1, 0.354) 100%);
+    border-radius: 50px;
+    border: 0px solid rgba(0, 0, 0, 0);
+    box-shadow: 0 10px 100px 25px rgba(48, 48, 48, 0.5);
+}
+
+button#button_rename{
+    display: inline-block;
+    width: 94px;
+    padding: 5px 0;
+    color: rgb(0, 0, 0);
+    background: linear-gradient(180deg, rgba(202, 50, 36, 0.8) 0%, rgba(54, 54, 54, 0.354) 100%);
+    box-shadow: 0 10px 100px 25px rgba(48, 48, 48, 0.5);
+    border-radius: 50px;
+    border: none;
+}
+
+footer {
+    height: 100px;
+    padding: 50px 50px 0;
+    color: white;
+    background: linear-gradient(135deg, rgba(0,0,0,0.5) 0%, rgba(48,48,48,0.5) 100%);
+    border-top-left-radius: 100px;
+    border-top-right-radius: 100px;
+}
+
+footer h4 {
+    text-align: center;
+}
+
+/*Window CSS here*/
+
+#background {
+    z-index: 2;
+    display: none;
+    position: fixed;
+    background-color: rgba(128,128,128,0.8);
+    height: 100%;
+    width: 100%;
+}
+
+#window {
+    z-index: 3;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 25%;
+    width: 40%;
+    padding: 50px;
+    background: linear-gradient(180deg, rgba(12,84,96,1) 0%, rgba(55,55,55,1) 100%);
+    box-shadow: 0 10px 50px rgba(48, 48, 48, 0.8);
+    border-radius: 50px;
+    text-align: center;
+}
+
+.confirm_pop_up {
+    height: 600px;
+    width: 500px;
+    background-color: #0c5460;
+    box-shadow: 8px 8px 20px rgb(128, 128, 128);
+    position: relative;
+    overflow: hidden;
+}
+
+#button {
+    height: 60px;
+    width: 320px;
+    margin: 2% auto 5% auto;
+    border-radius: 50px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.confirm_btn, .cancel_btn {
+    font-size: 22px;
+    border: none;
+    outline: none;
+    background-color: rgba(255, 255, 255, 0.05);
+    position: relative;
+    cursor: pointer;
+    padding: 20px;
+    border-radius: 50px;
+    margin: 0 2%;
+}
+
+.confirm_btn {
+    background-image: linear-gradient(to right, rgb(254, 213, 1), rgb(254, 233, 75));
+}
+
+.cancel_btn {
+    background: rgb(255,255,255,0.25);
+}

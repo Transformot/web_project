@@ -226,17 +226,17 @@
                     </div>
                 </div>
             </div>
-
-                {% block script %}
-                    <script src="{% static 'js/csrftoken.js' %}"></script>
-                    <script src="{% static 'js/jquery-3.6.3.js' %}"></script>
-                    <script src="{% static 'js/index.js' %}"></script>
-                    <script src="{% static 'js/traitement.js' %}"></script>
-                {% endblock %}
-                
         </section>
         <footer>
             <h4>Tous droits réservés.</h4>
         </footer>
+
+        {% block script %}
+                <script src="{% static 'js/csrftoken.js' %}"></script>
+                <script src="{% static 'js/jquery-3.6.3.js' %}"></script>
+                <script src="{% static 'js/index.js' %}"></script>
+                <script src="{% static 'js/traitement.js' %}"></script>
+        {% endblock %}
+
     </body>
 </html>

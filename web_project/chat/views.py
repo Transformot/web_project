@@ -24,6 +24,10 @@ def get_user(username):
     return User.objects.get(username=username)
 
 
+def get_channel(uuid):
+    return Channel.objects.get(uuid=uuid)
+
+
 def home(request):
     username = request.session.get('username')
     password = request.session.get('password')
@@ -90,18 +94,25 @@ def chat(request):
     password = request.session.get('password')
 
     if not verify(username, password):
-        return HttpResponseRedirect('/error404')
+        return HttpResponseRedirect('/error')
 
     user = get_user(username)
 
     context = {
-        'list_channel': list(user.channels.all())
+        'username': username,
+        'list_channels': list(user.channels.all()),
+        'nb_channels': user.channels.count(),
+        'nb_messages': user.messages.count()
     }
 
     return render(request, 'chat.html', context)
 
 
-def error(request, exception):
+def chat_channel(request, uuid):
+    return HttpResponseRedirect('/error')
+
+
+def error(request):
     data = {}
     return render(request, 'error.html', data)
 
