@@ -9,34 +9,20 @@ from uuid import uuid4
 
 # Create your views here.
 
-
-def verify(username, password):
-    users = User.objects.all()
-
-    for user in users:
-        if user.username == username:
-            return user.password == password
-
-    return False
-
-
-def get_user(username):
-    return User.objects.get(username=username)
-
-
-def get_channel(uuid):
-    return Channel.objects.get(uuid=uuid)
-
-
 def default(request):
     return HttpResponseRedirect('/home')
+
+
+def error(request):
+    data = {}
+    return render(request, 'error.html', data)
 
 
 def home(request):
     username = request.session.get('username')
     password = request.session.get('password')
 
-    if verify(username, password):
+    if User.verify(username, password):
         return HttpResponseRedirect('/chat')
 
     stats = \
@@ -55,10 +41,10 @@ def signin(request):
     username = request.POST.get('username')
     password = request.POST.get('password')
 
-    if verify(username, password):
+    if User.verify(username, password):
         request.session['username'] = username
         request.session['password'] = password
-        get_user(username).switch()
+        User.get_user(username).switch()
         request.session.set_expiry(0)
         return HttpResponse(True)
 
@@ -80,13 +66,14 @@ def signup(request):
     User.create(username, password)
     request.session['username'] = username
     request.session['password'] = password
+    request.session.set_expiry(0)
     return HttpResponse(True)
 
 
 def signout(request):
     username = request.session.get('username')
     if username is not None:
-        user = get_user(username)
+        user = User.get_user(username)
         if user.connected:
             user.switch()
     request.session.flush()
@@ -97,10 +84,10 @@ def chat(request):
     username = request.session.get('username')
     password = request.session.get('password')
 
-    if not verify(username, password):
+    if not User.verify(username, password):
         return HttpResponseRedirect('/error')
 
-    user = get_user(username)
+    user = User.get_user(username)
 
     context = {
         'username': username,
@@ -120,50 +107,52 @@ def add_channel(request):
     username = request.session.get('username')
     password = request.session.get('password')
 
-    if not verify(username, password):
+    if not User.verify(username, password):
         return HttpResponseRedirect('/error')
 
-    user = get_user(username)
+    user = User.get_user(username)
     name = request.POST.get('name')
     channel = Channel.create(name, user)
 
     return HttpResponse('/chat/' + str(channel.uuid))
 
 
-def chat_channel(request):
+def chat_channel(request, uuid):
     username = request.session.get('username')
     password = request.session.get('password')
 
-    if not verify(username, password):
+    if not User.verify(username, password):
         return HttpResponseRedirect('/error')
 
-    user = get_user(username)
+    user = User.get_user(username)
+    channel = Channel.get_channel_uuid(uuid)
 
     context = {
-        'username': username,
+        'username': user.username,
+        'channel_name': channel.name,
+        'owner': channel.owner,
         'list_channels': list(user.channels.all()),
-        'nb_channels': user.channels.count(),
-        'nb_messages': user.messages.count()
+        'list_members': list(channel.users.all()),
+        'list_messages': list(channel.messages.all()),
     }
 
     return render(request, 'chat_channel.html', context)
 
 
-def error(request):
-    data = {}
-    return render(request, 'error.html', data)
+def add_message(request, uuid):
+    if request.method == "GET":
+        return HttpResponseRedirect('/error')
 
+    username = request.session.get('username')
+    password = request.session.get('password')
 
-def test(request):
-    users = User.objects.all()
+    if not User.verify(username, password):
+        return HttpResponseRedirect('/error')
 
-    if not users:
-        return HttpResponse("Your database is empty!")
-    elif request.session.get('username') is None:
-        return HttpResponse("You're not logged in!")
+    user = User.get_user(username)
+    channel = Channel.get_channel_uuid(uuid)
+    data = request.POST.get('data')
 
-    for user in users:
-        if user.username == request.session['username']:
-            return HttpResponse("You're connected as {}".format(user))
+    Message.create(user, channel, data)
 
-    return HttpResponse("You're not connected to this service")
+    return HttpResponse('/chat/' + str(channel.uuid))

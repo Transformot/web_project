@@ -74,7 +74,7 @@
                         {% block channel %}
                             {% if nb_channels != 0 %}
                                 {% for channel in list_channels %}
-                                    <a class="channel" href="{{ channel.uuid }}">{{ channel.name }}</a>
+                                    <a class="pill" href="{{ channel.uuid }}">{{ channel.name }}</a>
                                 {% endfor %}
                             {% else %}
                                 <div class="paragraph">

@@ -15,7 +15,7 @@ function send_channel() {
     }
     else {
         $.ajax({
-            url: "/chat/add_channel/",
+            url: "add_channel/",
             type: "POST",
             headers: {'X-CSRFToken': csrftoken},
             data: {

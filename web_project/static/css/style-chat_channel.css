@@ -1,3 +1,233 @@
+* {
+    margin: 0;
+    padding: 0;
+    hyphens: none;
+    font-family: "Courier", sans-serif;
+    text-decoration: none;
+}
+
+/*Sets the bkg color*/
+body {
+    background: linear-gradient(180deg, rgba(12,84,96,1) 0%, rgba(55,55,55,1) 100%);
+    width: 100%;
+}
+
+/*3 columns are created to show different links in the nav bar*/
+header {
+    position: absolute;
+    top: 50px;
+    left: 0;
+    background: linear-gradient(135deg, rgba(141,164,210,0.50) 0%, rgba(88,101,113,0.50) 100%);
+    height: 150px;
+    width: 90%;
+    border-radius: 150px;
+    margin: 0 5%;
+    box-shadow: 0 10px 50px rgba(24, 24, 24, 0.8);
+}
+
+header div {
+    float: left;
+    height: 100%;
+    width: 33.33%;
+    text-align: center;
+}
+
+header img {
+    display: block;
+    margin: auto;
+    padding: 45px 0;
+    height: 60px;
+}
+
+header h1 {
+    font-family: "Lato", sans-serif;
+    line-height: 150px;
+    color: white;
+    font-size: 75px;
+}
+
+header nav {
+    line-height: 150px;
+    height: 100%;
+    width: 100%;
+}
+
+section {
+    padding-top: 200px;
+}
+
+footer {
+    color: white;
+    padding: 50px 50px 0;
+    height: 100px;
+    background: linear-gradient(135deg, rgba(0,0,0,0.5) 0%, rgba(48,48,48,0.5) 100%);
+    border-top-left-radius: 100px;
+    border-top-right-radius: 100px;
+}
+
+footer h4 {
+    text-align: center;
+}
+
+.nav_div {
+    float: left;
+    width: 100%;
+    height: 100%;
+}
+
+.nav_div a, .nav_div a:hover, .nav_div a:active, .nav_div a:visited {
+    color: white;
+}
+
+.nav_div a {
+    background: linear-gradient(135deg, rgba(12,12,12,0.5) 0%, rgba(80,80,80,0.5) 100%);
+    box-shadow: 5px 5px 25px 0 rgba(24, 24, 24, 0.5);
+    padding: 25px;
+    border-radius: 150px;
+}
+
+.nav_div a:hover {
+    background: linear-gradient(135deg, rgba(80,80,80,0.5) 0%, rgba(12,12,12,0.5) 100%);
+    padding: 35px;
+}
+
+/*Creates a transparent zone where text can be shown*/
+.text_zone {
+    color: white;
+    margin: 50px auto;
+    width: 70%;
+    padding: 75px 75px 15px;
+    background-color: rgba(255, 255, 255, 0.25);
+    border-radius: 50px;
+    box-shadow: 0 10px 100px 25px rgba(48, 48, 48, 0.5);
+}
+
+/*Allows the creation on new text_zone inside one*/
+.text_zone_inside {
+    color: white;
+    margin: 0 auto 50px;
+    width: 70%;
+    padding: 75px 75px 15px;
+    background-color: rgba(255, 255, 255, 0.25);
+    border-radius: 50px;
+    box-shadow: 0 10px 100px 25px rgba(48, 48, 48, 0.5);
+}
+
+/*Sets the right spacing inside paragraphs in a text_zone*/
+.paragraph {
+    padding-bottom: 30px;
+    line-height: 30px;
+}
+
+.paragraph ul {
+    margin-left: 50px;
+}
+
+.title {
+    color: white;
+    font-size: 30px;
+    margin-bottom: 25px;
+}
+
+.pill {
+    display: inline-block;
+    margin: 10px 0;
+    line-height: 50px;
+    padding: 0 20px;
+    color: white;
+    background-color: rgba(255, 255, 255, 0.25);
+    border-radius: 50px;
+    box-shadow: 0 0 25px 0 rgba(48, 48, 48, 0.5);
+}
+
+.messages {
+    display: inline-block;
+    margin-bottom: 30px;
+    margin-right: auto;
+    line-height: 40px;
+    padding: 0 20px;
+    color: white;
+    background-color: rgba(12,84,96,0.50);
+    border-radius: 15px;
+    box-shadow: 0 0 25px 0 rgba(48, 48, 48, 0.5);
+}
+
+.input {
+    display: block;
+    margin: auto;
+    color: white;
+    height: 75px;
+    width: 80%;
+    padding: 15px;
+    border-radius: 15px;
+    resize: none;
+    border: none;
+    outline: none;
+    background-color: rgba(255, 255, 255, 0.25);
+}
+
+/* CSS d'Arthur pour la page de chat */
+
+.panel_zone {
+    display: inline-block;
+    position: absolute;
+    color: white;
+    height: 740px;
+    width: 15%;
+    padding: 30px;
+    background-color: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 10px 100px 25px rgba(48, 48, 48, 0.5);
+    overflow: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.panel_zone::-webkit-scrollbar {
+    display: none;
+}
+
+#channels {
+    border-radius: 0 50px 50px 0;
+    top: 250px;
+    left: 0;
+}
+
+#members {
+    border-radius: 50px 0 0 50px;
+    top: 250px;
+    right: 0;
+}
+
+#chat_zone {
+    color: white;
+    margin: 50px auto;
+    height: 740px;
+    width: 50%;
+    padding: 30px;
+    background-color: rgba(255, 255, 255, 0.25);
+    border-radius: 50px;
+    box-shadow: 0 10px 100px 25px rgba(48, 48, 48, 0.5);
+}
+
+#chat_zone_inside {
+    margin: 0 auto 30px;
+    height: 440px;
+    width: 80%;
+    padding: 50px;
+    background-color: rgba(255, 255, 255, 0.25);
+    border-radius: 15px;
+    box-shadow: 0 10px 100px 25px rgba(48, 48, 48, 0.5);
+    overflow: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+#chat_zone_inside::-webkit-scrollbar {
+    display: none;
+}
+
+/*
+
 *{
     margin: 0;
     padding: 0;
@@ -32,7 +262,7 @@ header div#div_title{
     display: inline-block;
     height: 90px;
     width: 60%;
-    margin: 0 10% 0 8%; 
+    margin: 0 10% 0 8%;
     line-height: 90px;
     text-align: center;
 }
@@ -90,7 +320,6 @@ section div#zone_salons {
     background-color: rgba(255, 255, 255, 0.25);
     border-radius: 0 50px 50px 0;
     box-shadow: 0 10px 100px 25px rgba(48, 48, 48, 0.5);
-    /* overflow: scroll; */
 }
 
 div.zone_salons {
@@ -335,8 +564,6 @@ footer h4 {
     text-align: center;
 }
 
-/*Window CSS here*/
-
 #background {
     z-index: 2;
     display: none;
@@ -399,3 +626,5 @@ footer h4 {
 .cancel_btn {
     background: rgb(255,255,255,0.25);
 }
+
+*/
