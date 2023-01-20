@@ -4,16 +4,133 @@
         {% load static %}
 
         <meta charset="UTF-8">
-        <title>Chat - N6Chat</title>
 
-        {% block ico %}
-        <link rel="shortcut icon" href="{% static 'img/favicon.ico' %}"/>
-        {% endblock ico %}
+        {% block title %}
+            <title>N6Chat - {{ channel_name }}</title>
+        {% endblock title %}
 
         {% block css %}
-        <link rel="stylesheet" href="{% static 'css/style-chat_channel.css' %}"/>
+            <link rel="stylesheet" href="{% static 'css/style-chat_channel.css' %}"/>
+        {% endblock css %}
+
+        {% block ico %}
+            <link rel="shortcut icon" href="{% static 'img/favicon.ico' %}"/>
+        {% endblock ico %}
+
+        {% csrf_token %}
+    </head>
+    <body>
+        <header>
+            <div>
+                <a href="https://www.ensisa.uha.fr/" target="_blank">
+
+                    {% block img %}
+                    <img src="{% static 'img/ensisa_uha_logo.png' %}" alt="Logo de l'ENSISA">
+                    {% endblock img %}
+
+                </a>
+            </div>
+            <div>
+                <a href="/home">
+                    <h1>
+                        N6Chat
+                    </h1>
+                </a>
+            </div>
+            <div>
+                <nav>
+                    <div class="nav_div">
+                        <a href="/home/signout">Déconnexion</a>
+                    </div>
+                </nav>
+            </div>
+        </header>
+        <section>
+             <div class="panel_zone" id="channels">
+                <h2 class="title">
+                    >_ Salons :
+                </h2>
+                {% block channels %}
+                    {% for channel in list_channels %}
+                        <a class="pill" href="/chat/{{ channel.uuid }}">{{ channel.name }}</a>
+                    {% endfor %}
+                {% endblock channels %}
+            </div>
+            <div id="chat_zone">
+
+                {% block channel_name %}
+                    <h2 class="paragraph">
+                        >_ Bienvenue sur {{ channel_name }} !
+                    </h2>
+                {% endblock channel_name %}
+
+                <div id="chat_zone_inside">
+                    {% block messages %}
+                        {% for message in list_messages %}
+                            <div class="messages">
+                                <h4>{{ message.user.username }} :</h4>
+                                <p>{{ message.data }}</p>
+                                <h6>{{ message.date }}</h6>
+                            </div>
+                        {% endfor %}
+                    {% endblock messages %}
+                </div>
+                <div class="paragraph">
+                    <label for="chat_box"></label>
+                    <input type="text" class="input" id="chat_box" name="chat_box" maxlength="300">
+                </div>
+            </div>
+            <div class="panel_zone" id="members">
+            <h2 class="title">
+                    >_ Membres :
+                </h2>
+                {% block members %}
+                    {% for member in list_members %}
+                        {% if member.username == owner.username %}
+                            <p class="pill">Créateur : {{ member.username }}</p>
+                        {% else %}
+                            <p class="pill">{{ member.username }}</p>
+                        {% endif %}
+                    {% endfor %}
+                {% endblock members %}
+            </div>
+        </section>
+        <footer>
+            <h4>Tous droits réservés.</h4>
+        </footer>
+
+        {% block script %}
+            <script src="{% static 'js/csrftoken.js' %}"></script>
+            <script src="{% static 'js/jquery-3.6.3.js' %}"></script>
+            <script src="{% static 'js/traitement-msg.js' %}"></script>
         {% endblock %}
 
+    </body>
+</html>
+
+
+<!--
+
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        {# load static #}
+
+        <meta charset="UTF-8">
+
+        {# block channel_name #}
+            <title>N6Chat - {# { channel_name } #}</title>
+        {# endblock channel_name #}
+
+        {# block css #}
+            <link rel="stylesheet" href="{# static 'css/style-chat_channel.css' #}"/>
+        {# endblock css #}
+
+        {# block ico #}
+            <link rel="shortcut icon" href="{# static 'img/favicon.ico' #}"/>
+        {# endblock ico #}
+
+        {# csrf_token #}
     </head>
     <body>
 
@@ -25,7 +142,7 @@
                 </div>
             </div>
         </div>
-        
+
         <header>
             <div id="div_back">
                 <a href="/chat" id="back">Retour</a>
@@ -43,26 +160,26 @@
 
             <div id="zone_salons">
                 <textarea id="barre_salon" placeholder="Créer salon"></textarea>
-                {% block channel %}
-                    {% for channel in list_channels %}
+                {# block channel #}
+                    {# for channel in list_channels #}
                         <div class="salon">
-                            <a href="{{ channel.uuid }}">>_ {{ channel.name }}</a>
+                            <a href="{#{ channel.uuid }#}">>_ {#{ channel.name }#}</a>
                         </div>
-                    {% endfor %}
-                {% endblock channel %}
+                    {# endfor #}
+                {# endblock channel #}
             </div>
             <div id="text_zone">
                 <h3 class="paragraph">
                     >_ Bienvenue sur le salon XXX
                 </h3>
                 <div id="zone_msg">
-                    {% block message %}
+                    {# block message #}
                     <p>(**h**) <span style="color:red">Proprio </span>: Hello world</p>
                     <p>(**h**) <span>User_2</span> : Je répond</p>
                     <p>(**h**) <span>User_1</span> : Hello world</p>
                     <p>(**h**) <span>User_2</span> : Je répond</p>
-                    {% endblock message %} 
-                </div>      
+                    {# endblock message #}
+                </div>
                 <div id="barre_box">
                     <textarea id="barre_chat" placeholder="Envoyer un message"></textarea>
                     <input type="submit" name="envoie" value="envoyer" id="button_chat" />
@@ -73,11 +190,11 @@
             </div>
             <div id="zone_membres">
                 <textarea id="barre_membre" placeholder="invité user"></textarea>
-                {% block membre %}
+                {# block membre #}
                 <div class="membre">
                     <a href="URL">>_ Membre XXXX</a>
                 </div>
-                {% endblock membre %}
+                {# endblock membre #}
             </div>
             <div class="text_zone">
                 <h3 class="paragraph">
@@ -101,10 +218,10 @@
             </div>
 
 
-            {% block js %}
-            <script src="{% static 'js/jquery-3.6.3.js' %}"></script>
-            <script src="{% static 'js/traitement-msg.js' %}"></script>
-            {% endblock %}
+            {# block js #}
+            <script src="{# static 'js/jquery-3.6.3.js' #}"></script>
+            <script src="{# static 'js/traitement-msg.js' #}"></script>
+            {# endblock #}
 
         </section>
         <footer>
@@ -112,3 +229,6 @@
         </footer>
     </body>
 </html>
+
+
+->>

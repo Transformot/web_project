@@ -1,6 +1,35 @@
-const bckg = document.querySelector('#background');
+let input = document.querySelector('#chat_box');
 
-/* ---------------- longeur max ---------------- */
+function send_message() {
+    let data = input.value;
+
+    $.ajax({
+        url: "add_message/",
+        type: "POST",
+        headers: {'X-CSRFToken': csrftoken},
+        data: {
+            data: data,
+        },
+        success: function (data, textStatus, jqXHR)
+        {
+            $("#chat_zone_inside").load(" #chat_zone_inside > *");
+        },
+        error: function (data, textStatus, jqXHR)
+        {
+            alert("There was an issue. Data not sent.");
+        }
+    });
+}
+
+input.addEventListener('keypress', function(event) {
+    if (event.key === 'Enter') {
+        send_message();
+    }
+});
+
+
+/*
+const bckg = document.querySelector('#background');
 
 function maxLength(el){
     if ( !('maxLength' in el) ){
@@ -10,9 +39,6 @@ function maxLength(el){
         };
     }
 }
-
-
-/* --------------- salon --------------------- */
 
 var barre_channel = document.querySelector("#barre_salon");
 var channel = document.querySelector(".salon");
@@ -52,7 +78,7 @@ function create_channel() {
             alert("There was an issue. Data not sent. \n channel name : " + barre_channel.value);
             salon();
         }
-    }); 
+    });
     setTimeout(clear_ch, 1000);
 }
 
@@ -99,8 +125,6 @@ $('#background').on('click', function(event) {
         return;
     hide_window()
 });
-
-/* --------------- message --------------------- */
 
 // --------- envoyer message
 
@@ -154,8 +178,6 @@ barre_message.addEventListener('keypress', function (event) {
 
 // -------- suprimer message
 
-/* ---------------- membre ------------------- */
-
 // inviter utilisateur
 
 var barre_membre = document.querySelector("#barre_membre");
@@ -193,7 +215,7 @@ function invite_user() {
             alert("There was an issue. Data not sent. \n user name : " + barre_membre.value);
             membre();
         }
-    }); 
+    });
     setTimeout(clear_usr, 500);
 }
 
@@ -218,8 +240,6 @@ maxLength(barre_bannir);
 
 // ------- affecter role à un membre
 
-/* ------------------ profils ----------------------- */
-
 var bouton_rename = document.querySelector("#button_rename");
 var barre_rename = document.querySelector("#barre_rename");
 barre_rename.rows = 1;
@@ -237,9 +257,9 @@ maxLength(barre_bannir);
 // https://analyse-innovation-solution.fr/publication/fr/jquery/les-requetes-ajax-avec-jquery
 $(document).ready(function(){
     $.ajax({
-        url: "une/url/au/choix", //L'URL de la requête 
+        url: "une/url/au/choix", //L'URL de la requête
         method: "GET", //La méthode d'envoi (type de requête)
-        // "PUT":mettre dans la base de donné, 
+        // "PUT":mettre dans la base de donné,
         dataType : "json", //Le format de réponse attendu
         beforeSend: function (){
             //code à executé
@@ -261,4 +281,6 @@ $(document).ready(function(){
     .always(function(){
         alert("Requête effectuée");
     });
-});*/
+});
+
+*/

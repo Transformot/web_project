@@ -10,7 +10,8 @@ urlpatterns = [
     path('home/signout/', views.signout, name='logout-ftn'),
     path('chat/', views.chat, name='chat-view'),
     path('chat/add_channel/', views.add_channel, name='view-add_channel'),
-    path('chat_channel/', views.chat_channel, name='chat-channel-view'),
     path('chat/<uuid:uuid>/', views.chat_channel, name='chat-channel-view'),
-    path('test/', views.test, name='test-view'),
+    path('chat/<uuid:uuid>/add_message/', views.add_message, name='chat-channel-add_msg-view'),
+    ## path('chat/<uuid:uuid>/add_user/', views.add_user, name='chat-channel-add_user-view'),
+    ## path('chat/<uuid:uuid>/leave/', views.leave, name='chat-channel-leave-view'),
 ]

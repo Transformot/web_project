@@ -44,6 +44,18 @@ class User(models.Model):
         user.save()
         return user
 
+    @classmethod
+    def get_user(cls, username):
+        return User.objects.get(username=username)
+
+    @classmethod
+    def verify(cls, username, password):
+        users = User.objects.all()
+        for user in users:
+            if user.username == username:
+                return user.password == password
+        return False
+
 
 class Channel(models.Model):
     uuid = models.UUIDField(primary_key=True, default=uuid4, editable=False)
@@ -97,6 +109,14 @@ class Channel(models.Model):
         channel.save()
         channel.add_user(user)
         return channel
+
+    @classmethod
+    def get_channel_name(cls, name):
+        return Channel.objects.get(name=name)
+
+    @classmethod
+    def get_channel_uuid(cls, uuid):
+        return Channel.objects.get(uuid=uuid)
 
 
 class Message(models.Model):
