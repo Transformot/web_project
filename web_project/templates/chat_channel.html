@@ -144,28 +144,16 @@
         </div>
 
         <header>
-            <div>
-                <a href="https://www.ensisa.uha.fr/" target="_blank">
-
-                    {# block img #}
-                    <img src="{# static 'img/ensisa_uha_logo.png' #}" alt="Logo de l'ENSISA">
-                    {# endblock img #}
-
-                </a>
+            <div id="div_back">
+                <a href="/chat" id="back">Retour</a>
             </div>
-            <div>
-                <a href="/home">
-                    <h1>
-                        N6Chat
-                    </h1>
-                </a>
+            <div id="div_title">
+                <h2>
+                    Web_Chat
+                </h2>
             </div>
-            <div>
-                <nav>
-                    <div class="nav_div">
-                        <a href="/home/signout">Déconnexion</a>
-                    </div>
-                </nav>
+            <div id="div_signout">
+                <a href="/home/signout" id="signout">Déconnexion</a>
             </div>
         </header>
         <section>
@@ -195,8 +183,9 @@
                 <div id="barre_box">
                     <textarea id="barre_chat" placeholder="Envoyer un message"></textarea>
                     <input type="submit" name="envoie" value="envoyer" id="button_chat" />
+                </div>
+                <div>
                     <button class="quit_channel" onclick="show_window()">Quitter ce salon</button>
-
                 </div>
             </div>
             <div id="zone_membres">
@@ -213,12 +202,19 @@
                 </h3>
                 <textarea id="barre_bannished" placeholder="username"></textarea>
                 <button id="button_bannished">Ok</button>
-                <h3 class="paragraph">
-                    >_ Se renommer :
-                </h3>
-                <textarea id="barre_rename" placeholder="username"></textarea>
-                <button id="button_rename">Ok</button>
 
+                <div class="text_zone_inside">
+                    <h2>Profil utilisateur</h2>
+                    <h3 class="paragraph">
+                        >_ Se renommer :
+                    </h3>
+                    <textarea id="barre_rename" placeholder="username"></textarea>
+                    <button id="button_rename">Ok</button>
+                    <h3 class="paragraph">
+                        >_ Supprimer compte utilisateur :
+                    </h3>
+                    <button id="button_delete" onclick="show_window()">supprimer son compte</button>
+                </div>
             </div>
 
 
