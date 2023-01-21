@@ -115,7 +115,7 @@ footer h4 {
 
 /*Sets the right spacing inside paragraphs in a text_zone*/
 .paragraph {
-    padding-bottom: 30px;
+    padding: 0 10px 30px 10px;
     line-height: 30px;
 }
 
@@ -240,28 +240,29 @@ footer h4 {
 }
 
 #chat_box {
-    display: block;
+    display: inline-block;
     margin: auto;
     color: white;
     height: 75px;
-    width: 80%;
+    width: 35vw;
     padding: 15px;
     border-radius: 15px;
     resize: none;
     border: none;
     outline: none;
     background-color: rgba(255, 255, 255, 0.25);
+}
 
 /* Emoji window */
 
 #emoji_btn {
-    bottom: 25%;
     background: transparent;
     border: none;
     position:relative;
     font-size: 250%;
     filter: grayscale(1);
     cursor: pointer;
+    bottom: 30px;
     transition: all 0.2s;
 }
 
@@ -315,6 +316,10 @@ footer h4 {
 #close:hover {
     background-color: #0c5460;
     cursor: pointer;
+}
+
+#parameters {
+    margin: 2px 0 0 31px;
 }
 
 .emoji_window_parameter{

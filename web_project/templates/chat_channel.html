@@ -118,7 +118,7 @@
                 
                 <div class="paragraph">
                     <label for="chat_box"></label>
-                    <input type="text" id="chat_box" name="chat_box" maxlength="300">
+                    <textarea type="text" id="chat_box" name="chat_box" maxlength="300"></textarea>
                     <button id="emoji_btn" onclick="show_emoji()">😀</button>
                 </div>
             </div>
@@ -161,6 +161,7 @@
             <script src="{% static 'js/csrftoken.js' %}"></script>
             <script src="{% static 'js/jquery-3.6.3.js' %}"></script>
             <script src="{% static 'js/traitement-msg.js' %}"></script>
+            <script src="{% static 'js/traitement-emoji.js' %}"></script>
         {% endblock %}
 
     </body>
