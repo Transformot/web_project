@@ -1,7 +1,9 @@
-let input = document.querySelector('#chat_box');
+let input_data = document.querySelector('#chat_box');
+let input_add_user = document.querySelector('#add_member');
+let input_ban_user = document.querySelector('#ban_user')
 
 function send_message() {
-    let data = input.value;
+    let data = input_data.value;
 
     $.ajax({
         url: "add_message/",
@@ -12,7 +14,9 @@ function send_message() {
         },
         success: function (data, textStatus, jqXHR)
         {
+            input_data.value = '';
             $("#chat_zone_inside").load(" #chat_zone_inside > *");
+
         },
         error: function (data, textStatus, jqXHR)
         {
@@ -21,9 +25,76 @@ function send_message() {
     });
 }
 
-input.addEventListener('keypress', function(event) {
-    if (event.key === 'Enter') {
+function add_user() {
+    let username = input_add_user.value;
+
+    $.ajax({
+        url: "add_user/",
+        type: "POST",
+        headers: {'X-CSRFToken': csrftoken},
+        data: {
+            username: username,
+        },
+        success: function (data, textStatus, jqXHR)
+        {
+            if(data === "True") {
+                input_add_user.value = '';
+                $("#members").load(" #members > *");
+                alert(username + " a bien été ajouté au salon.")
+            } else {
+                alert("Le pseudo n'est pas valide ou l'utilisateur n'existe pas.")
+            }
+        },
+        error: function (data, textStatus, jqXHR)
+        {
+            alert("There was an issue. Data not sent.");
+        }
+    });
+}
+
+function ban_user() {
+    let username = input_ban_user.value;
+
+    $.ajax({
+        url: "ban_user/",
+        type: "POST",
+        headers: {'X-CSRFToken': csrftoken},
+        data: {
+            username: username,
+        },
+        success: function (data, textStatus, jqXHR)
+        {
+            if (data === "True") {
+                input_ban_user.value = '';
+                $("#members").load(" #members > *");
+                alert(username + " a bien été banni du salon.")
+            } else {
+                alert("Le pseudo n'est pas valide ou l'utilisateur n'est pas dans ce salon.")
+            }
+        },
+        error: function (data, textStatus, jqXHR)
+        {
+            alert("There was an issue. Data not sent.");
+        }
+    });
+}
+
+input_data.addEventListener('keypress', function(event) {
+    if (event.key === 'Enter' && input_data.value.length !== 0) {
         send_message();
+    }
+});
+
+input_add_user.addEventListener('keypress', function(event) {
+    if (event.key === 'Enter' && input_add_user.value.length !== 0) {
+        add_user();
+    }
+});
+
+
+input_ban_user.addEventListener('keypress', function(event) {
+    if (event.key === 'Enter' && input_ban_user.value.length !== 0) {
+        ban_user();
     }
 });
 
