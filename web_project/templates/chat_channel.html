@@ -75,9 +75,32 @@
                         {% endfor %}
                     {% endblock messages %}
                 </div>
+                
+                <div id="emojis_window">
+                    <div id="window_parameter">
+                        <button id="close" onclick="close_emoji()">❌</button>
+                    </div>
+                    <div id="parameters">
+                        <button class="emoji_window_parameter" onclick="show_emoji_category(0, 1791)">✳️</button>
+                        <button class="emoji_window_parameter" onclick="show_emoji_category(0, 97)">😀</button>
+                        <button class="emoji_window_parameter" onclick="show_emoji_category(98, 356)">👤</button>
+                        <button class="emoji_window_parameter" onclick="show_emoji_category(357, 561)">👍</button>
+                        <button class="emoji_window_parameter" onclick="show_emoji_category(562, 579)">❤️</button>
+                        <button class="emoji_window_parameter" onclick="show_emoji_category(580, 686)">🐔</button>
+                        <button class="emoji_window_parameter" onclick="show_emoji_category(687, 775)">🍴</button>
+                        <button class="emoji_window_parameter" onclick="show_emoji_category(776, 899)">🚀</button>
+                        <button class="emoji_window_parameter" onclick="show_emoji_category(900, 977)">⏰</button>
+                        <button class="emoji_window_parameter" onclick="show_emoji_category(978, 1098)">🏅</button>
+                        <button class="emoji_window_parameter" onclick="show_emoji_category(1099, 1327)">🎉</button>
+                        <button class="emoji_window_parameter" onclick="show_emoji_category(1328, 1530)">📶</button>
+                        <button class="emoji_window_parameter" onclick="show_emoji_category(1530, 1791)">🎌</button>
+                    </div>
+                </div>
+                
                 <div class="paragraph">
                     <label for="chat_box"></label>
                     <input type="text" class="input" id="chat_box" name="chat_box" maxlength="300">
+                    <button id="emoji_btn" onclick="show_emoji()">😀</button>
                 </div>
             </div>
             <div class="panel_zone" id="members">
