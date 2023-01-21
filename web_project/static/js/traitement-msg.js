@@ -47,7 +47,7 @@ function add_user() {
             if(data === "True") {
                 $("#members").load(" #members > *");
                 alert(username + " a bien été ajouté au salon.")
-            } else if (data === "Not_owner") {
+            } else if (data === "Not_Owner") {
                 alert("Vous n'êtes pas le créateur de ce salon, vous ne pouvez pas faire cette action");
             }
             else {
@@ -77,7 +77,7 @@ function ban_user() {
             if (data === "True") {
                 $("#members").load(" #members > *");
                 alert(username + " a bien été banni du salon.")
-            } else if (data === "Not_owner") {
+            } else if (data === "Not_Owner") {
                 alert("Vous n'êtes pas le créateur de ce salon, vous ne pouvez pas faire cette action");
             } else {
                 alert("Le pseudo n'est pas valide ou l'utilisateur n'est pas dans ce salon.")
@@ -106,7 +106,7 @@ function unban_user() {
             if (data === "True") {
                 $("#members").load(" #members > *");
                 alert(username + " a bien été débanni du salon.")
-            } else if (data === "Not_owner") {
+            } else if (data === "Not_Owner") {
                 alert("Vous n'êtes pas le créateur de ce salon, vous ne pouvez pas faire cette action");
             } else {
                 alert("Le pseudo n'est pas valide ou l'utilisateur n'est pas dans ce salon.")
@@ -135,7 +135,7 @@ function rem_user_channel() {
             if (data === "True") {
                 $("#members").load(" #members > *");
                 alert(username + " a bien été expulsé du salon.")
-            } else if (data === "Not_owner") {
+            } else if (data === "Not_Owner") {
                 alert("Vous n'êtes pas le créateur de ce salon, vous ne pouvez pas faire cette action");
             } else {
                 alert("Le pseudo n'est pas valide ou l'utilisateur n'est pas dans ce salon.")
