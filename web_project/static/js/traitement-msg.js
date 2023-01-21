@@ -163,12 +163,6 @@ function send_leave() {
     }
 }
 
-input_data.addEventListener('keypress', function(event) {
-    if (event.key === 'Enter' && input_data.value.length !== 0) {
-        send_message();
-    }
-});
-
 input_data.addEventListener('keydown', function(evt) {
     var evtobj = window.event? event : evt
     if (evt.keyCode === 13 && evtobj.ctrlKey) input_data.value += '\n';
