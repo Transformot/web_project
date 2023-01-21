@@ -37,11 +37,15 @@
                     </h1>
                 </a>
             </div>
-            <div id="div_back" class="buttonLien">
-                <a href="/chat">Retour</a>
-            </div>
-            <div id="div_signout" class="buttonLien">
-                <a href="/home/signout">Déconnexion</a>
+            <div>
+                <nav>
+                    <div  class="buttonLien" id="div_back">
+                        <a href="/chat" id="back">Retour</a>
+                    </div>
+                    <div  class="buttonLien" id="div_signout">
+                        <a href="/home/signout" id="signout">Déconnexion</a>
+                    </div>
+                </nav>
             </div>
         </header>
         <section>
@@ -113,10 +117,12 @@
                         <button class="emoji_window_parameter" onclick="show_emoji_category(1328, 1530)">📶</button>
                         <button class="emoji_window_parameter" onclick="show_emoji_category(1530, 1791)">🎌</button>
                     </div>
+                </div>           
+                <div class="paragraph">
+                    <label for="chat_box"></label>
+                    <textarea type="text" id="chat_box" name="chat_box" maxlength="300"></textarea>
+                    <button id="emoji_btn" onclick="show_emoji()">😀</button>
                 </div>
-                <label for="chat_box"></label>
-                <input type="text" id="chat_box" name="chat_box" maxlength="300">
-                <button id="emoji_btn" onclick="show_emoji()">😀</button>
             </div>
             <div class="panel_zone" id="members">
             <h2 class="title">
@@ -183,6 +189,7 @@
             <script src="{% static 'js/csrftoken.js' %}"></script>
             <script src="{% static 'js/jquery-3.6.3.js' %}"></script>
             <script src="{% static 'js/traitement-msg.js' %}"></script>
+            <script src="{% static 'js/traitement-emoji.js' %}"></script>
         {% endblock %}
 
     </body>

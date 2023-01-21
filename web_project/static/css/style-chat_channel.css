@@ -33,10 +33,9 @@ header div {
 }
 
 header img {
-    display: inline-block;
-    position: absolute;
-    margin: 45px 0;
-    left: 25px;
+    display: block;
+    margin: auto;
+    padding: 45px 0;
     height: 60px;
 }
 
@@ -47,7 +46,13 @@ header h1 {
     font-size: 75px;
 }
 
-header div#div_back{
+header nav {
+    line-height: 150px;
+    height: 100%;
+    width: 100%;
+}
+
+/* header div#div_back{
     display: inline-block;
     width: 130px;
     height: 150px;
@@ -63,10 +68,28 @@ header div#div_signout{
     line-height: 150px;
     position: absolute;
     right: 55px;
+} */
+
+
+section {
+    padding-top: 200px;
+}
+
+footer {
+    color: white;
+    padding: 50px 50px 0;
+    height: 100px;
+    background: linear-gradient(135deg, rgba(0,0,0,0.5) 0%, rgba(48,48,48,0.5) 100%);
+    border-top-left-radius: 100px;
+    border-top-right-radius: 100px;
+}
+
+footer h4 {
+    text-align: center;
 }
 
 .buttonLien {
-    float: right;
+    float: left;
     width: 50%;
     height: 100%;
 }
@@ -87,21 +110,56 @@ header div#div_signout{
     padding: 35px;
 }
 
-section {
-    padding-top: 200px;
+@media screen and (max-width: 1400px) {
+    header {
+        position: relative;
+        margin-bottom: -160px;
+        padding-bottom: 45px
+    }
+    header img {
+        padding-left: 15px;
+    }
+    header h1 {
+        text-align: right;
+        padding-left:75%;
+    }
+    .buttonLien {
+        line-height: 300px;
+        padding-left: -150px;
+        height: 100%;
+        width: 50%;
+    }
+    #div_back{
+        margin-left: -135%;
+    }
+    #div_signout {
+        margin-left: -35%;
+    }
 }
-
-footer {
-    color: white;
-    padding: 50px 50px 0;
-    height: 100px;
-    background: linear-gradient(135deg, rgba(0,0,0,0.5) 0%, rgba(48,48,48,0.5) 100%);
-    border-top-left-radius: 100px;
-    border-top-right-radius: 100px;
-}
-
-footer h4 {
-    text-align: center;
+@media screen and (max-width: 750px) {
+    header {
+        position: relative;
+        margin-bottom: -160px;
+        padding-bottom: 140px;
+        border-radius: 100px;
+    }
+    header img {
+        padding-left:25%;
+    }
+    header h1 {
+        margin: 0 -25%;
+        padding-left:0%;
+        line-height: 310px;
+    }
+    .buttonLien {
+        line-height: 470px;
+    }
+    #div_back {
+        margin-left: -185%;
+    }
+    #div_signout {
+        margin-left: -60%;
+    }
 }
 
 /*Creates a transparent zone where text can be shown*/
@@ -128,12 +186,20 @@ footer h4 {
 
 /*Sets the right spacing inside paragraphs in a text_zone*/
 .paragraph {
-    padding-bottom: 30px;
+    padding: 0 10px 30px 10px;
     line-height: 30px;
 }
 
 .paragraph ul {
     margin-left: 50px;
+}
+
+#signout  {
+    margin-left: 30%;
+}
+
+#back  {
+    margin-left: 30%;
 }
 
 .title {
@@ -252,11 +318,11 @@ footer h4 {
 }
 
 #chat_box {
-    display: block;
+    display: inline-block;
     margin: auto;
     color: white;
     height: 75px;
-    width: 80%;
+    width: 35vw;
     padding: 15px;
     border-radius: 15px;
     resize: none;
@@ -289,13 +355,13 @@ footer h4 {
 /* Emoji window */
 
 #emoji_btn {
-    bottom: 25%;
     background: transparent;
     border: none;
     position:relative;
     font-size: 250%;
     filter: grayscale(1);
     cursor: pointer;
+    bottom: 30px;
     transition: all 0.2s;
 }
 
@@ -349,6 +415,10 @@ footer h4 {
 #close:hover {
     background-color: #0c5460;
     cursor: pointer;
+}
+
+#parameters {
+    margin: 2px 0 0 31px;
 }
 
 .emoji_window_parameter{

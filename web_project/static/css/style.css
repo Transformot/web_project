@@ -101,6 +101,7 @@ footer h4 {
     box-shadow: 5px 5px 25px 0 rgba(24, 24, 24, 0.5);
     padding: 25px;
     border-radius: 150px;
+    transition: all 0.5s;
 }
 
 .nav_div a:hover {
