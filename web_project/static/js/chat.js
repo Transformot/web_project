@@ -1,5 +1,6 @@
 let input_channel = document.querySelector('#input_channel');
 let input_username = document.querySelector('#input_username');
+let input_delete = document.querySelector('#input_delete');
 
 function send_channel() {
     let name = input_channel.value;
@@ -73,7 +74,36 @@ function send_username() {
     }
 }
 
-input_channel.addEventListener('keypress', function(event) {
+function send_delete() {
+    let password = input_delete.value;
+
+    if (password === "") {
+        alert("Merci de renseigner un mot de passe.");
+    } else {
+        if (confirm("Vous êtes sur le point de supprimer votre compte N6Chat. Êtes-vous sûr ?")) {
+            $.ajax({
+                url: "rem_user/",
+                type: "POST",
+                headers: {'X-CSRFToken': csrftoken},
+                data: {
+                    password: password,
+                },
+                success: function (data, textSatus, jqXHR) {
+                    if (data === "True") {
+                        open('/home', '_self');
+                    } else {
+                        alert("Le mot de passe entré est mauvais, veuillez réessayer.");
+                    }
+                },
+                error: function (data, textStatus, jqXHR) {
+                    alert("There was an issue. Data not sent.");
+                }
+            });
+        }
+    }
+}
+
+    input_channel.addEventListener('keypress', function(event) {
     if (event.key === 'Enter') {
         send_channel();
     }
@@ -82,5 +112,11 @@ input_channel.addEventListener('keypress', function(event) {
 input_username.addEventListener('keypress', function(event) {
     if (event.key === 'Enter') {
         send_username();
+    }
+});
+
+input_delete.addEventListener('keypress', function(event) {
+    if (event.key === 'Enter') {
+        send_delete();
     }
 });

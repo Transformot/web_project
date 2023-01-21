@@ -141,6 +141,27 @@ def chg_username(request):
     return HttpResponse(True)
 
 
+def rem_user(request):
+    if request.method == "GET":
+        return HttpResponseRedirect('/error')
+
+    username = request.session.get('username')
+    password = request.session.get('password')
+
+    if not User.verify(username, password):
+        return HttpResponseRedirect('/error')
+
+    user = User.get_user(username)
+    password = request.POST.get('password')
+
+    if user.password != password:
+        return HttpResponse(False)
+
+    user.rem()
+
+    return HttpResponse(True)
+
+
 def chat_channel(request, uuid):
     username = request.session.get('username')
     password = request.session.get('password')

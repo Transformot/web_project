@@ -11,6 +11,7 @@ urlpatterns = [
     path('chat/', views.chat, name='chat-view'),
     path('chat/add_channel/', views.add_channel, name='view-add_channel'),
     path('chat/chg_username/', views.chg_username, name='view-chg_username'),
+    path('chat/rem_user/', views.rem_user, name='view-rem_user'),
     path('chat/<uuid:uuid>/', views.chat_channel, name='chat-channel-view'),
     path('chat/<uuid:uuid>/add_message/', views.add_message, name='chat-channel-add_msg-view'),
     path('chat/<uuid:uuid>/add_user/', views.add_user, name='chat-channel-add_user-view'),
