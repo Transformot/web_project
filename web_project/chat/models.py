@@ -95,9 +95,11 @@ class Channel(models.Model):
 
     def unban_user(self, user):
         self.banned.remove(user)
-        self.users.add(user)
         self.save()
         return user.username
+
+    def test_owner(self, owner):
+        return self.owner.username == owner.username
 
     def rem(self):
         self.delete()

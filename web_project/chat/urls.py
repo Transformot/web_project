@@ -15,6 +15,8 @@ urlpatterns = [
     path('chat/<uuid:uuid>/', views.chat_channel, name='chat-channel-view'),
     path('chat/<uuid:uuid>/add_message/', views.add_message, name='chat-channel-add_msg-view'),
     path('chat/<uuid:uuid>/add_user/', views.add_user, name='chat-channel-add_user-view'),
-    path('chat/<uuid:uuid>/ban_user/', views.ban_user, name='chat-channel-add_user-view'),
-    ## path('chat/<uuid:uuid>/leave/', views.leave, name='chat-channel-leave-view'),
+    path('chat/<uuid:uuid>/ban_user/', views.ban_user, name='chat-channel-ban_user-view'),
+    path('chat/<uuid:uuid>/unban_user/', views.unban_user, name='chat-channel-unban_user-view'),
+    path('chat/<uuid:uuid>/rem_user_channel/', views.rem_user_channel, name='chat-channel-rem_user_channel-view'),
+    path('chat/<uuid:uuid>/leave/', views.leave, name='chat-channel-leave-view'),
 ]

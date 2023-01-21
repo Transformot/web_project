@@ -93,7 +93,7 @@
                     {% endblock messages %}
 
                 </div>
-                
+
                 <div id="emojis_window">
                     <div id="window_parameter">
                         <button id="close" onclick="close_emoji()">❌</button>
@@ -114,12 +114,9 @@
                         <button class="emoji_window_parameter" onclick="show_emoji_category(1530, 1791)">🎌</button>
                     </div>
                 </div>
-                
-                <div class="paragraph">
-                    <label for="chat_box"></label>
-                    <input type="text" id="chat_box" name="chat_box" maxlength="300">
-                    <button id="emoji_btn" onclick="show_emoji()">😀</button>
-                </div>
+                <label for="chat_box"></label>
+                <input type="text" id="chat_box" name="chat_box" maxlength="300">
+                <button id="emoji_btn" onclick="show_emoji()">😀</button>
             </div>
             <div class="panel_zone" id="members">
             <h2 class="title">
@@ -127,7 +124,7 @@
                 </h2>
                 {% block members %}
                     {% for member in list_members %}
-                        {% if member.username == owner.username %}
+                        {% if member.username == owner %}
                             <p class="pill">Créateur : {{ member.username }}</p>
                         {% else %}
                             <p class="pill">{{ member.username }}</p>
@@ -136,20 +133,46 @@
                 {% endblock members %}
             </div>
             <div class="text_zone">
-                <h3 class="paragraph">
-                    >_ Ajoutez une nouvelle personne à ce salon :
-                </h3>
-                <div class="paragraph">
-                    <label for="add_member"></label>
-                    <input type="text" class="input" id="add_member" name="add_member" maxlength="20">
+                <h2 class="paragraph">
+                    >_ Espace administration :
+                </h2>
+                <div class="text_zone_inside">
+                    <h3 class="paragraph">
+                        >_ Ajoutez une nouvelle personne à ce salon :
+                    </h3>
+                    <div class="paragraph">
+                        <label for="add_user"></label>
+                        <input type="text" class="input" id="add_user" maxlength="20">
+                    </div>
                 </div>
-                <h3 class="paragraph">
+                <div class="text_zone_inside">
+                    <h3 class="paragraph">
                         >_ Bannissez une personne de ce salon :
-                </h3>
-                <div class="paragraph">
-                    <label for="ban_user"></label>
-                    <input type="text" class="input" id="ban_user" name="ban_user" maxlength="20">
+                    </h3>
+                    <div class="paragraph">
+                        <label for="ban_user"></label>
+                        <input type="text" class="input" id="ban_user" maxlength="20">
+                    </div>
+                    <h3 class="paragraph">
+                        >_ Débannissez une personne de ce salon :
+                    </h3>
+                    <div class="paragraph">
+                        <label for="unban_user"></label>
+                        <input type="text" class="input" id="unban_user" maxlength="20">
+                    </div>
                 </div>
+                <div class="text_zone_inside">
+                    <h3 class="paragraph">
+                        >_ Expulsez une personne du salon :
+                    </h3>
+                    <div class="paragraph">
+                        <label for="rem_user_channel"></label>
+                        <input type="text" class="input" id="rem_user_channel" maxlength="20">
+                    </div>
+                </div>
+            </div>
+            <div id="leave">
+                <a href="#" onclick="send_leave()">Quitter ce salon</a>
             </div>
         </section>
         <footer>
@@ -164,129 +187,3 @@
 
     </body>
 </html>
-
-
-<!--
-
-<!DOCTYPE html>
-<html lang="fr">
-    <head>
-        {# load static #}
-
-        <meta charset="UTF-8">
-
-        {# block channel_name #}
-            <title>N6Chat - {# { channel_name } #}</title>
-        {# endblock channel_name #}
-
-        {# block css #}
-            <link rel="stylesheet" href="{# static 'css/style-chat_channel.css' #}"/>
-        {# endblock css #}
-
-        {# block ico #}
-            <link rel="shortcut icon" href="{# static 'img/favicon.ico' #}"/>
-        {# endblock ico #}
-
-        {# csrf_token #}
-    </head>
-    <body>
-
-        <div id="background">
-            <div class="confirm_pop_up" id="window">
-                <div id="button">
-                    <button class="confirm_btn" onclick="quit_channel()">Confirmer</button>
-                    <button class="cancel_btn" onclick="hide_window()">Annuler</button>
-                </div>
-            </div>
-        </div>
-
-        <header>
-            <div id="div_back">
-                <a href="/chat" id="back">Retour</a>
-            </div>
-            <div id="div_title">
-                <h2>
-                    Web_Chat
-                </h2>
-            </div>
-            <div id="div_signout">
-                <a href="/home/signout" id="signout">Déconnexion</a>
-            </div>
-        </header>
-        <section>
-
-            <div id="zone_salons">
-                <textarea id="barre_salon" placeholder="Créer salon"></textarea>
-                {# block channel #}
-                    {# for channel in list_channels #}
-                        <div class="salon">
-                            <a href="{#{ channel.uuid }#}">>_ {#{ channel.name }#}</a>
-                        </div>
-                    {# endfor #}
-                {# endblock channel #}
-            </div>
-            <div id="text_zone">
-                <h3 class="paragraph">
-                    >_ Bienvenue sur le salon XXX
-                </h3>
-                <div id="zone_msg">
-                    {# block message #}
-                    <p>(**h**) <span style="color:red">Proprio </span>: Hello world</p>
-                    <p>(**h**) <span>User_2</span> : Je répond</p>
-                    <p>(**h**) <span>User_1</span> : Hello world</p>
-                    <p>(**h**) <span>User_2</span> : Je répond</p>
-                    {# endblock message #}
-                </div>
-                <div id="barre_box">
-                    <textarea id="barre_chat" placeholder="Envoyer un message"></textarea>
-                    <input type="submit" name="envoie" value="envoyer" id="button_chat" />
-                </div>
-                <div>
-                    <button class="quit_channel" onclick="show_window()">Quitter ce salon</button>
-                </div>
-            </div>
-            <div id="zone_membres">
-                <textarea id="barre_membre" placeholder="invité user"></textarea>
-                {# block membre #}
-                <div class="membre">
-                    <a href="URL">>_ Membre XXXX</a>
-                </div>
-                {# endblock membre #}
-            </div>
-            <div class="text_zone">
-                <h3 class="paragraph">
-                    >_ Bannir utilisateur :
-                </h3>
-                <textarea id="barre_bannished" placeholder="username"></textarea>
-                <button id="button_bannished">Ok</button>
-
-                <div class="text_zone_inside">
-                    <h2>Profil utilisateur</h2>
-                    <h3 class="paragraph">
-                        >_ Se renommer :
-                    </h3>
-                    <textarea id="barre_rename" placeholder="username"></textarea>
-                    <button id="button_rename">Ok</button>
-                    <h3 class="paragraph">
-                        >_ Supprimer compte utilisateur :
-                    </h3>
-                    <button id="button_delete" onclick="show_window()">supprimer son compte</button>
-                </div>
-            </div>
-
-
-            {# block js #}
-            <script src="{# static 'js/jquery-3.6.3.js' #}"></script>
-            <script src="{# static 'js/traitement-msg.js' #}"></script>
-            <script src="{% static 'js/traitement-emoji.js' %}"></script>
-            {# endblock #}
-
-        </section>
-        <footer>
-            <h4>Tous droits réservés.</h4>
-        </footer>
-    </body>
-</html>
-
-
-->>

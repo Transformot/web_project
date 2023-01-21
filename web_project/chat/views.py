@@ -92,9 +92,7 @@ def chat(request):
     context = {
         'username': username,
         'list_channels': list(user.channels.all()),
-        'nb_owned': user.owned.count(),
         'nb_channels': user.channels.count(),
-        'nb_messages': user.messages.count()
     }
 
     return render(request, 'chat.html', context)
@@ -175,7 +173,7 @@ def chat_channel(request, uuid):
     context = {
         'username': user.username,
         'channel_name': channel.name,
-        'owner': channel.owner,
+        'owner': channel.owner.username,
         'nb_messages': channel.messages.count(),
         'list_channels': list(user.channels.all()),
         'list_members': list(channel.users.all()),
@@ -217,10 +215,13 @@ def add_user(request, uuid):
     channel = Channel.get_channel_uuid(uuid)
     added_username = request.POST.get('username')
 
+    if not channel.test_owner(User.get_user(username)):
+        return HttpResponse("Not_Owner")
+
     users = User.objects.all()
 
     for user in users:
-        if user.username == added_username:
+        if user.username == added_username and not(user in channel.banned.all()):
             channel.add_user(user)
             return HttpResponse(True)
 
@@ -240,6 +241,9 @@ def ban_user(request, uuid):
     channel = Channel.get_channel_uuid(uuid)
     banned_username = request.POST.get('username')
 
+    if not channel.test_owner(User.get_user(username)):
+        return HttpResponse("Not_Owner")
+
     users = channel.users.all()
 
     for user in users:
@@ -248,3 +252,76 @@ def ban_user(request, uuid):
             return HttpResponse(True)
 
     return HttpResponse(False)
+
+
+def unban_user(request, uuid):
+    if request.method == "GET":
+        return HttpResponseRedirect('/error')
+
+    username = request.session.get('username')
+    password = request.session.get('password')
+
+    if not User.verify(username, password):
+        return HttpResponseRedirect('/error')
+
+    channel = Channel.get_channel_uuid(uuid)
+    unbanned_username = request.POST.get('username')
+
+    if not channel.test_owner(User.get_user(username)):
+        return HttpResponse("Not_Owner")
+
+    users = channel.banned.all()
+
+    for user in users:
+        if user.username == unbanned_username:
+            channel.unban_user(user)
+            return HttpResponse(True)
+
+    return HttpResponse(False)
+
+
+def rem_user_channel(request, uuid):
+    if request.method == "GET":
+        return HttpResponseRedirect('/error')
+
+    username = request.session.get('username')
+    password = request.session.get('password')
+
+    if not User.verify(username, password):
+        return HttpResponseRedirect('/error')
+
+    channel = Channel.get_channel_uuid(uuid)
+    rem_username = request.POST.get('username')
+
+    if not channel.test_owner(User.get_user(username)):
+        return HttpResponse("Not_Owner")
+
+    users = channel.users.all()
+
+    for user in users:
+        if user.username == rem_username:
+            channel.rem_user(user)
+            return HttpResponse(True)
+
+    return HttpResponse(False)
+
+
+def leave(request, uuid):
+    if request.method == "GET":
+        return HttpResponseRedirect('/error')
+
+    username = request.session.get('username')
+    password = request.session.get('password')
+
+    if not User.verify(username, password):
+        return HttpResponseRedirect('/error')
+
+    user = User.get_user(username)
+    channel = Channel.get_channel_uuid(uuid)
+
+    channel.rem_user(user)
+
+    if channel.test_owner(user):
+        channel.rem()
+
+    return HttpResponseRedirect('/chat')
