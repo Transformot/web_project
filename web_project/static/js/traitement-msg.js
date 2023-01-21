@@ -7,6 +7,21 @@ let input_rem_user_channel = document.querySelector('#rem_user_channel');
 let scrollbar = document.querySelector('#chat_zone_inside');
 scrollbar.scrollTo(0, scrollbar.scrollHeight);
 
+$.ajax({
+        url: "update/",
+        type: "POST",
+        async: true,
+        headers: {'X-CSRFToken': csrftoken},
+        success: function (data, textStatus, jqXHR)
+        {
+            open('/chat/' + data, '_self');
+        },
+        error: function (data, textStatus, jqXHR)
+        {
+            alert("There was an issue. Data not sent.");
+        }
+    });
+
 function send_message() {
     let data = input_data.value;
 

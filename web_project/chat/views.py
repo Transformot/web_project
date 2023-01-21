@@ -170,6 +170,9 @@ def chat_channel(request, uuid):
     user = User.get_user(username)
     channel = Channel.get_channel_uuid(uuid)
 
+    if not (user in channel.users.all()):
+        return HttpResponseRedirect('/error')
+
     context = {
         'username': user.username,
         'channel_name': channel.name,
@@ -325,3 +328,15 @@ def leave(request, uuid):
         channel.rem()
 
     return HttpResponseRedirect('/chat')
+
+
+def update(request, uuid):
+    channel = Channel.get_channel_uuid(uuid)
+    count = channel.messages.count()
+
+    new = count
+
+    while new == count:
+        new = channel.messages.count()
+
+    return HttpResponse(uuid)

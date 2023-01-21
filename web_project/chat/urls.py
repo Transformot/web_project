@@ -19,4 +19,5 @@ urlpatterns = [
     path('chat/<uuid:uuid>/unban_user/', views.unban_user, name='chat-channel-unban_user-view'),
     path('chat/<uuid:uuid>/rem_user_channel/', views.rem_user_channel, name='chat-channel-rem_user_channel-view'),
     path('chat/<uuid:uuid>/leave/', views.leave, name='chat-channel-leave-view'),
+    path('chat/<uuid:uuid>/update/', views.update, name='chat-channel-update-view'),
 ]
