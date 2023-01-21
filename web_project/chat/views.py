@@ -133,7 +133,7 @@ def chg_username(request):
 
     for user in users:
         if user.username == username:
-            HttpResponse(False)
+            return HttpResponse(False)
 
     user.chg_username(username)
     request.session['username'] = username
