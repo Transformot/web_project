@@ -14,7 +14,7 @@ body {
 
 /*3 columns are created to show different links in the nav bar*/
 header {
-    position: fixed;
+    position: absolute;
     top: 50px;
     left: 0;
     background: linear-gradient(135deg, rgba(141,164,210,0.50) 0%, rgba(88,101,113,0.50) 100%);

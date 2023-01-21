@@ -144,26 +144,39 @@ footer h4 {
     display: inline-block;
     margin-bottom: 30px;
     margin-right: auto;
-    line-height: 40px;
+    line-height: 30px;
     padding: 0 20px;
     color: white;
-    background-color: rgba(12,84,96,0.50);
     border-radius: 15px;
     box-shadow: 0 0 25px 0 rgba(48, 48, 48, 0.5);
+    background: linear-gradient(135deg, rgba(12,84,96,0.75) 0%, rgba(55,55,55,0.75) 100%);
+}
+
+.messages_user {
+    display: inline-block;
+    margin-bottom: 30px;
+    margin-right: auto;
+    line-height: 30px;
+    padding: 0 20px;
+    color: white;
+    border-radius: 15px;
+    box-shadow: 0 0 25px 0 rgba(48, 48, 48, 0.5);
+    background: linear-gradient(135deg, rgba(141,164,210,0.75) 0%, rgba(88,101,113,0.75) 100%);
 }
 
 .input {
-    display: block;
-    margin: auto;
     color: white;
-    height: 75px;
-    width: 80%;
-    padding: 15px;
-    border-radius: 15px;
+    font-size: 20px;
+    text-align: center;
+    height: 50px;
+    width: 100%;
+    line-height: 50px;
     resize: none;
     border: none;
     outline: none;
+    border-radius: 150px;
     background-color: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 10px 100px 25px rgba(48, 48, 48, 0.5);
 }
 
 /* CSS d'Arthur pour la page de chat */
@@ -225,6 +238,19 @@ footer h4 {
 #chat_zone_inside::-webkit-scrollbar {
     display: none;
 }
+
+#chat_box {
+    display: block;
+    margin: auto;
+    color: white;
+    height: 75px;
+    width: 80%;
+    padding: 15px;
+    border-radius: 15px;
+    resize: none;
+    border: none;
+    outline: none;
+    background-color: rgba(255, 255, 255, 0.25);
 
 /* Emoji window */
 

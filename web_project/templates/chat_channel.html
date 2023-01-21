@@ -65,15 +65,34 @@
                 {% endblock channel_name %}
 
                 <div id="chat_zone_inside">
+
                     {% block messages %}
-                        {% for message in list_messages %}
-                            <div class="messages">
-                                <h4>{{ message.user.username }} :</h4>
-                                <p>{{ message.data }}</p>
-                                <h6>{{ message.date }}</h6>
+                        {% if nb_messages != 0 %}
+                            {% for message in list_messages %}
+                            <div>
+                                {% if username == message.user.username %}
+                                    <div class="messages_user">
+                                {% else %}
+                                    <div class="messages">
+                                {% endif %}
+                                    <h4>{{ message.user.username }} :</h4>
+                                    <p>{{ message.data }}</p>
+                                    <h6>{{ message.date }}</h6>
+                                </div>
                             </div>
-                        {% endfor %}
+                            {% endfor %}
+                        {% else %}
+                            <div class="paragraph">
+                                <h4>
+                                    Il n'y a de messages !
+                                </h4>
+                                <p>
+                                    Laissez un message en écrivant dans la boîte en dessous
+                                </p>
+                            </div>
+                        {% endif %}
                     {% endblock messages %}
+
                 </div>
                 
                 <div id="emojis_window">
@@ -99,6 +118,7 @@
                 
                 <div class="paragraph">
                     <label for="chat_box"></label>
+                    <input type="text" id="chat_box" name="chat_box" maxlength="300">
                     <input type="text" class="input" id="chat_box" name="chat_box" maxlength="300">
                     <button id="emoji_btn" onclick="show_emoji()">😀</button>
                 </div>
@@ -116,6 +136,22 @@
                         {% endif %}
                     {% endfor %}
                 {% endblock members %}
+            </div>
+            <div class="text_zone">
+                <h3 class="paragraph">
+                    >_ Ajoutez une nouvelle personne à ce salon :
+                </h3>
+                <div class="paragraph">
+                    <label for="add_member"></label>
+                    <input type="text" class="input" id="add_member" name="add_member" maxlength="20">
+                </div>
+                <h3 class="paragraph">
+                        >_ Bannissez une personne de ce salon :
+                </h3>
+                <div class="paragraph">
+                    <label for="ban_user"></label>
+                    <input type="text" class="input" id="ban_user" name="ban_user" maxlength="20">
+                </div>
             </div>
         </section>
         <footer>

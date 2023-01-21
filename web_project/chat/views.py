@@ -117,6 +117,30 @@ def add_channel(request):
     return HttpResponse('/chat/' + str(channel.uuid))
 
 
+def chg_username(request):
+    if request.method == "GET":
+        return HttpResponseRedirect('/error')
+
+    username = request.session.get('username')
+    password = request.session.get('password')
+
+    if not User.verify(username, password):
+        return HttpResponseRedirect('/error')
+
+    users = User.objects.all()
+    user = User.get_user(username)
+    username = request.POST.get('username')
+
+    for user in users:
+        if user.username == username:
+            return HttpResponse(False)
+
+    user.chg_username(username)
+    request.session['username'] = username
+
+    return HttpResponse(True)
+
+
 def chat_channel(request, uuid):
     username = request.session.get('username')
     password = request.session.get('password')
@@ -131,6 +155,7 @@ def chat_channel(request, uuid):
         'username': user.username,
         'channel_name': channel.name,
         'owner': channel.owner,
+        'nb_messages': channel.messages.count(),
         'list_channels': list(user.channels.all()),
         'list_members': list(channel.users.all()),
         'list_messages': list(channel.messages.all()),
@@ -156,3 +181,49 @@ def add_message(request, uuid):
     Message.create(user, channel, data)
 
     return HttpResponse('/chat/' + str(channel.uuid))
+
+
+def add_user(request, uuid):
+    if request.method == "GET":
+        return HttpResponseRedirect('/error')
+
+    username = request.session.get('username')
+    password = request.session.get('password')
+
+    if not User.verify(username, password):
+        return HttpResponseRedirect('/error')
+
+    channel = Channel.get_channel_uuid(uuid)
+    added_username = request.POST.get('username')
+
+    users = User.objects.all()
+
+    for user in users:
+        if user.username == added_username:
+            channel.add_user(user)
+            return HttpResponse(True)
+
+    return HttpResponse(False)
+
+
+def ban_user(request, uuid):
+    if request.method == "GET":
+        return HttpResponseRedirect('/error')
+
+    username = request.session.get('username')
+    password = request.session.get('password')
+
+    if not User.verify(username, password):
+        return HttpResponseRedirect('/error')
+
+    channel = Channel.get_channel_uuid(uuid)
+    banned_username = request.POST.get('username')
+
+    users = channel.users.all()
+
+    for user in users:
+        if user.username == banned_username:
+            channel.ban_user(user)
+            return HttpResponse(True)
+
+    return HttpResponse(False)
